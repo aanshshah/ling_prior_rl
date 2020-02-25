@@ -1,0 +1,4 @@
+pydot==1.2.3
+Flask==0.12.1
+nltk==3.2.2
+Werkzeug==0.12.1
