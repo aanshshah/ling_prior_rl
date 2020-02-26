@@ -58,6 +58,7 @@ class WordTree(BaseHTTPRequestHandler):
         return
 
 
+
 class EntGraph():
     def __init__(self,word_list):
         self.test = NLTKWordNet()
@@ -108,7 +109,8 @@ def Main():
     # server.serve_forever()
 
     entGraph = EntGraph(word_list = ["chicken","bowl","party","hat","shoe"])
-    print(entGraph.main_graph)
+    entGraph.main_graph.write_png("./output/result.png")
+    # print(entGraph.main_graph)
    
 
     

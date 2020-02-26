@@ -161,8 +161,8 @@ class NLTKWordNet(object):
 
         recurse(synObj1, True)
         recurse(synObj2, False)
-        pngNam = str(synObj1.name()) + '_vs_' + str(synObj2.name()) + '_'+fun+'_.png'
-        #graph.write_png("./output/"+pngNam)
+        # pngNam = str(synObj1.name()) + '_vs_' + str(synObj2.name()) + '_'+fun+'_.png'
+        # graph.write_png("./output/"+pngNam)
         # png_str = graph.create_png()
         # sio = StringIO()
         # sio.write(png_str)
