@@ -1,0 +1,2156 @@
+:	
+Air
+(::air)
+:	
+Stone
+(::stone)
+:::	
+Granite
+(::stone)
+:::	
+Polished Granite
+(::stone)
+:::	
+Diorite
+(::stone)
+:::	
+Polished Diorite
+(::stone)
+:::	
+Andesite
+(::stone)
+:::	
+Polished Andesite
+(::stone)
+:	
+Grass
+(::grass)
+:	
+Dirt
+(::dirt)
+:::	
+Coarse Dirt
+(::dirt)
+:::	
+Podzol
+(::dirt)
+:	
+Cobblestone
+(::cobblestone)
+:	
+Oak Wood Plank
+(::planks)
+:::	
+Spruce Wood Plank
+(::planks)
+:::	
+Birch Wood Plank
+(::planks)
+:::	
+Jungle Wood Plank
+(::planks)
+:::	
+Acacia Wood Plank
+(::planks)
+:::	
+Dark Oak Wood Plank
+(::planks)
+:	
+Oak Sapling
+(::sapling)
+:::	
+Spruce Sapling
+(::sapling)
+:::	
+Birch Sapling
+(::sapling)
+:::	
+Jungle Sapling
+(::sapling)
+:::	
+Acacia Sapling
+(::sapling)
+:::	
+Dark Oak Sapling
+(::sapling)
+:	
+Bedrock
+(::bedrock)
+:	
+Flowing Water
+(::flowing_water)
+:
+Still Water
+(::water)
+::	
+Flowing Lava
+(::flowing_lava)
+::	
+Still Lava
+(::lava)
+::	
+Sand
+(::sand)
+::::	
+Red Sand
+(::sand)
+::	
+Gravel
+(::gravel)
+::	
+Gold Ore
+(::gold_ore)
+::	
+Iron Ore
+(::iron_ore)
+::	
+Coal Ore
+(::coal_ore)
+::	
+Oak Wood
+(::log)
+::::	
+Spruce Wood
+(::log)
+::::	
+Birch Wood
+(::log)
+::::	
+Jungle Wood
+(::log)
+::	
+Oak Leaves
+(::leaves)
+:::	
+Spruce Leaves
+(::leaves)
+:::	
+Birch Leaves
+(::leaves)
+:::	
+Jungle Leaves
+(::leaves)
+::
+Sponge
+(::sponge)
+::::	
+Wet Sponge
+(::sponge)
+::	
+Glass
+(::glass)
+::	
+Lapis Lazuli Ore
+(::lapis_ore)
+::	
+Lapis Lazuli Block
+(::lapis_block)
+::	
+Dispenser
+(::dispenser)
+::	
+Sandstone
+(::sandstone)
+::::	
+Chiseled Sandstone
+(::sandstone)
+::::	
+Smooth Sandstone
+(::sandstone)
+::	
+Note Block
+(::noteblock)
+::	
+Bed
+(::bed)
+::	
+Powered Rail
+(::golden_rail)
+::	
+Detector Rail
+(::detector_rail)
+::
+Sticky Piston
+(::sticky_piston)
+::	
+Cobweb
+(::web)
+::	
+Dead Shrub
+(::tallgrass)
+::::	
+Grass
+(::tallgrass)
+::::	
+Fern
+(::tallgrass)
+::	
+Dead Bush
+(::deadbush)
+::	
+Piston
+(::piston)
+::	
+Piston Head
+(::piston_head)
+::	
+White Wool
+(::wool)
+::::	
+Orange Wool
+(::wool)
+::::	
+Magenta Wool
+(::wool)
+::::	
+Light Blue Wool
+(::wool)
+::::	
+Yellow Wool
+(::wool)
+::::	
+Lime Wool
+(::wool)
+::::	
+Pink Wool
+(::wool)
+::::	
+Gray Wool
+(::wool)
+::::	
+Light Gray Wool
+(::wool)
+::::
+Cyan Wool
+(::wool)
+:::::	
+Purple Wool
+(::wool)
+:::::	
+Blue Wool
+(::wool)
+:::::	
+Brown Wool
+(::wool)
+:::::	
+Green Wool
+(::wool)
+:::::	
+Red Wool
+(::wool)
+:::::	
+Black Wool
+(::wool)
+::	
+Dandelion
+(::yellow_flower)
+::	
+Poppy
+(::red_flower)
+:::	
+Blue Orchid
+(::red_flower)
+:::	
+Allium
+(::red_flower)
+:::	
+Azure Bluet
+(::red_flower)
+:::	
+Red Tulip
+(::red_flower)
+:::	
+Orange Tulip
+(::red_flower)
+:::	
+White Tulip
+(::red_flower)
+:::	
+Pink Tulip
+(::red_flower)
+:::	
+Oxeye Daisy
+(::red_flower)
+::Brown Mushroom
+(::brown_mushroom)
+::	
+Red Mushroom
+(::red_mushroom)
+::	
+Gold Block
+(::gold_block)
+::	
+Iron Block
+(::iron_block)
+::	
+Double Stone Slab
+(::double_stone_slab)
+::::	
+Double Sandstone Slab
+(::double_stone_slab)
+::::	
+Double Wooden Slab
+(::double_stone_slab)
+::::	
+Double Cobblestone Slab
+(::double_stone_slab)
+::::	
+Double Brick Slab
+(::double_stone_slab)
+::::	
+Double Stone Brick Slab
+(::double_stone_slab)
+::::	
+Double Nether Brick Slab
+(::double_stone_slab)
+::::	
+Double Quartz Slab
+(::double_stone_slab)
+::	
+Stone Slab
+(::stone_slab)
+::::	
+Sandstone Slab
+(::stone_slab)
+::::	
+Wooden Slab
+(::stone_slab)
+::::	
+Cobblestone Slab
+(::stone_slab)
+::::	
+Brick Slab
+(::stone_slab)
+::::	
+Stone Brick Slab
+(::stone_slab)
+::::	
+Nether Brick Slab
+(::stone_slab)
+::::	
+Quartz Slab
+(::stone_slab)
+::	
+Bricks
+(::brick_block)
+::	
+TNT
+(::tnt)
+::	
+Bookshelf
+(::bookshelf)
+::	
+Moss Stone
+(::mossy_cobblestone)
+::
+Obsidian
+(::obsidian)
+::	
+Torch
+(::torch)
+::	
+Fire
+(::fire)
+::	
+Monster Spawner
+(::mob_spawner)
+::	
+Oak Wood Stairs
+(::oak_stairs)
+::	
+Chest
+(::chest)
+::	
+Redstone Wire
+(::redstone_wire)
+::	
+Diamond Ore
+(::diamond_ore)
+::	
+Diamond Block
+(::diamond_block)
+::	
+Crafting Table
+(::crafting_table)
+::
+Wheat Crops
+(::wheat)
+::	
+Farmland
+(::farmland)
+::	
+Furnace
+(::furnace)
+::	
+Burning Furnace
+(::lit_furnace)
+::	
+Standing Sign Block
+(::standing_sign)
+::	
+Oak Door Block
+(::wooden_door)
+::	
+Ladder
+(::ladder)
+::	
+Rail
+(::rail)
+::	
+Cobblestone Stairs
+(::stone_stairs)
+::	
+Wall-mounted Sign Block
+(::wall_sign)
+::
+Lever
+(::lever)
+::	
+Stone Pressure Plate
+(::stone_pressure_plate)
+::	
+Iron Door Block
+(::iron_door)
+::	
+Wooden Pressure Plate
+(::wooden_pressure_plate)
+::	
+Redstone Ore
+(::redstone_ore)
+::	
+Glowing Redstone Ore
+(::lit_redstone_ore)
+::	
+Redstone Torch (off)
+(::unlit_redstone_torch)
+::	
+Redstone Torch (on)
+(::redstone_torch)
+::	
+Stone Button
+(::stone_button)
+::	
+Snow
+(::snow_layer)
+::
+Ice
+(::ice)
+::	
+Snow Block
+(::snow)
+:	
+Cactus
+(::cactus)
+:	
+Clay
+(::clay)
+:	
+Sugar Canes
+(::reeds)
+:	
+Jukebox
+(::jukebox)
+:	
+Oak Fence
+(::fence)
+:	
+Pumpkin
+(::pumpkin)
+:	
+Netherrack
+(::netherrack)
+:	
+Soul Sand
+(::soul_sand)
+:
+Glowstone
+(::glowstone)
+:	
+Nether Portal
+(::portal)
+::	
+Jack o'Lantern
+(::lit_pumpkin)
+::	
+Cake Block
+(::cake)
+::	
+Redstone Repeater Block (off)
+(::unpowered_repeater)
+::	
+Redstone Repeater Block (on)
+(::powered_repeater)
+::	
+White Stained Glass
+(::stained_glass)
+::::	
+Orange Stained Glass
+(::stained_glass)
+::::	
+Magenta Stained Glass
+(::stained_glass)
+::::	
+Light Blue Stained Glass
+(::stained_glass)
+::::	
+Yellow Stained Glass
+(::stained_glass)
+::::	
+Lime Stained Glass
+(::stained_glass)
+::::	
+Pink Stained Glass
+(::stained_glass)
+::::	
+Gray Stained Glass
+(::stained_glass)
+::::	
+Light Gray Stained Glass
+(::stained_glass)
+::::
+Cyan Stained Glass
+(::stained_glass)
+:::::	
+Purple Stained Glass
+(::stained_glass)
+:::::	
+Blue Stained Glass
+(::stained_glass)
+:::::	
+Brown Stained Glass
+(::stained_glass)
+:::::	
+Green Stained Glass
+(::stained_glass)
+:::::	
+Red Stained Glass
+(::stained_glass)
+:::::	
+Black Stained Glass
+(::stained_glass)
+::	
+Wooden Trapdoor
+(::trapdoor)
+::	
+Stone Monster Egg
+(::monster_egg)
+::::	
+Cobblestone Monster Egg
+(::monster_egg)
+::::	
+Stone Brick Monster Egg
+(::monster_egg)
+::::	
+Mossy Stone Brick Monster Egg
+(::monster_egg)
+::::	
+Cracked Stone Brick Monster Egg
+(::monster_egg)
+::::	
+Chiseled Stone Brick Monster Egg
+(::monster_egg)
+::	
+Stone Bricks
+(::stonebrick)
+:::	
+Mossy Stone Bricks
+(::stonebrick)
+:::	
+Cracked Stone Bricks
+(::stonebrick)
+:::	
+Chiseled Stone Bricks
+(::stonebrick)
+::
+Brown Mushroom Block
+(::brown_mushroom_block)
+:::	
+Red Mushroom Block
+(::red_mushroom_block)
+:::	
+Iron Bars
+(::iron_bars)
+:::	
+Glass Pane
+(::glass_pane)
+:::	
+Melon Block
+(::melon_block)
+:::	
+Pumpkin Stem
+(::pumpkin_stem)
+:::	
+Melon Stem
+(::melon_stem)
+:::	
+Vines
+(::vine)
+:::	
+Oak Fence Gate
+(::fence_gate)
+:::	
+Brick Stairs
+(::brick_stairs)
+:::
+Stone Brick Stairs
+(::stone_brick_stairs)
+:::	
+Mycelium
+(::mycelium)
+:::	
+Lily Pad
+(::waterlily)
+:::	
+Nether Brick
+(::nether_brick)
+:::	
+Nether Brick Fence
+(::nether_brick_fence)
+:::	
+Nether Brick Stairs
+(::nether_brick_stairs)
+:::	
+Nether Wart
+(::nether_wart)
+:::	
+Enchantment Table
+(::enchanting_table)
+:::	
+Brewing Stand
+(::brewing_stand)
+:::	
+Cauldron
+(::cauldron)
+:::
+End Portal
+(::end_portal)
+:::	
+End Portal Frame
+(::end_portal_frame)
+:::	
+End Stone
+(::end_stone)
+:::	
+Dragon Egg
+(::dragon_egg)
+:::	
+Redstone Lamp (inactive)
+(::redstone_lamp)
+:::	
+Redstone Lamp (active)
+(::lit_redstone_lamp)
+:::	
+Double Oak Wood Slab
+(::double_wooden_slab)
+:::::	
+Double Spruce Wood Slab
+(::double_wooden_slab)
+:::::	
+Double Birch Wood Slab
+(::double_wooden_slab)
+:::::	
+Double Jungle Wood Slab
+(::double_wooden_slab)
+:::::	
+Double Acacia Wood Slab
+(::double_wooden_slab)
+:::::	
+Double Dark Oak Wood Slab
+(::double_wooden_slab)
+:::	
+Oak Wood Slab
+(::wooden_slab)
+:::::	
+Spruce Wood Slab
+(::wooden_slab)
+:::::	
+Birch Wood Slab
+(::wooden_slab)
+:::::	
+Jungle Wood Slab
+(::wooden_slab)
+:::::	
+Acacia Wood Slab
+(::wooden_slab)
+:::::	
+Dark Oak Wood Slab
+(::wooden_slab)
+:::	
+Cocoa
+(::cocoa)
+:::	
+Sandstone Stairs
+(::sandstone_stairs)
+:::
+Emerald Ore
+(::emerald_ore)
+:::	
+Ender Chest
+(::ender_chest)
+:::	
+Tripwire Hook
+(::tripwire_hook)
+:::	
+Tripwire
+(::tripwire_hook)
+:::	
+Emerald Block
+(::emerald_block)
+:::	
+Spruce Wood Stairs
+(::spruce_stairs)
+:::	
+Birch Wood Stairs
+(::birch_stairs)
+:::	
+Jungle Wood Stairs
+(::jungle_stairs)
+:::	
+Command Block
+(::command_block)
+:::	
+Beacon
+(::beacon)
+:::
+Cobblestone Wall
+(::cobblestone_wall)
+:::::	
+Mossy Cobblestone Wall
+(::cobblestone_wall)
+:::	
+Flower Pot
+(::flower_pot)
+:::	
+Carrots
+(::carrots)
+:::	
+Potatoes
+(::potatoes)
+:::	
+Wooden Button
+(::wooden_button)
+:::	
+Mob Head
+(::skull)
+:::	
+Anvil
+(::anvil)
+:::	
+Trapped Chest
+(::trapped_chest)
+:::	
+Weighted Pressure Plate (light)
+(::light_weighted_pressure_plate)
+:::	
+Weighted Pressure Plate (heavy)
+(::heavy_weighted_pressure_plate)
+:::
+Redstone Comparator (inactive)
+(::unpowered_comparator)
+:::	
+Redstone Comparator (active)
+(::powered_comparator)
+:::	
+Daylight Sensor
+(::daylight_detector)
+:::	
+Redstone Block
+(::redstone_block)
+:::	
+Nether Quartz Ore
+(::quartz_ore)
+:::	
+Hopper
+(::hopper)
+:::	
+Quartz Block
+(::quartz_block)
+:::::	
+Chiseled Quartz Block
+(::quartz_block)
+:::::	
+Pillar Quartz Block
+(::quartz_block)
+:::	
+Quartz Stairs
+(::quartz_stairs)
+:::	
+Activator Rail
+(::activator_rail)
+:::	
+Dropper
+(::dropper)
+:::
+White Hardened Clay
+(::stained_hardened_clay)
+:::::	
+Orange Hardened Clay
+(::stained_hardened_clay)
+:::::	
+Magenta Hardened Clay
+(::stained_hardened_clay)
+:::::	
+Light Blue Hardened Clay
+(::stained_hardened_clay)
+:::::	
+Yellow Hardened Clay
+(::stained_hardened_clay)
+:::::	
+Lime Hardened Clay
+(::stained_hardened_clay)
+:::::	
+Pink Hardened Clay
+(::stained_hardened_clay)
+:::::	
+Gray Hardened Clay
+(::stained_hardened_clay)
+:::::	
+Light Gray Hardened Clay
+(::stained_hardened_clay)
+:::::
+Cyan Hardened Clay
+(::stained_hardened_clay)
+::::::	
+Purple Hardened Clay
+(::stained_hardened_clay)
+::::::	
+Blue Hardened Clay
+(::stained_hardened_clay)
+::::::	
+Brown Hardened Clay
+(::stained_hardened_clay)
+::::::	
+Green Hardened Clay
+(::stained_hardened_clay)
+::::::	
+Red Hardened Clay
+(::stained_hardened_clay)
+::::::	
+Black Hardened Clay
+(::stained_hardened_clay)
+:::	
+White Stained Glass Pane
+(::stained_glass_pane)
+:::::	
+Orange Stained Glass Pane
+(::stained_glass_pane)
+:::::	
+Magenta Stained Glass Pane
+(::stained_glass_pane)
+:::::	
+Light Blue Stained Glass Pane
+(::stained_glass_pane)
+:::::	
+Yellow Stained Glass Pane
+(::stained_glass_pane)
+:::::	
+Lime Stained Glass Pane
+(::stained_glass_pane)
+:::::	
+Pink Stained Glass Pane
+(::stained_glass_pane)
+:::::	
+Gray Stained Glass Pane
+(::stained_glass_pane)
+:::::	
+Light Gray Stained Glass Pane
+(::stained_glass_pane)
+:::::
+Cyan Stained Glass Pane
+(::stained_glass_pane)
+::::::	
+Purple Stained Glass Pane
+(::stained_glass_pane)
+::::::	
+Blue Stained Glass Pane
+(::stained_glass_pane)
+::::::	
+Brown Stained Glass Pane
+(::stained_glass_pane)
+::::::	
+Green Stained Glass Pane
+(::stained_glass_pane)
+::::::	
+Red Stained Glass Pane
+(::stained_glass_pane)
+::::::	
+Black Stained Glass Pane
+(::stained_glass_pane)
+:::	
+Acacia Leaves
+(::leaves:)
+:::::	
+Dark Oak Leaves
+(::leaves:)
+:::	
+Acacia Wood
+(::log:)
+:::::	
+Dark Oak Wood
+(::log:)
+:::	
+Acacia Wood Stairs
+(::acacia_stairs)
+:::	
+Dark Oak Wood Stairs
+(::dark_oak_stairs)
+:::	
+Slime Block
+(::slime)
+:::	
+Barrier
+(::barrier)
+:::	
+Iron Trapdoor
+(::iron_trapdoor)
+:::	
+Prismarine
+(::prismarine)
+::::	
+Prismarine Bricks
+(::prismarine)
+::::	
+Dark Prismarine
+(::prismarine)
+:::
+Sea Lantern
+(::sea_lantern)
+:::	
+Hay Bale
+(::hay_block)
+:::	
+White Carpet
+(::carpet)
+:::::	
+Orange Carpet
+(::carpet)
+:::::	
+Magenta Carpet
+(::carpet)
+:::::	
+Light Blue Carpet
+(::carpet)
+:::::	
+Yellow Carpet
+(::carpet)
+:::::	
+Lime Carpet
+(::carpet)
+:::::	
+Pink Carpet
+(::carpet)
+:::::	
+Gray Carpet
+(::carpet)
+:::::	
+Light Gray Carpet
+(::carpet)
+:::::
+Cyan Carpet
+(::carpet)
+::::::	
+Purple Carpet
+(::carpet)
+::::::	
+Blue Carpet
+(::carpet)
+::::::	
+Brown Carpet
+(::carpet)
+::::::	
+Green Carpet
+(::carpet)
+::::::	
+Red Carpet
+(::carpet)
+::::::	
+Black Carpet
+(::carpet)
+:::	
+Hardened Clay
+(::hardened_clay)
+:::	
+Block of Coal
+(::coal_block)
+:::	
+Packed Ice
+(::packed_ice)
+:::	
+Sunflower
+(::double_plant)
+:::::	
+Lilac
+(::double_plant)
+:::::	
+Double Tallgrass
+(::double_plant)
+:::::	
+Large Fern
+(::double_plant)
+:::::	
+Rose Bush
+(::double_plant)
+:::::	
+Peony
+(::double_plant)
+:::	
+Free-standing Banner
+(::standing_banner)
+:::	
+Wall-mounted Banner
+(::wall_banner)
+:::	
+Inverted Daylight Sensor
+(::daylight_detector_inverted)
+:::
+Red Sandstone
+(::red_sandstone)
+:::::	
+Chiseled Red Sandstone
+(::red_sandstone)
+:::::	
+Smooth Red Sandstone
+(::red_sandstone)
+:::	
+Red Sandstone Stairs
+(::red_sandstone_stairs)
+::	
+Double Red Sandstone Slab
+(::double_stone_slab:)
+::	
+Red Sandstone Slab
+(::stone_slab:)
+::	
+Spruce Fence Gate
+(::spruce_fence_gate)
+::	
+Birch Fence Gate
+(::birch_fence_gate)
+::	
+Jungle Fence Gate
+(::jungle_fence_gate)
+::	
+Dark Oak Fence Gate
+(::dark_oak_fence_gate)
+::	
+Acacia Fence Gate
+(::acacia_fence_gate)
+::	
+Spruce Fence
+(::spruce_fence)
+::
+Birch Fence
+(::birch_fence)
+::	
+Jungle Fence
+(::jungle_fence)
+:::	
+Dark Oak Fence
+(::dark_oak_fence)
+:::	
+Acacia Fence
+(::acacia_fence)
+:::	
+Spruce Door Block
+(::spruce_door)
+:::	
+Birch Door Block
+(::birch_door)
+:::	
+Jungle Door Block
+(::jungle_door)
+:::	
+Acacia Door Block
+(::acacia_door)
+:::	
+Dark Oak Door Block
+(::dark_oak_door)
+:::	
+End Rod
+(::end_rod)
+:::
+Chorus Plant
+(::chorus_plant)
+:::	
+Chorus Flower
+(::chorus_flower)
+:::	
+Purpur Block
+(::purpur_block)
+:::	
+Purpur Pillar
+(::purpur_pillar)
+:::	
+Purpur Stairs
+(::purpur_stairs)
+:::	
+Purpur Double Slab
+(::purpur_double_slab)
+:::	
+Purpur Slab
+(::purpur_slab)
+:::	
+End Stone Bricks
+(::end_bricks)
+:::	
+Beetroot Block
+(::beetroots)
+:::	
+Grass Path
+(::grass_path)
+:::
+End Gateway
+(::end_gateway)
+:::	
+Repeating Command Block
+(::repeating_command_block)
+:::	
+Chain Command Block
+(::chain_command_block)
+:::	
+Frosted Ice
+(::frosted_ice)
+:::	
+Magma Block
+(::magma)
+:::	
+Nether Wart Block
+(::nether_wart_block)
+:::	
+Red Nether Brick
+(::red_nether_brick)
+:::	
+Bone Block
+(::bone_block)
+:::	
+Structure Void
+(::structure_void)
+:::	
+Observer
+(::observer)
+:::
+White Shulker Box
+(::white_shulker_box)
+:::	
+Orange Shulker Box
+(::orange_shulker_box)
+:::	
+Magenta Shulker Box
+(::magenta_shulker_box)
+:::	
+Light Blue Shulker Box
+(::light_blue_shulker_box)
+:::	
+Yellow Shulker Box
+(::yellow_shulker_box)
+:::	
+Lime Shulker Box
+(::lime_shulker_box)
+:::	
+Pink Shulker Box
+(::pink_shulker_box)
+:::	
+Gray Shulker Box
+(::gray_shulker_box)
+:::	
+Light Gray Shulker Box
+(::silver_shulker_box)
+:::	
+Cyan Shulker Box
+(::cyan_shulker_box)
+:::
+Purple Shulker Box
+(::purple_shulker_box)
+:::	
+Blue Shulker Box
+(::blue_shulker_box)
+:::	
+Brown Shulker Box
+(::brown_shulker_box)
+:::	
+Green Shulker Box
+(::green_shulker_box)
+:::	
+Red Shulker Box
+(::red_shulker_box)
+:::	
+Black Shulker Box
+(::black_shulker_box)
+:::	
+White Glazed Terracotta
+(::white_glazed_terracotta)
+:::	
+Orange Glazed Terracotta
+(::orange_glazed_terracotta)
+:::	
+Magenta Glazed Terracotta
+(::magenta_glazed_terracotta)
+:::	
+Light Blue Glazed Terracotta
+(::light_blue_glazed_terracotta)
+:::
+Yellow Glazed Terracotta
+(::yellow_glazed_terracotta)
+:::	
+Lime Glazed Terracotta
+(::lime_glazed_terracotta)
+:::	
+Pink Glazed Terracotta
+(::pink_glazed_terracotta)
+:::	
+Gray Glazed Terracotta
+(::gray_glazed_terracotta)
+:::	
+Light Gray Glazed Terracotta
+(::light_gray_glazed_terracotta)
+:::	
+Cyan Glazed Terracotta
+(::cyan_glazed_terracotta)
+:::	
+Purple Glazed Terracotta
+(::purple_glazed_terracotta)
+:::	
+Blue Glazed Terracotta
+(::blue_glazed_terracotta)
+:::	
+Brown Glazed Terracotta
+(::brown_glazed_terracotta)
+:::	
+Green Glazed Terracotta
+(::green_glazed_terracotta)
+:::
+Red Glazed Terracotta
+(::red_glazed_terracotta)
+:::	
+Black Glazed Terracotta
+(::black_glazed_terracotta)
+:::	
+White Concrete
+(::concrete)
+:::::	
+Orange Concrete
+(::concrete)
+:::::	
+Magenta Concrete
+(::concrete)
+:::::	
+Light Blue Concrete
+(::concrete)
+:::::	
+Yellow Concrete
+(::concrete)
+:::::	
+Lime Concrete
+(::concrete)
+:::::	
+Pink Concrete
+(::concrete)
+:::::	
+Gray Concrete
+(::concrete)
+:::::	
+Light Gray Concrete
+(::concrete)
+:::::
+Cyan Concrete
+(::concrete)
+::::::	
+Purple Concrete
+(::concrete)
+::::::	
+Blue Concrete
+(::concrete)
+::::::	
+Brown Concrete
+(::concrete)
+::::::	
+Green Concrete
+(::concrete)
+::::::	
+Red Concrete
+(::concrete)
+::::::	
+Black Concrete
+(::concrete)
+:::	
+White Concrete Powder
+(::concrete_powder)
+:::::	
+Orange Concrete Powder
+(::concrete_powder)
+:::::	
+Magenta Concrete Powder
+(::concrete_powder)
+:::::	
+Light Blue Concrete Powder
+(::concrete_powder)
+:::::	
+Yellow Concrete Powder
+(::concrete_powder)
+:::::	
+Lime Concrete Powder
+(::concrete_powder)
+:::::	
+Pink Concrete Powder
+(::concrete_powder)
+:::::	
+Gray Concrete Powder
+(::concrete_powder)
+:::::	
+Light Gray Concrete Powder
+(::concrete_powder)
+:::::
+Cyan Concrete Powder
+(::concrete_powder)
+::::::	
+Purple Concrete Powder
+(::concrete_powder)
+::::::	
+Blue Concrete Powder
+(::concrete_powder)
+::::::	
+Brown Concrete Powder
+(::concrete_powder)
+::::::	
+Green Concrete Powder
+(::concrete_powder)
+::::::	
+Red Concrete Powder
+(::concrete_powder)
+::::::	
+Black Concrete Powder
+(::concrete_powder)
+:::	
+Structure Block
+(::structure_block)
+:::	
+Iron Shovel
+(::iron_shovel)
+:::	
+Iron Pickaxe
+(::iron_pickaxe)
+:::	
+Iron Axe
+(::iron_axe)
+:::
+Flint and Steel
+(::flint_and_steel)
+:::	
+Apple
+(::apple)
+:::	
+Bow
+(::bow)
+:::	
+Arrow
+(::arrow)
+:::	
+Coal
+(::coal)
+:::::	
+Charcoal
+(::coal)
+:::	
+Diamond
+(::diamond)
+:::	
+Iron Ingot
+(::iron_ingot)
+:::	
+Gold Ingot
+(::gold_ingot)
+:::	
+Iron Sword
+(::iron_sword)
+:::	
+Wooden Sword
+(::wooden_sword)
+:::
+Wooden Shovel
+(::wooden_shovel)
+:::	
+Wooden Pickaxe
+(::wooden_pickaxe)
+:::	
+Wooden Axe
+(::wooden_axe)
+:::	
+Stone Sword
+(::stone_sword)
+:::	
+Stone Shovel
+(::stone_shovel)
+:::	
+Stone Pickaxe
+(::stone_pickaxe)
+:::	
+Stone Axe
+(::stone_axe)
+:::	
+Diamond Sword
+(::diamond_sword)
+:::	
+Diamond Shovel
+(::diamond_shovel)
+:::	
+Diamond Pickaxe
+(::diamond_pickaxe)
+:::
+Diamond Axe
+(::diamond_axe)
+:::	
+Stick
+(::stick)
+::	
+Bowl
+(::bowl)
+::	
+Mushroom Stew
+(::mushroom_stew)
+::	
+Golden Sword
+(::golden_sword)
+::	
+Golden Shovel
+(::golden_shovel)
+::	
+Golden Pickaxe
+(::golden_pickaxe)
+::	
+Golden Axe
+(::golden_axe)
+::	
+String
+(::string)
+::	
+Feather
+(::feather)
+::
+Gunpowder
+(::gunpowder)
+::	
+Wooden Hoe
+(::wooden_hoe)
+:::	
+Stone Hoe
+(::stone_hoe)
+:::	
+Iron Hoe
+(::iron_hoe)
+:::	
+Diamond Hoe
+(::diamond_hoe)
+:::	
+Golden Hoe
+(::golden_hoe)
+:::	
+Wheat Seeds
+(::wheat_seeds)
+:::	
+Wheat
+(::wheat)
+:::	
+Bread
+(::bread)
+:::	
+Leather Helmet
+(::leather_helmet)
+:::
+Leather Tunic
+(::leather_chestplate)
+:::	
+Leather Pants
+(::leather_leggings)
+:::	
+Leather Boots
+(::leather_boots)
+:::	
+Chainmail Helmet
+(::chainmail_helmet)
+:::	
+Chainmail Chestplate
+(::chainmail_chestplate)
+:::	
+Chainmail Leggings
+(::chainmail_leggings)
+:::	
+Chainmail Boots
+(::chainmail_boots)
+:::	
+Iron Helmet
+(::iron_helmet)
+:::	
+Iron Chestplate
+(::iron_chestplate)
+:::	
+Iron Leggings
+(::iron_leggings)
+:::
+Iron Boots
+(::iron_boots)
+:::	
+Diamond Helmet
+(::diamond_helmet)
+:::	
+Diamond Chestplate
+(::diamond_chestplate)
+:::	
+Diamond Leggings
+(::diamond_leggings)
+:::	
+Diamond Boots
+(::diamond_boots)
+:::	
+Golden Helmet
+(::golden_helmet)
+:::	
+Golden Chestplate
+(::golden_chestplate)
+:::	
+Golden Leggings
+(::golden_leggings)
+:::	
+Golden Boots
+(::golden_boots)
+:::	
+Flint
+(::flint)
+:::
+Raw Porkchop
+(::porkchop)
+:::	
+Cooked Porkchop
+(::cooked_porkchop)
+:::	
+Painting
+(::painting)
+:::	
+Golden Apple
+(::golden_apple)
+:::::	
+Enchanted Golden Apple
+(::golden_apple)
+:::	
+Sign
+(::sign)
+:::	
+Oak Door
+(::wooden_door)
+:::	
+Bucket
+(::bucket)
+:::	
+Water Bucket
+(::water_bucket)
+:::	
+Lava Bucket
+(::lava_bucket)
+:::	
+Minecart
+(::minecart)
+:::
+Saddle
+(::saddle)
+:::	
+Iron Door
+(::iron_door)
+:::	
+Redstone
+(::redstone)
+:::	
+Snowball
+(::snowball)
+:::	
+Oak Boat
+(::boat)
+:::	
+Leather
+(::leather)
+:::	
+Milk Bucket
+(::milk_bucket)
+:::	
+Brick
+(::brick)
+:::	
+Clay
+(::clay_ball)
+:::	
+Sugar Canes
+(::reeds)
+:::
+Paper
+(::paper)
+:::	
+Book
+(::book)
+:::	
+Slimeball
+(::slime_ball)
+:::	
+Minecart with Chest
+(::chest_minecart)
+:::	
+Minecart with Furnace
+(::furnace_minecart)
+:::	
+Egg
+(::egg)
+:::	
+Compass
+(::compass)
+:::	
+Fishing Rod
+(::fishing_rod)
+:::	
+Clock
+(::clock)
+:::	
+Glowstone Dust
+(::glowstone_dust)
+:::
+Raw Fish
+(::fish)
+:::::	
+Raw Salmon
+(::fish)
+:::::	
+Clownfish
+(::fish)
+:::::	
+Pufferfish
+(::fish)
+:::	
+Cooked Fish
+(::cooked_fish)
+:::::	
+Cooked Salmon
+(::cooked_fish)
+:::	
+Ink Sack
+(::dye)
+:::::	
+Rose Red
+(::dye)
+:::::	
+Cactus Green
+(::dye)
+:::::	
+Coco Beans
+(::dye)
+:::::	
+Lapis Lazuli
+(::dye)
+:::::	
+Purple Dye
+(::dye)
+:::::	
+Cyan Dye
+(::dye)
+:::::	
+Light Gray Dye
+(::dye)
+:::::	
+Gray Dye
+(::dye)
+:::::
+Pink Dye
+(::dye)
+::::::	
+Lime Dye
+(::dye)
+::::::	
+Dandelion Yellow
+(::dye)
+::::::	
+Light Blue Dye
+(::dye)
+::::::	
+Magenta Dye
+(::dye)
+::::::	
+Orange Dye
+(::dye)
+::::::	
+Bone Meal
+(::dye)
+:::	
+Bone
+(::bone)
+:::	
+Sugar
+(::sugar)
+:::	
+Cake
+(::cake)
+:::	
+Bed
+(::bed)
+:::	
+Redstone Repeater
+(::repeater)
+:::	
+Cookie
+(::cookie)
+:::	
+Map
+(::filled_map)
+:::
+Shears
+(::shears)
+:::	
+Melon
+(::melon)
+:::	
+Pumpkin Seeds
+(::pumpkin_seeds)
+:::	
+Melon Seeds
+(::melon_seeds)
+:::	
+Raw Beef
+(::beef)
+:::	
+Steak
+(::cooked_beef)
+:::	
+Raw Chicken
+(::chicken)
+:::	
+Cooked Chicken
+(::cooked_chicken)
+:::	
+Rotten Flesh
+(::rotten_flesh)
+:::	
+Ender Pearl
+(::ender_pearl)
+:::
+Blaze Rod
+(::blaze_rod)
+:::	
+Ghast Tear
+(::ghast_tear)
+:::	
+Gold Nugget
+(::gold_nugget)
+:::	
+Nether Wart
+(::nether_wart)
+:::	
+Potion
+(::potion)
+:::	
+Glass Bottle
+(::glass_bottle)
+:::	
+Spider Eye
+(::spider_eye)
+:::	
+Fermented Spider Eye
+(::fermented_spider_eye)
+:::	
+Blaze Powder
+(::blaze_powder)
+:::	
+Magma Cream
+(::magma_cream)
+:::
+Brewing Stand
+(::brewing_stand)
+:::	
+Cauldron
+(::cauldron)
+::	
+Eye of Ender
+(::ender_eye)
+::	
+Glistering Melon
+(::speckled_melon)
+::::	
+Spawn Elder Guardian
+(::spawn_egg)
+::::	
+Spawn Wither Skeleton
+(::spawn_egg)
+::::	
+Spawn Stray
+(::spawn_egg)
+:::::	
+Spawn Husk
+(::spawn_egg)
+:::::	
+Spawn Zombie Villager
+(::spawn_egg)
+:::::	
+Spawn Skeleton Horse
+(::spawn_egg)
+:::::
+Spawn Zombie Horse
+(::spawn_egg)
+:::::	
+Spawn Donkey
+(::spawn_egg)
+:::::	
+Spawn Mule
+(::spawn_egg)
+:::::	
+Spawn Evoker
+(::spawn_egg)
+:::::	
+Spawn Vex
+(::spawn_egg)
+:::::	
+Spawn Vindicator
+(::spawn_egg)
+:::::	
+Spawn Creeper
+(::spawn_egg)
+:::::	
+Spawn Skeleton
+(::spawn_egg)
+:::::	
+Spawn Spider
+(::spawn_egg)
+:::::	
+Spawn Zombie
+(::spawn_egg)
+:::::	
+Spawn Slime
+(::spawn_egg)
+:::::	
+Spawn Ghast
+(::spawn_egg)
+:::::	
+Spawn Zombie Pigman
+(::spawn_egg)
+:::::	
+Spawn Enderman
+(::spawn_egg)
+:::::
+Spawn Cave Spider
+(::spawn_egg)
+:::::	
+Spawn Silverfish
+(::spawn_egg)
+:::::	
+Spawn Blaze
+(::spawn_egg)
+:::::	
+Spawn Magma Cube
+(::spawn_egg)
+:::::	
+Spawn Bat
+(::spawn_egg)
+:::::	
+Spawn Witch
+(::spawn_egg)
+:::::	
+Spawn Endermite
+(::spawn_egg)
+:::::	
+Spawn Guardian
+(::spawn_egg)
+:::::
+Spawn Shulker
+(::spawn_egg)
+:::::	
+Spawn Pig
+(::spawn_egg)
+:::::	
+Spawn Sheep
+(::spawn_egg)
+:::::	
+Spawn Cow
+(::spawn_egg)
+:::::	
+Spawn Chicken
+(::spawn_egg)
+:::::	
+Spawn Squid
+(::spawn_egg)
+:::::	
+Spawn Wolf
+(::spawn_egg)
+:::::	
+Spawn Mooshroom
+(::spawn_egg)
+:::::	
+Spawn Ocelot
+(::spawn_egg)
+:::::	
+Spawn Horse
+(::spawn_egg)
+::::::	
+Spawn Rabbit
+(::spawn_egg)
+::::::	
+Spawn Polar Bear
+(::spawn_egg)
+::::::	
+Spawn Llama
+(::spawn_egg)
+::::::	
+Spawn Parrot
+(::spawn_egg)
+::::::	
+Spawn Villager
+(::spawn_egg)
+::	
+Bottle o' Enchanting
+(::experience_bottle)
+::	
+Fire Charge
+(::fire_charge)
+::	
+Book and Quill
+(::writable_book)
+::	
+Written Book
+(::written_book)
+::	
+Emerald
+(::emerald)
+::
+Item Frame
+(::item_frame)
+::	
+Flower Pot
+(::flower_pot)
+:::	
+Carrot
+(::carrot)
+:::	
+Potato
+(::potato)
+:::	
+Baked Potato
+(::baked_potato)
+:::	
+Poisonous Potato
+(::poisonous_potato)
+:::	
+Empty Map
+(::map)
+:::	
+Golden Carrot
+(::golden_carrot)
+:::	
+Mob Head (Skeleton)
+(::skull)
+:::::	
+Mob Head (Wither Skeleton)
+(::skull)
+:::::	
+Mob Head (Zombie)
+(::skull)
+:::::	
+Mob Head (Human)
+(::skull)
+:::::	
+Mob Head (Creeper)
+(::skull)
+:::::	
+Mob Head (Dragon)
+(::skull)
+:::	
+Carrot on a Stick
+(::carrot_on_a_stick)
+:::
+Nether Star
+(::nether_star)
+:::	
+Pumpkin Pie
+(::pumpkin_pie)
+:::	
+Firework Rocket
+(::fireworks)
+:::	
+Firework Star
+(::firework_charge)
+:::	
+Enchanted Book
+(::enchanted_book)
+:::	
+Redstone Comparator
+(::comparator)
+:::	
+Nether Brick
+(::netherbrick)
+:::	
+Nether Quartz
+(::quartz)
+:::	
+Minecart with TNT
+(::tnt_minecart)
+:::	
+Minecart with Hopper
+(::hopper_minecart)
+:::
+Prismarine Shard
+(::prismarine_shard)
+:::	
+Prismarine Crystals
+(::prismarine_crystals)
+:::	
+Raw Rabbit
+(::rabbit)
+:::	
+Cooked Rabbit
+(::cooked_rabbit)
+:::	
+Rabbit Stew
+(::rabbit_stew)
+:::	
+Rabbit's Foot
+(::rabbit_foot)
+:::	
+Rabbit Hide
+(::rabbit_hide)
+:::	
+Armor Stand
+(::armor_stand)
+:::	
+Iron Horse Armor
+(::iron_horse_armor)
+:::	
+Golden Horse Armor
+(::golden_horse_armor)
+:::
+Diamond Horse Armor
+(::diamond_horse_armor)
+:::	
+Lead
+(::lead)
+:::	
+Name Tag
+(::name_tag)
+:::	
+Minecart with Command Block
+(::command_block_minecart)
+:::	
+Raw Mutton
+(::mutton)
+:::	
+Cooked Mutton
+(::cooked_mutton)
+:::	
+Banner
+(::banner)
+:::	
+End Crystal
+(::end_crystal)
+:::	
+Spruce Door
+(::spruce_door)
+:::	
+Birch Door
+(::birch_door)
+:::
+Jungle Door
+(::jungle_door)
+:::	
+Acacia Door
+(::acacia_door)
+:::	
+Dark Oak Door
+(::dark_oak_door)
+:::	
+Chorus Fruit
+(::chorus_fruit)
+:::	
+Popped Chorus Fruit
+(::popped_chorus_fruit)
+:::	
+Beetroot
+(::beetroot)
+:::	
+Beetroot Seeds
+(::beetroot_seeds)
+:::	
+Beetroot Soup
+(::beetroot_soup)
+:::	
+Dragon's Breath
+(::dragon_breath)
+:::	
+Splash Potion
+(::splash_potion)
+:::
+Spectral Arrow
+(::spectral_arrow)
+:::	
+Tipped Arrow
+(::tipped_arrow)
+:::	
+Lingering Potion
+(::lingering_potion)
+:::	
+Shield
+(::shield)
+:::	
+Elytra
+(::elytra)
+:::	
+Spruce Boat
+(::spruce_boat)
+:::	
+Birch Boat
+(::birch_boat)
+:::	
+Jungle Boat
+(::jungle_boat)
+:::	
+Acacia Boat
+(::acacia_boat)
+:::	
+Dark Oak Boat
+(::dark_oak_boat)
+:::
+Totem of Undying
+(::totem_of_undying)
+:::	
+Shulker Shell
+(::shulker_shell)
+:::	
+Iron Nugget
+(::iron_nugget)
+:::	
+Knowledge Book
+(::knowledge_book)
+::::	
+:: Disc
+(::record_::)
+::::	
+Cat Disc
+(::record_cat)
+::::	
+Blocks Disc
+(::record_blocks)
+::::
+Chirp Disc
+(::record_chirp)
+::::	
+Far Disc
+(::record_far)
+::::	
+Mall Disc
+(::record_mall)
+::::	
+Mellohi Disc
+(::record_mellohi)
+::::	
+Stal Disc
+(::record_stal)
+::::	
+Strad Disc
+(::record_strad)
+::::	
+Ward Disc
+(::record_ward)
+::::	
+:: Disc
+(::record_::)
+::::	
+Wait Disc
+(::record_wait)
