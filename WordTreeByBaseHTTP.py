@@ -107,9 +107,9 @@ def Main():
     # server = HTTPServer(('127.0.0.1', 8080), WordTree)
     # print('Started http server')
     # server.serve_forever()
-    words = ["plank", "wood", "toolshed", "stick", "workbench", "cloth", "grass", "factory", "rope", "bridge", "iron", "bed", "axe", "shears", "gold", "gem"]
+    words = ["plank", "wood", "toolshed", "stick", "workbench", "cloth", "grass", "factory", "rope", "bridge", "iron", "bed", "axe", "shears", "gold", "gem", "worker"]
     entGraph = EntGraph(word_list = words) #["chicken","bowl","party","hat","shoe"]
-    entGraph.main_graph.write_png("./output/result2.png")
+    entGraph.main_graph.write_png("./output/result3.png")
     # print(entGraph.main_graph)
    
 
