@@ -6,10 +6,17 @@
 @time: 4/21/17 4:31 PM
 """
 
+from cStringIO import StringIO
+
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+
 import heapq
 
 from nltk.corpus import wordnet as wn
 import pydot
+
+
 
 class NLTKWordNet(object):
     def getSynsetList(self, word):
@@ -84,7 +91,7 @@ class NLTKWordNet(object):
             topk.add(tmp[1][0])
         return list(topk)
 
-    def closure_graph_hypernyms(self, synObj):
+    # def closure_graph_hypernyms(self, synObj):
         seen = set()
         graph = pydot.Dot(graph_type='digraph', rankdir='BT')
 
@@ -155,8 +162,19 @@ class NLTKWordNet(object):
         recurse(synObj1, True)
         recurse(synObj2, False)
         pngNam = str(synObj1.name()) + '_vs_' + str(synObj2.name()) + '_'+fun+'_.png'
-        graph.write_png("./output/"+pngNam)
+        #graph.write_png("./output/"+pngNam)
+        # png_str = graph.create_png()
+        # sio = StringIO()
+        # sio.write(png_str)
+        # sio.seek(0)
+        # img = mpimg.imread(sio)
+
+        # plot the image
+        # imgplot = plt.imshow(img, aspect='equal')
+        # plt.show(block=False)
         print ("Image generated!")
+        return graph
+
 
 
 
