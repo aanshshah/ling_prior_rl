@@ -1,0 +1,115 @@
+AlarmClock	Pickupable
+2	Apple	Pickupable, Sliceable
+3	AppleSliced	Pickupable
+4	ArmChair	Receptacle
+5	BaseballBat	Pickupable
+6	BasketBall	Pickupable
+7	Bathtub	Receptacle*
+8	BathtubBasin	Receptacle
+9	Bed	Receptacle, Dirty
+10	Blinds	Openable
+11	Book	Openable, Pickupable
+12	Boots	Pickupable
+13	Bottle	Pickupable, Fillable, Breakable
+14	Bowl	Pickupable, Receptacle, Fillable, Breakable*, Dirty
+15	Box	Openable, Pickupable, Receptacle
+16	Bread	Pickupable, Sliceable
+17	BreadSliced	Pickupable, Cookable
+18	ButterKnife	Pickupable
+19	Cabinet	Openable, Receptacle
+20	Candle	Pickupable, On/Off
+21	Cart	Receptacle
+22	CD	Pickupable
+23	CellPhone	Pickupable, On/Off, Breakable
+24	Chair	-
+25	Cloth	Pickupable, Dirty
+26	CoffeeMachine	On/Off, Receptacle
+27	CoffeeTable	Receptacle
+28	CounterTop	Receptacle
+29	CreditCard	Pickupable
+30	Cup	Pickupable, Receptacle, Fillable, Breakable*, Dirty
+31	Curtains	-
+32	Desk	Receptacle
+33	DeskLamp	On/Off
+34	DiningTable	Receptacle
+35	DishSponge	Pickupable
+36	Drawer	Openable, Receptacle
+37	Dresser	Receptacle
+38	Egg	Pickupable, Sliceable, Breakable
+39	EggCracked	Pickupable, Cookable
+40	Faucet	On/Off
+41	FloorLamp	On/Off
+42	Footstool	-
+43	Fork	Pickupable
+44	Fridge	Openable, Receptacle
+45	GarbageCan	Receptacle
+46	HandTowel	Pickupable
+47	HandTowelHolder	Receptacle
+48	HousePlant	Fillable
+49	Kettle	Openable, Pickupable, Fillable
+50	KeyChain	Pickupable
+51	Knife	Pickupable
+52	Ladle	Pickupable
+53	Laptop	Openable, Pickupable, On/Off, Breakable
+54	LaundryHamper	Receptacle
+55	LaundryHamperLid	Openable
+56	Lettuce	Pickupable, Sliceable
+57	LettuceSliced	Pickupable
+58	LightSwitch	On/Off
+59	Microwave	Openable, On/Off, Receptacle
+60	Mirror	Breakable, Dirty
+61	Mug	Pickupable, Receptacle, Fillable, Breakable, Dirty
+62	Newspaper	Pickupable
+63	Ottoman	Receptacle
+64	Painting	-
+65	Pan	Pickupable, Receptacle, Dirty
+66	PaperTowel	Pickupable, UsedUp
+67	Pen	Pickupable
+68	Pencil	Pickupable
+69	PepperShaker	Pickupable
+70	Pillow	Pickupable
+71	Plate	Pickupable, Receptacle, Breakable*, Dirty
+72	Plunger	Pickupable
+73	Poster	-
+74	Pot	Pickupable, Receptacle, Fillable, Dirty
+75	Potato	Pickupable, Sliceable, Cookable
+76	PotatoSliced	Pickupable, Cookable
+77	RemoteControl	Pickupable
+78	Safe	Openable, Receptacle
+79	SaltShaker	Pickupable
+80	ScrubBrush	Pickupable
+81	Shelf	Receptacle
+82	ShowerCurtain	Openable
+83	ShowerDoor	Openable, Breakable
+84	ShowerGlass	Breakable
+85	ShowerHead	On/Off
+86	SideTable	Receptacle
+87	Sink	Receptacle*
+88	SinkBasin	Receptacle
+89	SoapBar	Pickupable
+90	SoapBottle	Pickupable, UsedUp
+91	Sofa	Receptacle
+92	Spatula	Pickupable
+93	Spoon	Pickupable
+94	SprayBottle	Pickupable
+95	Statue	Pickupable, Breakable
+96	StoveBurner	On/Off, Receptacle
+97	StoveKnob	On/Off
+98	TeddyBear	Pickupable
+99	Television	On/Off, Breakable
+100	TennisRacket	Pickupable
+101	TissueBox	Pickupable, UsedUp
+102	Toaster	On/Off, Receptacle
+103	Toilet	Openable, Receptacle
+104	ToiletPaper	Pickupable, UsedUp
+105	ToiletPaperHanger	Receptacle
+106	Tomato	Pickupable, Sliceable
+107	TomatoSliced	Pickupable
+108	Towel	Pickupable
+109	TowelHolder	Receptacle
+110	TVStand	Receptacle
+111	Vase	Pickupable, Breakable
+112	Watch	Pickupable
+113	WateringCan	Pickupable, Fillable
+114	Window	Breakable
+115	WineBottle	Pickupable, Fillable, Breakable

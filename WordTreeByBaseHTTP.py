@@ -15,11 +15,19 @@ import os
 import pydot
 import copy
 from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
 
 import numpy as np
+from tqdm import tqdm
 
-os.environ["PATH"] += os.pathsep + 'C:/Program Files/graphviz/bin'
-os.environ["PATH"] += os.pathsep + 'C:/Program Files/graphviz'
+os.environ["PATH"] += os.pathsep + 'C:\\Program Files\\graphviz\\bin'
+os.environ["PATH"] += os.pathsep + 'C:\\Program Files\\graphviz'
+
+os.environ["PATH"] += os.pathsep + "C:\\Users\\zach_surf\\.conda\\envs\\wnet\\Lib\\site-packages"
+
+
+print(os.environ["PATH"])
+# exit()
 
 from NLTKWordNet import NLTKWordNet
 
@@ -123,7 +131,7 @@ class EntGraph():
             for edge in g.get_edges():
                all_edges.add((clean_name(edge.get_source()),clean_name(edge.get_destination())))
 
-        general_graph = pydot.Dot(graph_type='graph')
+        general_graph = pydot.Dot(graph_type='digraph')
         for v in all_nodes:
             general_graph.add_node(pydot.Node(v))
         for src,dest in all_edges:
@@ -133,15 +141,34 @@ class EntGraph():
         self.syn_obs = set(self.syn_obs)
 
 
+def computer_number_of_clusters(object_to_vector,kmax=10):
+    sil = []
+    keys = sorted(object_to_vector.keys())
+    embs = [np.reshape(object_to_vector[k],(-1)) for k in keys]
+    # dissimilarity would not be defined for a single cluster, thus, minimum number of clusters should be 2
+    for k in range(2, kmax+1):
+      kmeans = KMeans(n_clusters = k).fit(embs)
+      labels = kmeans.labels_
+      sil.append((k,silhouette_score(embs, labels, metric = 'euclidean')))
 
-# def make_clusters(object_to_vector):
-#    keys = sorted(object_to_vector.keys())
-#    embs = [np.reshape(object_to_vector[k],(-1)) for k in keys]
-#    kmeans = KMeans(n_clusters=5, random_state=0).fit(embs)
-#    for k,l in zip(keys,kmeans.labels_):
-#         print(k,l)
+    return max(sil,key=lambda x: x[1])
 
-def add_most_sim_edges(graph,vocab,num,vertices):
+def make_clusters(object_to_vector):
+
+    num_clusters,value = computer_number_of_clusters(object_to_vector)
+    keys = sorted(object_to_vector.keys())
+    embs = [np.reshape(object_to_vector[k],(-1)) for k in keys]
+    kmeans = KMeans(n_clusters=num_clusters, random_state=0).fit(embs)
+    word_2_cluster = {}
+    cluster_2_words = {}
+    for k,l in zip(keys,kmeans.labels_):
+        word_2_cluster[k] = l
+        if l not in cluster_2_words: cluster_2_words[l] = []
+        cluster_2_words[l].append(k)
+    return word_2_cluster,cluster_2_words
+
+
+def add_most_sim_edges(graph,vocab,num,vertices,use_clusters=True):
     all_nodes = vertices
     metric = sklearn.metrics.pairwise.cosine_similarity
 
@@ -155,17 +182,28 @@ def add_most_sim_edges(graph,vocab,num,vertices):
 
         object_to_vector[k] = object_to_vector[k].reshape(1,-1)
 
+    word_2_cluster,cluster_to_words = make_clusters(object_to_vector)
 
-    # make_clusters(object_to_vector)
+    if use_clusters:
+        clusters = sorted(cluster_to_words.keys())
+        for c in clusters:
+           graph.add_node(pydot.Node("CLUSTER_"+str(c)))
+       
 
     for n in all_nodes:
         other_nodes = copy.copy(all_nodes)
         other_nodes.remove(n)
+        
         nearest_neighbors = sorted(other_nodes,key = lambda x: metric(object_to_vector[n],object_to_vector[x]),reverse=True)[:num]
+
         for neighbor in nearest_neighbors:
             graph.add_edge(pydot.Edge(n,neighbor,color='blue'))
 
+        if use_clusters:
+            graph.add_edge(pydot.Edge(n,"CLUSTER_"+str(word_2_cluster[n]),color='green'))
 
+
+   
 
 
 def get_minecraft_items():
@@ -185,6 +223,55 @@ def get_minecraft_items():
 
 
 
+def remove_unnecc_edges(graph,keep_vertices):
+    new_graph = None
+    for n in tqdm(copy.deepcopy(graph).get_nodes()):
+        new_graph =  pydot.Dot(graph_type='digraph', rankdir='BT')
+        remove_edges = []
+        add_edges = []
+        # valid_vertices = set()
+        # print(keep_vertices)
+        # if n.get_name() in keep_vertices:
+        #     new_graph.add_node(n)
+        #     valid_vertices.add(n.get_name())
+        # else:
+        edges_from = [(x.get_source(),x.get_destination()) for x in graph.get_edges() if x.get_source() == n.get_name() ]
+        edges_to = [(x.get_source(),x.get_destination()) for x in graph.get_edges() if x.get_destination() == n.get_name() ]
+            # print(edges_to)
+        if len(edges_from) == 1 and  len(edges_to) == 1 and n.get_name() not in keep_vertices:
+            remove_edges.extend(edges_from)
+            remove_edges.extend(edges_to)
+
+            for x1,y1 in edges_to:
+                for x2,y2 in edges_from:
+                    add_edges.append((x1,y2))
+      
+
+        # for n in graph.get_nodes():
+            #Delete is not relevenat or no edges
+
+
+        for edge in graph.get_edges():
+            if (edge.get_source(),edge.get_destination()) in remove_edges:
+                continue
+            new_graph.add_edge(edge)
+
+        for source,dest in add_edges:
+            new_graph.add_edge(pydot.Edge(source,dest))
+
+        # for n in graph.get_nodes()
+
+        graph = copy.deepcopy(new_graph)
+
+    return new_graph
+
+
+
+
+
+
+
+
 
 def Main():
     # server = HTTPServer(('127.0.0.1', 8080), WordTree)
@@ -193,7 +280,7 @@ def Main():
 
     USE_MINECRAFT = False #Can set to true
 
-    words = get_minecraft_items()[:20] if USE_MINECRAFT else ["plank", "wood", "toolshed", "stick", "workbench", "cloth", "grass", "factory", "rope", "bridge", "iron", "bed", "axe", "shears", "gold", "gem", "worker"]
+    words = get_minecraft_items() if USE_MINECRAFT else ["plank", "wood", "toolshed", "stick", "workbench", "cloth", "grass", "factory", "rope", "bridge", "iron", "bed", "axe", "shears", "gold", "gem", "worker"]
     entGraph = EntGraph(word_list = words) #["chicken","bowl","party","hat","shoe"]
 
     relevant_nodes = entGraph.syn_obs
@@ -208,8 +295,10 @@ def Main():
 
 
     print(entGraph.main_graph)
+    simple_graph = remove_unnecc_edges(entGraph.main_graph,relevant_nodes)
+    entGraph.main_graph.write_svg("./output/ex_all.svg")
+    simple_graph.write_svg("./output/ex_simple.svg")
 
-    entGraph.main_graph.write_png("./output/result3.png")
 
 
     # print(entGraph.main_graph)
