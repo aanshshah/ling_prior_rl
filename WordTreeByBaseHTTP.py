@@ -141,7 +141,7 @@ class EntGraph():
         self.syn_obs = set(self.syn_obs)
 
 
-def computer_number_of_clusters(object_to_vector,kmax=10):
+def computer_number_of_clusters(object_to_vector,kmax=4):
     sil = []
     keys = sorted(object_to_vector.keys())
     embs = [np.reshape(object_to_vector[k],(-1)) for k in keys]
@@ -280,7 +280,7 @@ def Main():
 
     USE_MINECRAFT = False #Can set to true
 
-    words = get_minecraft_items() if USE_MINECRAFT else ["plank", "wood", "toolshed", "stick", "workbench", "cloth", "grass", "factory", "rope", "bridge", "iron", "bed", "axe", "shears", "gold", "gem", "worker"]
+    words = get_minecraft_items() if USE_MINECRAFT else ["box","gem","key","lock","player"] #["plank", "wood", "toolshed", "stick", "workbench", "cloth", "grass", "factory", "rope", "bridge", "iron", "bed", "axe", "shears", "gold", "gem", "worker"]
     entGraph = EntGraph(word_list = words) #["chicken","bowl","party","hat","shoe"]
 
     relevant_nodes = entGraph.syn_obs
@@ -291,13 +291,13 @@ def Main():
             split_terms.extend(n.split('_'))
 
     w2v = load_vectors("wiki-news-300d-1M.vec",list(relevant_nodes)+split_terms)
-    add_most_sim_edges(entGraph.main_graph,w2v,3,relevant_nodes)
+    add_most_sim_edges(entGraph.main_graph,w2v,1,relevant_nodes)
 
 
     print(entGraph.main_graph)
     simple_graph = remove_unnecc_edges(entGraph.main_graph,relevant_nodes)
-    entGraph.main_graph.write_svg("./output/ex_all.svg")
-    simple_graph.write_svg("./output/ex_simple.svg")
+    entGraph.main_graph.write_svg("./output/boxworld.svg") #ex_all.svg")
+    simple_graph.write_svg("./output/boxworld_simple.svg") #ex_simple.svg")
 
 
 
