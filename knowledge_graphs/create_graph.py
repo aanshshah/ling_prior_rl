@@ -44,13 +44,13 @@ def main(args):
 	entities = parse(args.relations_filename) 
 	relations = parse(args.entities_filename)
 	graph = create_graph(entities, relations)
-	np.save(args.graph_name, graph)
+	np.save('graphs/'+args.graph_name, graph)
 	return graph
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 	parser.add_argument('relations_filename', help="Name of the relations text file")
 	parser.add_argument('entities_filename', help="Name of the entities text file")
-	parser.add_argument('graph_name', help="Full path/filename of where the knowledge graph should be saved")
+	parser.add_argument('graph_name', help="Name of knowledge graph")
 	args = parser.parse_args()
 	main(args)
