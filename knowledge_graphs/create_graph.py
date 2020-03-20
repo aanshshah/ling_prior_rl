@@ -21,7 +21,7 @@ def determine_relationship(relation, word_one, word_two=None):
 	response = format_request(relation, word_one, word_two)
 	return response['weight'] if response.get('weight') else 0
 
-def create_graph(entities, relations):
+def create_graph(graph_name, entities, relations):
 	num_entities = len(entities)
 	num_relations = len(relations)
 	graph = np.zeros(shape=(num_entities, num_entities, num_relations))
@@ -34,7 +34,7 @@ def create_graph(entities, relations):
 			for word_two in entities:
 				graph[word_one_idx, word_to_idx[word_two], relation_idx] = \
 				determine_relationship(relation, word_one, word_two)
-	np.save('graphs/'+args.graph_name, graph)
+	np.save(graph_name, graph)
 	return graph 
 
 def generate_word_mappings(entities):
@@ -82,7 +82,7 @@ def main(args):
 		graph_matrix = np.load(args.graph_name)
 		visualize_graph(graph_matrix, entities, relations, args.graph_name)
 	else:
-		create_graph(entities, relations)
+		create_graph(args.graph_name, entities, relations)
 		
 
 if __name__ == '__main__':
