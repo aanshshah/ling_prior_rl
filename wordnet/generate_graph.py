@@ -22,7 +22,6 @@ from tqdm import tqdm
 
 os.environ["PATH"] += os.pathsep + 'C:\\Program Files\\graphviz\\bin'
 os.environ["PATH"] += os.pathsep + 'C:\\Program Files\\graphviz'
-
 os.environ["PATH"] += os.pathsep + "C:\\Users\\zach_surf\\.conda\\envs\\wnet\\Lib\\site-packages"
 
 
@@ -85,9 +84,6 @@ class WordTree(BaseHTTPRequestHandler):
 
 
 class EntGraph():
-
-
-
     def __init__(self,word_list):
         self.test = NLTKWordNet()
         self.word_list = word_list
@@ -141,31 +137,31 @@ class EntGraph():
         self.syn_obs = set(self.syn_obs)
 
 
-def computer_number_of_clusters(object_to_vector,kmax=4):
-    sil = []
-    keys = sorted(object_to_vector.keys())
-    embs = [np.reshape(object_to_vector[k],(-1)) for k in keys]
-    # dissimilarity would not be defined for a single cluster, thus, minimum number of clusters should be 2
-    for k in range(2, kmax+1):
-      kmeans = KMeans(n_clusters = k).fit(embs)
-      labels = kmeans.labels_
-      sil.append((k,silhouette_score(embs, labels, metric = 'euclidean')))
+# def computer_number_of_clusters(object_to_vector,kmax=4):
+#     sil = []
+#     keys = sorted(object_to_vector.keys())
+#     embs = [np.reshape(object_to_vector[k],(-1)) for k in keys]
+#     # dissimilarity would not be defined for a single cluster, thus, minimum number of clusters should be 2
+#     for k in range(2, kmax+1):
+#       kmeans = KMeans(n_clusters = k).fit(embs)
+#       labels = kmeans.labels_
+#       sil.append((k,silhouette_score(embs, labels, metric = 'euclidean')))
 
-    return max(sil,key=lambda x: x[1])
+#     return max(sil,key=lambda x: x[1])
 
-def make_clusters(object_to_vector):
+# def make_clusters(object_to_vector):
 
-    num_clusters,value = computer_number_of_clusters(object_to_vector)
-    keys = sorted(object_to_vector.keys())
-    embs = [np.reshape(object_to_vector[k],(-1)) for k in keys]
-    kmeans = KMeans(n_clusters=num_clusters, random_state=0).fit(embs)
-    word_2_cluster = {}
-    cluster_2_words = {}
-    for k,l in zip(keys,kmeans.labels_):
-        word_2_cluster[k] = l
-        if l not in cluster_2_words: cluster_2_words[l] = []
-        cluster_2_words[l].append(k)
-    return word_2_cluster,cluster_2_words
+#     num_clusters,value = computer_number_of_clusters(object_to_vector)
+#     keys = sorted(object_to_vector.keys())
+#     embs = [np.reshape(object_to_vector[k],(-1)) for k in keys]
+#     kmeans = KMeans(n_clusters=num_clusters, random_state=0).fit(embs)
+#     word_2_cluster = {}
+#     cluster_2_words = {}
+#     for k,l in zip(keys,kmeans.labels_):
+#         word_2_cluster[k] = l
+#         if l not in cluster_2_words: cluster_2_words[l] = []
+#         cluster_2_words[l].append(k)
+#     return word_2_cluster,cluster_2_words
 
 
 def add_most_sim_edges(graph,vocab,num,vertices,use_clusters=True):
@@ -182,12 +178,12 @@ def add_most_sim_edges(graph,vocab,num,vertices,use_clusters=True):
 
         object_to_vector[k] = object_to_vector[k].reshape(1,-1)
 
-    word_2_cluster,cluster_to_words = make_clusters(object_to_vector)
+    # word_2_cluster,cluster_to_words = make_clusters(object_to_vector)
 
-    if use_clusters:
-        clusters = sorted(cluster_to_words.keys())
-        for c in clusters:
-           graph.add_node(pydot.Node("CLUSTER_"+str(c)))
+    # if use_clusters:
+    #     clusters = sorted(cluster_to_words.keys())
+    #     for c in clusters:
+    #        graph.add_node(pydot.Node("CLUSTER_"+str(c)))
        
 
     for n in all_nodes:
@@ -196,31 +192,28 @@ def add_most_sim_edges(graph,vocab,num,vertices,use_clusters=True):
         
         nearest_neighbors = sorted(other_nodes,key = lambda x: metric(object_to_vector[n],object_to_vector[x]),reverse=True)[:num]
 
-        for neighbor in nearest_neighbors:
-            graph.add_edge(pydot.Edge(n,neighbor,color='blue'))
+        # for neighbor in nearest_neighbors:
+        #     graph.add_edge(pydot.Edge(n,neighbor,color='blue'))
 
-        if use_clusters:
-            graph.add_edge(pydot.Edge(n,"CLUSTER_"+str(word_2_cluster[n]),color='green'))
-
-
-   
+        # if use_clusters:
+        #     graph.add_edge(pydot.Edge(n,"CLUSTER_"+str(word_2_cluster[n]),color='green'))
 
 
-def get_minecraft_items():
 
-    items = []
+# def get_minecraft_items():
 
-    with open("mine_craft_items.txt","r") as open_file:
-        for x in open_file.readlines():
-            if ':' in x: continue
+#     items = []
 
-            split_terms = x.split()
-            if split_terms[-1] == "Block":
-                items.append(split_terms[-2].lower())
-            else:   items.append(split_terms[-1].lower())
+#     with open("mine_craft_items.txt","r") as open_file:
+#         for x in open_file.readlines():
+#             if ':' in x: continue
 
-    return list(set(items))
+#             split_terms = x.split()
+#             if split_terms[-1] == "Block":
+#                 items.append(split_terms[-2].lower())
+#             else:   items.append(split_terms[-1].lower())
 
+#     return list(set(items))
 
 
 def remove_unnecc_edges(graph,keep_vertices):
@@ -278,11 +271,10 @@ def Main():
     # print('Started http server')
     # server.serve_forever()
 
-    USE_MINECRAFT = False #Can set to true
+    # USE_MINECRAFT = False #Can set to true
 
-    words = get_minecraft_items() if USE_MINECRAFT else ["box","gem","key","lock","player"] #["plank", "wood", "toolshed", "stick", "workbench", "cloth", "grass", "factory", "rope", "bridge", "iron", "bed", "axe", "shears", "gold", "gem", "worker"]
+    words = ["plank", "wood", "toolshed", "stick", "workbench", "cloth", "grass", "factory", "rope", "bridge", "iron", "bed", "axe", "shears", "gold", "gem", "worker"] #get_minecraft_items() if USE_MINECRAFT else ["box","gem","key","lock","player"] #["plank", "wood", "toolshed", "stick", "workbench", "cloth", "grass", "factory", "rope", "bridge", "iron", "bed", "axe", "shears", "gold", "gem", "worker"]
     entGraph = EntGraph(word_list = words) #["chicken","bowl","party","hat","shoe"]
-
     relevant_nodes = entGraph.syn_obs
 
     split_terms = []
@@ -290,9 +282,8 @@ def Main():
         if '_' in n:
             split_terms.extend(n.split('_'))
 
-    w2v = load_vectors("wiki-news-300d-1M.vec",list(relevant_nodes)+split_terms)
-    add_most_sim_edges(entGraph.main_graph,w2v,1,relevant_nodes)
-
+    # w2v = load_vectors("wiki-news-300d-1M.vec",list(relevant_nodes)+split_terms)
+    # add_most_sim_edges(entGraph.main_graph,w2v,1,relevant_nodes)
 
     print(entGraph.main_graph)
     simple_graph = remove_unnecc_edges(entGraph.main_graph,relevant_nodes)
