@@ -6,6 +6,7 @@ import argparse
 import pydot
 
 BASE_URL = "http://api.conceptnet.io"
+COLORS = ['black', 'blue', 'brown', 'green', 'orange', 'purple', 'red','yellow']
 
 def format_request(relation, word_one, word_two=None):
 	query = "/a/"
@@ -49,6 +50,8 @@ def parse(filename):
 	return content
 
 def visualize_graph(graph_matrix, entities, relations, graph_name):
+	def generate_color_scheme():
+		pass
 	entity_map = generate_index_mappings(entities)
 	relation_map = generate_index_mappings(relations)
 	graph = pydot.Dot(graph_type='graph')
@@ -67,7 +70,7 @@ def visualize_graph(graph_matrix, entities, relations, graph_name):
 				word_two = entity_map[entity_j]
 				node_two = word_to_node[word_two]
 				if graph_matrix[entity_i, entity_j, relation_i] != 0:
-					edge = pydot.Edge(node_one, node_two, label=relation)
+					edge = pydot.Edge(node_one, node_two, label=relation, color=COLORS[relation_i])
 					graph.add_edge(edge)
 	graph_name = graph_name.split('/')[-1][:-4]
 	graph.write_png('visualizations/{0}.png'.format(graph_name))
