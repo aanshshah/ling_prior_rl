@@ -84,7 +84,7 @@ def create_more_entities(entities):
 		new_entities.add(word)
 	return list(new_entities)
 
-def add_hypernyms(entities, filename):
+def add_hypernyms(entities, filename, syn=False):
 	def get_LCA_by_distance(w_1, w_2):
 		ss_w1 = wn.synsets(w_1, pos=wn.NOUN)
 		ss_w2 = wn.synsets(w_2, pos=wn.NOUN)
@@ -121,8 +121,9 @@ def add_hypernyms(entities, filename):
 			s2 = clean_word(s2)
 			lca = clean_LCA(lca)
 			new_entities += lca
-			# new_entities += s1
-			# new_entities += s2
+			if syn:
+				new_entities += s1
+				new_entities += s2
 			
 	all_entities = list(set(new_entities + entities))
 	write(all_entities, filename)
@@ -156,7 +157,7 @@ def main(args):
 	relations = parse(args.relations_filename)
 	entities = parse(args.entities_filename)
 	if args.aug:
-		entities = add_hypernyms(entities, args.entities_filename)
+		entities = add_hypernyms(entities, args.entities_filename, syn=args.syn)
 	if args.viz:
 		graph_matrix = np.load(args.graph_name)
 		visualize_graph(graph_matrix, entities, relations, args.graph_name)
@@ -170,6 +171,7 @@ if __name__ == '__main__':
 	parser.add_argument('entities_filename', help="Name of the entities text file")
 	parser.add_argument('graph_name', help="Name of knowledge graph")
 	parser.add_argument('--viz', action="store_true", help="Visualize an existing graph", default=False)
-	parser.add_argument('--aug', action="store_true", help="Augment existing entities using WordNet by specifying a depth")
+	parser.add_argument('--aug', action="store_true", help="Augment existing entities with lowest common hypernyms")
+	parser.add_argument('--syn', action="store_true", help="Augment existing entities with lowest common hypernyms and synonyms")
 	args = parser.parse_args()
 	main(args)
