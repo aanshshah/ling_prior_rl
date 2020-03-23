@@ -4,21 +4,31 @@ import requests
 import numpy as np
 import argparse
 import pydot
+from nltk.corpus import wordnet as wn
+from time import sleep
 
 BASE_URL = "http://api.conceptnet.io"
 COLORS = ['black', 'blue', 'brown', 'green', 'orange', 'purple', 'red','yellow']
 
-def format_request(relation, word_one, word_two=None):
+def format_request(relation, word_one, word_two=None, flag=False):
 	query = "/a/"
 	if word_one and word_two:
 		query += "[/r/{0}/,/c/en/{1}/,/c/en/{2}/]".format(relation, word_one, word_two)
 	if not word_two:
 		query += "[/r/{0}/,/c/en/{1}/]".format(relation, word_one)
 	url = BASE_URL + query
-	return requests.get(url).json()
+	try:
+		response = requests.get(url).json()
+	except:
+		response = format_request(relation, word_one, word_two)
+	return response
 
 def determine_relationship(relation, word_one, word_two=None):
-	response = format_request(relation, word_one, word_two)
+	try:
+		response = format_request(relation, word_one, word_two)
+	except:
+		raise Exception("There was an error with relation: {0} and words {1} {2}".format(relation, word_one, word_two))
+		exit()
 	return response['weight'] if response.get('weight') else 0
 
 def create_graph(graph_name, entities, relations):
@@ -49,9 +59,64 @@ def parse(filename):
 		content = [x.strip() for x in content]
 	return content
 
+def create_more_entities(entities):
+	def generate_synonyms(new_word):
+		return new_word.lemma_names()
+	new_entities = set()
+	for word in entities:
+		for new_word in wn.synsets(word, pos=wn.NOUN):
+			new_entities.add(new_word.name().split('.')[0])
+			for hypernym in new_word.hypernyms():
+				print(new_word.name(), hypernym.name())
+				new_entities.add(hypernym.name().split('.')[0])
+		new_entities.add(word)
+	return list(new_entities)
+
+def add_hypernyms(entities, filename):
+	def get_LCA_by_distance(w_1, w_2):
+		ss_w1 = wn.synsets(w_1, pos=wn.NOUN)
+		ss_w2 = wn.synsets(w_2, pos=wn.NOUN)
+		midDist = float("inf")
+		synObj1, synObj2 = None, None
+		lca = None
+		for word_one in ss_w1:
+			for word_two in ss_w2:
+				curDist = word_one.shortest_path_distance(word_two)
+				if curDist != None and curDist < midDist:
+					midDist = curDist
+					lca = word_one.lowest_common_hypernyms(word_two)
+					synObj1, synObj2 = word_one, word_two
+		return (lca, midDist, synObj1, synObj2)
+	def clean_LCA(lca):
+		cleaned_LCA = []
+		for word in lca:
+			cleaned_LCA.append(word.name().split('.')[0])
+		return cleaned_LCA
+
+	def write(entities, filename):
+		filename = filename.split('.')[0] + '_lca.txt'
+		with open(filename, 'w') as f:
+			for word in entities:
+				f.write(word +'\n')
+	def clean_word(word):
+		return word.name().split('.')[0]
+	new_entities = []
+	for word_one in entities:
+		for word_two in entities:
+			if word_one == word_two: continue
+			lca, _, s1, s2 = get_LCA_by_distance(word_one, word_two)
+			s1 = clean_word(s1)
+			s2 = clean_word(s2)
+			lca = clean_LCA(lca)
+			new_entities += lca
+			# new_entities += s1
+			# new_entities += s2
+			
+	all_entities = list(set(new_entities + entities))
+	write(all_entities, filename)
+	return all_entities
+
 def visualize_graph(graph_matrix, entities, relations, graph_name):
-	def generate_color_scheme():
-		pass
 	entity_map = generate_index_mappings(entities)
 	relation_map = generate_index_mappings(relations)
 	graph = pydot.Dot(graph_type='graph')
@@ -78,6 +143,8 @@ def visualize_graph(graph_matrix, entities, relations, graph_name):
 def main(args):
 	relations = parse(args.relations_filename)
 	entities = parse(args.entities_filename)
+	if args.aug:
+		entities = add_hypernyms(entities, args.entities_filename)
 	if args.viz:
 		graph_matrix = np.load(args.graph_name)
 		visualize_graph(graph_matrix, entities, relations, args.graph_name)
@@ -91,5 +158,6 @@ if __name__ == '__main__':
 	parser.add_argument('entities_filename', help="Name of the entities text file")
 	parser.add_argument('graph_name', help="Name of knowledge graph")
 	parser.add_argument('--viz', action="store_true", help="Visualize an existing graph", default=False)
+	parser.add_argument('--aug', action="store_true", help="Augment existing entities using WordNet by specifying a depth")
 	args = parser.parse_args()
 	main(args)
