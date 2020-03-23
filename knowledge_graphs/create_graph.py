@@ -10,17 +10,22 @@ from time import sleep
 BASE_URL = "http://api.conceptnet.io"
 COLORS = ['black', 'blue', 'brown', 'green', 'orange', 'purple', 'red','yellow']
 
-def format_request(relation, word_one, word_two=None, flag=False):
+def format_request(relation, word_one, word_two=None):
 	query = "/a/"
 	if word_one and word_two:
 		query += "[/r/{0}/,/c/en/{1}/,/c/en/{2}/]".format(relation, word_one, word_two)
 	if not word_two:
 		query += "[/r/{0}/,/c/en/{1}/]".format(relation, word_one)
 	url = BASE_URL + query
-	try:
-		response = requests.get(url).json()
-	except:
-		response = format_request(relation, word_one, word_two)
+	i = 0
+	while i < 100000:
+		if i>0 and i % 100 == 0:
+			print("Try #{0} for relation: {1}, word 1: {2}, word 2: {3}".format(i, relation, word_one, word_two))
+		try:
+			response = requests.get(url).json()
+			break
+		except:
+			i += 1
 	return response
 
 def determine_relationship(relation, word_one, word_two=None):
