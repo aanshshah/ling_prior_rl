@@ -20,6 +20,7 @@ def format_request(relation, word_one, word_two=None):
 		query += "[/r/{0}/,/c/en/{1}/]".format(relation, word_one)
 	url = BASE_URL + query
 	i = 0
+	response = {}
 	with open(LOG_FILE, 'a') as f:
 		while i < 100000:
 			if i>0 and i % 1000 == 0:
@@ -33,6 +34,7 @@ def format_request(relation, word_one, word_two=None):
 				i += 1
 		if i == 100000:
 			f.write("{3}: words {0} and {1} failed with relation {2}".format(word_one, word_two, relation, curr_time) + '\n')
+			response = {}
 	return response
 
 def determine_relationship(relation, word_one, word_two=None):
