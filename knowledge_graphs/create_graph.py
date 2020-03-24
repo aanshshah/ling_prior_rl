@@ -5,8 +5,7 @@ import numpy as np
 import argparse
 import pydot
 from nltk.corpus import wordnet as wn
-import datetime
-from time import sleep
+import time
 
 BASE_URL = "http://api.conceptnet.io"
 COLORS = ['black', 'blue', 'brown', 'green', 'orange', 'purple', 'red','yellow']
@@ -21,20 +20,14 @@ def format_request(relation, word_one, word_two=None):
 	url = BASE_URL + query
 	i = 0
 	response = {}
-	with open(LOG_FILE, 'a') as f:
-		while i < 100000:
-			if i>0 and i % 1000 == 0:
-				curr_time = str(datetime.datetime.now())
-				log_line = "{4}: Try #{0} for relation: {1}, word 1: {2}, word 2: {3}".format(i, relation, word_one, word_two, curr_time)
-				f.write(log_line + '\n')
-			try:
-				response = requests.get(url).json()
-				break
-			except:
-				i += 1
-		if i == 100000:
-			f.write("{3}: words {0} and {1} failed with relation {2}".format(word_one, word_two, relation, curr_time) + '\n')
-			response = {}
+	while i < 1000000: #try request one million times 
+		try:
+			response = requests.get(url).json()
+			break
+		except:
+			i += 1
+	if i == 1000000: #this should never happen
+		response = {} 
 	return response
 
 def determine_relationship(relation, word_one, word_two=None):
@@ -43,7 +36,7 @@ def determine_relationship(relation, word_one, word_two=None):
 	except:
 		raise Exception("There was an error with relation: {0} and words {1} {2}".format(relation, word_one, word_two))
 		exit()
-	return response['weight'] if response.get('weight') else 0
+	return 1 if response.get('weight') else 0
 
 def create_graph(graph_name, entities, relations):
 	num_entities = len(entities)
@@ -56,8 +49,11 @@ def create_graph(graph_name, entities, relations):
 		for word_one in entities:
 			word_one_idx = word_to_idx[word_one]
 			for word_two in entities:
-				graph[word_one_idx, word_to_idx[word_two], relation_idx] = \
-				determine_relationship(relation, word_one, word_two)
+				if word_one == word_two: 
+					graph[word_one_idx, word_to_idx[word_two], relation_idx] = 1
+				else:
+					graph[word_one_idx, word_to_idx[word_two], relation_idx] = \
+					determine_relationship(relation, word_one, word_two)
 	np.save(graph_name, graph)
 	return graph 
 
@@ -95,20 +91,18 @@ def add_hypernyms(entities, filename, syn=False):
 		lca = None
 		for word_one in ss_w1:
 			for word_two in ss_w2:
+				if word_one == word_two: continue
 				curDist = word_one.shortest_path_distance(word_two)
 				if curDist != None and curDist < midDist:
 					midDist = curDist
 					lca = word_one.lowest_common_hypernyms(word_two)
 					synObj1, synObj2 = word_one, word_two
 		return (lca, midDist, synObj1, synObj2)
-	def clean_LCA(lca):
-		cleaned_LCA = []
-		for word in lca:
-			cleaned_LCA.append(word.name().split('.')[0])
-		return cleaned_LCA
-
-	def write(entities, filename):
-		filename = filename.split('.')[0] + '_lca.txt'
+	def write(entities, filename, syn=False):
+		if syn:
+			filename = filename.split('.')[0] + '_lca_with_syn.txt'
+		else:
+			filename = filename.split('.')[0] + '_lca.txt'
 		with open(filename, 'w') as f:
 			for word in entities:
 				f.write(word +'\n')
@@ -121,14 +115,13 @@ def add_hypernyms(entities, filename, syn=False):
 			lca, _, s1, s2 = get_LCA_by_distance(word_one, word_two)
 			s1 = clean_word(s1)
 			s2 = clean_word(s2)
-			lca = clean_LCA(lca)
-			new_entities += lca
+			lca = clean_word(lca[0])
+			new_entities.append(lca)
 			if syn:
-				new_entities += s1
-				new_entities += s2
-			
+				new_entities.append(s1) 
+				new_entities.append(s2)
 	all_entities = list(set(new_entities + entities))
-	write(all_entities, filename)
+	write(all_entities, filename, syn)
 	return all_entities
 
 def visualize_graph(graph_matrix, entities, relations, graph_name):
@@ -159,19 +152,29 @@ def main(args):
 	relations = parse(args.relations_filename)
 	entities = parse(args.entities_filename)
 	if args.aug:
+		start_aug = time.time()
+		num_start_entities = len(entities)
 		entities = add_hypernyms(entities, args.entities_filename, syn=args.syn)
+		num_entities = len(entities)
+		num_entities_added = num_entities - num_start_entities
+		end_aug = time.time()
+		elapsed_aug = end_aug-start_aug
+		print("Time required to add {1} hypernyms from {2} entities: {0} seconds".format(elapsed_aug, num_entities_added, num_start_entities)) 
 	if args.viz:
 		graph_matrix = np.load(args.graph_name)
 		visualize_graph(graph_matrix, entities, relations, args.graph_name)
-	else:
+	if args.graph_name:
+		start_graph = time.time()
 		create_graph(args.graph_name, entities, relations)
-		
+		end_graph = time.time()
+		elapsed_graph = end_graph - start_graph
+		print("Time required to create the graph: {0} seconds".format(elapsed_graph))
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 	parser.add_argument('relations_filename', help="Name of the relations text file")
 	parser.add_argument('entities_filename', help="Name of the entities text file")
-	parser.add_argument('graph_name', help="Name of knowledge graph")
+	parser.add_argument('graph_name', nargs='?', help="Optional; Provide the name of knowledge graph to create the graph (ndarray)", default=False)
 	parser.add_argument('--viz', action="store_true", help="Visualize an existing graph", default=False)
 	parser.add_argument('--aug', action="store_true", help="Augment existing entities with lowest common hypernyms")
 	parser.add_argument('--syn', action="store_true", help="Augment existing entities with lowest common hypernyms and synonyms")
