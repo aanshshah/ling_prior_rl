@@ -161,15 +161,19 @@ def main(args):
 		end_aug = time.time()
 		elapsed_aug = end_aug-start_aug
 		print("Time required to add {1} hypernyms from {2} entities: {0} seconds".format(elapsed_aug, num_entities_added, num_start_entities)) 
-	if args.viz:
-		graph_matrix = np.load(args.graph_name)
-		visualize_graph(graph_matrix, entities, relations, args.graph_name)
-	if args.graph_name:
+	if args.graph_name and not args.viz:
 		start_graph = time.time()
 		create_graph(args.graph_name, entities, relations)
 		end_graph = time.time()
 		elapsed_graph = end_graph - start_graph
 		print("Time required to create the graph: {0} seconds".format(elapsed_graph))
+	if args.viz:
+		start_viz = time.time()
+		graph_matrix = np.load(args.graph_name)
+		visualize_graph(graph_matrix, entities, relations, args.graph_name)
+		end_viz = time.time()
+		elapsed_viz = end_viz - start_viz
+		print("Time required to visualize the graph: {0} seconds".format(elapsed_viz))
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
@@ -177,7 +181,7 @@ if __name__ == '__main__':
 	parser.add_argument('entities_filename', help="Name of the entities text file")
 	parser.add_argument('graph_name', nargs='?', help="Optional; Provide the name of knowledge graph to create the graph (ndarray)", default=False)
 	parser.add_argument('--viz', action="store_true", help="Visualize an existing graph", default=False)
-	parser.add_argument('--aug', action="store_true", help="Augment existing entities with lowest common hypernyms")
-	parser.add_argument('--syn', action="store_true", help="Augment existing entities with lowest common hypernyms and synonyms")
+	parser.add_argument('--aug', action="store_true", help="Augment existing entities with lowest common hypernyms", default=False)
+	parser.add_argument('--syn', action="store_true", help="Augment existing entities with lowest common hypernyms and synonyms", default=False)
 	args = parser.parse_args()
 	main(args)
