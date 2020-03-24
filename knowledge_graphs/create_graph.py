@@ -26,6 +26,7 @@ def format_request(relation, word_one, word_two=None):
 			break
 		except:
 			i += 1
+			time.sleep(15)
 	if i == 1000000: #this should never happen
 		response = {} 
 	return response
