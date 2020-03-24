@@ -50,11 +50,8 @@ def create_graph(graph_name, entities, relations):
 		for word_one in entities:
 			word_one_idx = word_to_idx[word_one]
 			for word_two in entities:
-				if word_one == word_two: 
-					graph[word_one_idx, word_to_idx[word_two], relation_idx] = 1
-				else:
-					graph[word_one_idx, word_to_idx[word_two], relation_idx] = \
-					determine_relationship(relation, word_one, word_two)
+				graph[word_one_idx, word_to_idx[word_two], relation_idx] = \
+				determine_relationship(relation, word_one, word_two)
 	np.save(graph_name, graph)
 	return graph 
 
