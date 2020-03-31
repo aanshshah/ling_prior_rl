@@ -4,7 +4,6 @@ random.seed(0)
 import requests
 import numpy as np
 import argparse
-import pydot
 from nltk.corpus import wordnet as wn
 import time
 import json
@@ -150,6 +149,7 @@ def add_hypernyms(entities, filename, syn=False):
 	return all_entities
 
 def visualize_graph(entities, relations, graph_name, syn):
+	import pydot
 	graph_path = get_path(GRAPH_BASE, graph_name, syn, ext='npy')
 	graph_matrix = np.load(graph_path)
 	entity_map = generate_index_mappings(entities)
