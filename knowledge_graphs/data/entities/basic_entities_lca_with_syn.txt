@@ -1,5 +1,5 @@
+organism
 daughter
+parent
 child
 son
-parent
-parent
