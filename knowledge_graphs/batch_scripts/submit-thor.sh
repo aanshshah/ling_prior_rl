@@ -7,4 +7,4 @@
 
 module load anaconda/3-5.2.0
 cd ..
-python create_graph.py --aug --syn create_graph.py all_thor all_relations all_thor
+python create_graph.py --aug --syn all_thor all_relations all_thor
