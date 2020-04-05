@@ -11,3 +11,5 @@ DefinedAs
 LocatedNear
 SimilarTo
 MadeOf
+Synonym
+DerivedFrom
