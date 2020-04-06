@@ -69,7 +69,7 @@ def save_dict(data, filename):
 def reshape_graph(graph):
 	def reshape(graph, num_relations, num_entities):
 		n = num_entities*num_relations
-		new_graph = np.zeros(shape=(num_entities,n))
+		new_graph = np.zeros(shape=(n,n))
 		for i in range(num_entities):
 			entity_relations = []
 			for j in range(num_entities):
