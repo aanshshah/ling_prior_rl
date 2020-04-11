@@ -68,20 +68,16 @@ class GCN(torch.nn.Module):
 
         self.dropout = nn.Dropout(p=args.dropout_rate)
 
-        n = 294
-        stackDimension = 2
+        n = 83
         self.n = n
 
         # get and normalize adjacency matrix.
-        A_raw = torch.load("./data/gcn/adjmat.dat")
-        B = np.load('./data/gcn/all_thor_conceptnet_with_syn.npy')
-        for stack in range(B.shape[stackDimension]):
-            B[:, :, stack] = normalize_adj(torch.from_numpy(B[:, :, stack])).tocsr().toarray()
+        #A_raw = torch.load("./data/gcn/adjmat.dat")
+        A_raw = torch.from_numpy(np.load("./data/gcn/single_thor_graph_conceptnet.npy"))
+
 
         A = normalize_adj(A_raw).tocsr().toarray()
-
-        # @naveen, try to load in B instead of A
-        self.A = torch.nn.Parameter(torch.Tensor(B))
+        self.A = torch.nn.Parameter(torch.Tensor(A))
 
         # last layer of resnet18.
         resnet18 = models.resnet18(pretrained=True)
