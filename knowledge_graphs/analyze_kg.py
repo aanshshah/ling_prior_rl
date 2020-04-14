@@ -54,13 +54,14 @@ def calculate_connections(graph_mapping, relation_map, all_relations):
 				for i, value in enumerate(relation):
 					relation_name = relation_map[i]
 					if value > 0:
+						word_freq[word_one] += 1
 						if word_one != word_two:
-							word_freq[word_one] += 1
 							word_freq[word_two] += 1
+							frequency[word_two][relation_name] += 1
 						total_relations += 1
 						connections[graph_name][relation_name] += 1
 						frequency[word_one][relation_name] += 1
-						frequency[word_two][relation_name] += 1
+							
 		for word, freq in word_freq.items():
 			frequency[word]['total'] = freq
 		frequencies[graph_name] = frequency
