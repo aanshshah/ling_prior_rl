@@ -1,15 +1,5 @@
 RelatedTo
-FormOf
 IsA
 PartOf
-HasA
 UsedFor
-CapableOf
 AtLocation
-HasProperty
-DefinedAs
-LocatedNear
-SimilarTo
-MadeOf
-Synonym
-DerivedFrom
