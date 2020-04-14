@@ -33,7 +33,7 @@ def create_mapping(new_items_path, original_items, mapping_name):
 			lines = f.readlines()
 		for line in lines:
 			item = line.strip()
-			entities.append(item)
+			entities.append(item.lower())
 		return entities
 	def save_dict(data, filename):
 		with open(filename, 'w') as f:
