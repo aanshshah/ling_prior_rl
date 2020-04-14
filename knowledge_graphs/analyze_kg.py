@@ -11,7 +11,7 @@ def get_graph():
 	files = os.listdir(BASE)
 	name_to_graph = {}
 	for file in files:
-		if file != '.DS_Store' and 'reshaped' not in file:
+		if file != '.DS_Store' and 'reshaped' not in file and 'thor' not in file:
 			graph = np.load(os.path.join(BASE, file))
 			name_to_graph[file] = graph
 	return name_to_graph
@@ -74,11 +74,15 @@ def main():
 	connections, frequencies = calculate_connections(graph_mapping, relation_map, all_relations)
 	df_connect = pd.DataFrame.from_dict(connections, orient='index')
 	# df_freq = pd.DataFrame.from_dict({(i,j): frequency[i][j] for i in frequency.keys() for j in frequency[i].keys()}, orient='index')
+	df_connect.to_csv('connection_summary_minecraft.csv')
 	print(df_connect)
+	sizes = [50, 100, 150, 200, 250]
 	for name, frequency in frequencies.items():
 		print(name)
 		df = pd.DataFrame.from_dict(frequency, orient='index')
-		print(df.nlargest(n=20, columns='total'))
-
+		for n in sizes:
+			largest = df.nlargest(n=n, columns='total')
+			largest.to_csv('{0}_most_common_relations_minecraft.csv'.format(n))
+	print(largest)
 if __name__ == '__main__':
 	main()
