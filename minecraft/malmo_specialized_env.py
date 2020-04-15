@@ -1,28 +1,4 @@
 from __future__ import print_function
-# ------------------------------------------------------------------------------------------------
-# Copyright (c) 2016 Microsoft Corporation
-# 
-# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
-# associated documentation files (the "Software"), to deal in the Software without restriction,
-# including without limitation the rights to use, copy, modify, merge, publish, distribute,
-# sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-# 
-# The above copyright notice and this permission notice shall be included in all copies or
-# substantial portions of the Software.
-# 
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
-# NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-# ------------------------------------------------------------------------------------------------
-
-# The "Cliff Walking" example using Q-learning.
-# From pages 148-150 of:
-# Richard S. Sutton and Andrews G. Barto
-# Reinforcement Learning, An Introduction
-# MIT Press, 1998
 
 import malmo.minecraftbootstrap
 
@@ -40,16 +16,16 @@ import random
 import gym
 import sys
 import time
+import math
 from malmo import malmoutils
 import numpy as np
 import tensorflow as tf
 import math
 
 
-
 class MalmoEnvSpecial(gym.Env):
     def checkInventoryForItem(self,obs, requested):
-        for i in range(0,9):#39):
+        for i in range(0,9):#39): #Checks primary inventory
             key = 'InventorySlot_'+str(i)+'_item'
             if key in obs:
                 item = obs[key]
@@ -67,15 +43,34 @@ class MalmoEnvSpecial(gym.Env):
             print("FAILED") 
             return np.zeros((2,self.observation_space.shape[-2],self.observation_space.shape[-1])) #self.observation_space
 
-        state_data = [self.state_map[block] for block in state_data_raw]
+        state_data = [self.state_map[block] if block in self.state_map else 0 for block in state_data_raw]
 
         state_data =np.reshape(np.array(state_data,dtype=np.float64),(1,9,9))
         if use_entities: 
-            entity_data = self.obs_to_ent_vector(world_state)
+            entity_data = self.obs_to_ent_vector(world_state,self.relevant_entities)
             state_data = np.concatenate((state_data,entity_data),axis=0)
         return np.expand_dims(state_data,0)
 
-    def obs_to_ent_vector(self,world_state,relevant_entities={"diamond_pickaxe","cobblestone"}):
+
+    
+    def fix_player_location(self,world_state):
+        if len(world_state.observations) > 0:
+            entity_data = json.loads(world_state.observations[-1].text)['entities']
+            player_data = [x for x in entity_data if x["name"]=="agent"][0]
+            player_loc = (player_data['x'],player_data['z'])
+
+            if abs(math.floor(player_loc[0])-player_loc[0]) != 0.5:
+                new_x = round(player_loc[0]-0.5)+0.5
+                self.agent_host.sendCommand("tpx {}".format(new_x))
+            if abs(math.floor(player_loc[1])-player_loc[1]) != 0.5:
+                new_z = round(player_loc[1]-0.5)+0.5
+                self.agent_host.sendCommand("tpz {}".format(new_z))
+
+
+
+
+
+    def obs_to_ent_vector(self,world_state,relevant_entities):
 
         entity_data = json.loads(world_state.observations[-1].text)['entities']
         # print(entity_data)
@@ -101,51 +96,139 @@ class MalmoEnvSpecial(gym.Env):
             entity_states[0][min(int(relative_z),8)][min(int(relative_x),8)] = self.entity_map[e["name"]]
         return entity_states #np.transpose(entity_states,(0,2,1))
 
-    def __init__(self):
-        malmoutils.fix_print()
-        metadata = {'render.modes': ['human']}
 
-        self.state_map = {"air":0,"bedrock":1,"stone":2}
-        self.entity_map = {"diamond_pickaxe":1,"cobblestone":2}
+    def load_mission_param(self,mission_type):
+        mission_dict = {}
+        if mission_type == "pickaxe_stone":
+            mission_dict["state_map"] = {"air":0,"bedrock":1,"stone":2}
+            mission_dict["entity_map"] = {"diamond_pickaxe":1,"cobblestone":2}
+            mission_dict["relevant_entities"] = {"diamond_pickaxe":1,"cobblestone":2}
+            mission_dict["goal"] = "cobblestone"
+            mission_dict["step_cost"] = -0.1
+            mission_dict["goal_reward"] = 100
+            mission_dict["max_steps"] = 150
+
+        elif mission_type == "axe_log":
+            mission_dict["state_map"] = {"air":0,"bedrock":1,"log":2}
+            mission_dict["entity_map"] = {"diamond_axe":1,"log":2}
+            mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
+            mission_dict["goal"] = "log"
+            mission_dict["step_cost"] = -0.1
+            mission_dict["goal_reward"] = 100
+            mission_dict["max_steps"] = 150
+
+        elif mission_type == "sword_pig":
+            mission_dict["state_map"] = {"air":0,"bedrock":1}
+            mission_dict["entity_map"] = {"diamond_sword":1,"pig":2}
+            mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
+            mission_dict["goal"] = "porkchop"
+            mission_dict["step_cost"] = -0.1
+            mission_dict["goal_reward"] = 100
+            mission_dict["max_steps"] = 150
+
+        elif mission_type == "sword_cow":
+            mission_dict["state_map"] = {"air":0,"bedrock":1}
+            mission_dict["entity_map"] = {"diamond_sword":1,"cow":2}
+            mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
+            mission_dict["goal"] = "beef"
+            mission_dict["step_cost"] = -0.1
+            mission_dict["goal_reward"] = 100
+            mission_dict["max_steps"] = 250
+
+        elif mission_type == "shears_sheep":
+            mission_dict["state_map"] = {"air":0,"bedrock":1}
+            mission_dict["entity_map"] = {"shears":1,"sheep":2}
+            mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
+            mission_dict["goal"] = "wool"
+            mission_dict["step_cost"] = -0.1
+            mission_dict["goal_reward"] = 100
+            mission_dict["max_steps"] = 150
+
+        if len(mission_dict) == 0:
+            print("Invalid mission name:",mission_type)
+
+
+        return mission_dict
+
+    def build_arena(self):
+        arena = ""
+        arena+= '<DrawCuboid x1="{}" y1="{}" z1="{}" x2="{}" y2="{}" z2="{}" type="bedrock" />'.format(-3,203,-3,3,203,3)
+        arena+= '<DrawCuboid x1="{}" y1="{}" z1="{}" x2="{}" y2="{}" z2="{}" type="bedrock" />'.format(-30,203,-10,-3,227,10)
+        arena+= '<DrawCuboid x1="{}" y1="{}" z1="{}" x2="{}" y2="{}" z2="{}" type="bedrock" />'.format(3,203,-10,30,227,10)
+        arena+= '<DrawCuboid x1="{}" y1="{}" z1="{}" x2="{}" y2="{}" z2="{}" type="bedrock" />'.format(-3,203,-10,3,227,-3)
+        arena+= '<DrawCuboid x1="{}" y1="{}" z1="{}" x2="{}" y2="{}" z2="{}" type="bedrock" />'.format(-3,203,3,3,227,10)
+        arena+= '<DrawCuboid x1="{}" y1="{}" z1="{}" x2="{}" y2="{}" z2="{}" type="air" />'.format(-2,204,-2,2,270,2)
+         
+        return arena
+
+    def build_mission_env(self, mission_type):
+        arena_xml = self.build_arena()
+
+        if mission_type == "pickaxe_stone":  
+
+            mission_xml = self.make_env_string(self.mission_type,[arena_xml])
+            my_mission = MalmoPython.MissionSpec(mission_xml, True)
+            my_mission.allowAllDiscreteMovementCommands() 
+            my_mission.drawItem(2,206,2,"diamond_pickaxe")
+            my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"stone")
+
+        elif  mission_type == "axe_log":   
+
+            mission_xml = self.make_env_string(self.mission_type,arena_xml)
+            my_mission = MalmoPython.MissionSpec(mission_xml, True)
+            my_mission.allowAllDiscreteMovementCommands()  
+            my_mission.drawItem(2,206,2,"diamond_axe")
+            my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"log")
+
+        # elif  mission_type == "sword_pig":     
+
+        #     pig_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
+        #     mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawEntity x="{}" y="{}" z="{}" type="Pig" />'.format(pig_pos[0],204,pig_pos[1]) ])
+        #     my_mission = MalmoPython.MissionSpec(mission_xml, True)
+        #     my_mission.allowAllDiscreteMovementCommands()
+        #     my_mission.drawItem(2,206,2,"diamond_sword")
+
+        # elif  mission_type == "sword_cow":     
+        #     cow_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
+        #     mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawEntity x="{}" y="{}" z="{}" type="Cow" />'.format(cow_pos[0],204,cow_pos[1]) ])
+        #     my_mission = MalmoPython.MissionSpec(mission_xml, True)
+        #     my_mission.allowAllDiscreteMovementCommands()
+        #     my_mission.drawItem(2,206,2,"diamond_sword")
+
+        elif  mission_type == "shears_sheep":     
+            sheep_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
+            mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawEntity x="{}" y="{}" z="{}" type="Sheep" />'.format(sheep_pos[0],204,sheep_pos[1]) ])
+            my_mission = MalmoPython.MissionSpec(mission_xml, True)
+            my_mission.allowAllDiscreteMovementCommands()
+            my_mission.drawItem(2,206,2,"shears")
+        #Need to fix shear op
+
+        return my_mission
+
+    def __init__(self,mission_type):
+        malmoutils.fix_print()
+        # metadata = {'render.modes': ['human']}
+
+        self.mission_type = mission_type
+        mission_param = self.load_mission_param(self.mission_type)
+        print(mission_param)
+
+        self.state_map = mission_param["state_map"]
+        self.entity_map = mission_param["entity_map"]
+        self.relevant_entities =  mission_param["relevant_entities"] = {"diamond_pickaxe":1,"cobblestone":2}
+        self.goal = mission_param["goal"]
+        self.step_cost =  mission_param["step_cost"]
+        self.goal_reward  =  mission_param["goal_reward"]
+        self.max_steps =  mission_param["max_steps"]
+
 
         self.agent_host = MalmoPython.AgentHost()
-        # Find the default mission file by looking next to the schemas folder:
-        # schema_dir = None
-        # try:
-        #     schema_dir = "C:\\Users\\zach_surf\\Documents\\GitHub\\malmo\\MalmoPlatform\\Schemas" #os.environ['MALMO_XSD_PATH']
-        # except KeyError:
-        #     print("MALMO_XSD_PATH not set? Check environment.")
-        #     exit(1)
-        # self.mission_file =  os.path.abspath('get_stone_pickaxe.xml')
-      
-
-        # add some args
-        # self.agent_host.addOptionalStringArgument('recording_dir,r',"","malmo_recording")
-
-        # self.agent_host.addOptionalStringArgument('mission_file',
-            # 'Path/to/file from which to load the mission.', self.mission_file)
-        self.agent_host.addOptionalFloatArgument('alpha',
-            'Learning rate of the Q-learning agent.', 0.1)
-        self.agent_host.addOptionalFloatArgument('epsilon',
-            'Exploration rate of the Q-learning agent.', 0.01)
-        self.agent_host.addOptionalFloatArgument('gamma', 'Discount factor.', 1.0)
-        self.agent_host.addOptionalFlag('load_model', 'Load initial model from model_file.')
-        self.agent_host.addOptionalStringArgument('model_file', 'Path to the initial model file', '')
         self.agent_host.addOptionalFlag('debug', 'Turn on debugging.')
 
         malmoutils.parse_command_line(self.agent_host,["--recording_dir","malmo_recording"]) 
-        # self.actionSet = ["attack 1","attack 0", "move 1", "move -1", "turn 1", "turn -1"] #,"movenorth 1", "movesouth 1", "movewest 1", "moveeast 1"]
-        self.actions =["movenorth 1","movesouth 1", "movewest 1", "moveeast 1"] #,"strafe 1","strafe -1"] #,"attack 1","attack 0"]
+        self.actions =["movenorth 1","movesouth 1", "movewest 1", "moveeast 1","stay"] #,"strafe 1","strafe -1"] #,"attack 1","attack 0"]
         self.observation_space = np.zeros((2,9,9))
         self.action_space = gym.spaces.Discrete(len(self.actions))
-        # agent = DQNAgent(
-        #         actions=actionSet,
-        #         epsilon=agent_host.getFloatArgument('epsilon'),
-        #         alpha=agent_host.getFloatArgument('alpha'),
-        #         gamma=agent_host.getFloatArgument('gamma'),
-        #         debug = agent_host.receivedArgument("debug"),
-        #         canvas = None,
-        #         root = None)
 
         self.my_clients = MalmoPython.ClientPool()
         self.my_clients.add(MalmoPython.ClientInfo('127.0.0.1', 10000)) # add Minecraft machines here as available
@@ -153,15 +236,18 @@ class MalmoEnvSpecial(gym.Env):
         self.max_retries = 3
         self.agentID = 0
         self.num_steps = 0
-        self.max_steps = 250
-        # expID = 'tabular_q_learning'
-
-        # num_repeats = 1500000
-
+        # self.max_steps = 250
+       
     def step(self, action):
         world_state = self.agent_host.getWorldState()
+        # self.fix_player_location(world_state) #needed for mob worlds
+        action_chosen = self.actions[action]
+        if action_chosen != "stay": self.agent_host.sendCommand(action_chosen)
+        
+        if self.mission_type == "shears_sheep": 
+            self.agent_host.sendCommand("attack 0")
+            self.agent_host.sendCommand("use")
 
-        self.agent_host.sendCommand(self.actions[action])
 
         # time.sleep(0.1)
         while world_state.is_mission_running:
@@ -169,18 +255,14 @@ class MalmoEnvSpecial(gym.Env):
             if world_state.number_of_observations_since_last_state > 0: # and world_state.number_of_rewards_since_last_state > 0:
                 break
 
-        # malmo_env_rewards = sum([x.getValue() for x in world_state.rewards])
-
         still_running = world_state.is_mission_running and self.num_steps < self.max_steps - 1
 
-
-
-        if still_running and self.checkInventoryForItem(json.loads(world_state.observations[-1].text),"cobblestone"):
+        if still_running and self.checkInventoryForItem(json.loads(world_state.observations[-1].text),self.goal):
             done = True
-            reward = 100
+            reward = self.goal_reward
         else:
             done = not still_running
-            reward = -0.1
+            reward = self.step_cost
         
         obs = self.obs_to_vector(world_state) if world_state.is_mission_running else self.observation_space
         info = {}
@@ -194,35 +276,17 @@ class MalmoEnvSpecial(gym.Env):
             # mission_file = agent_host.getStringArgument('mission_file')
             self.num_steps = 0
             self.agent_host.sendCommand("quit")
-            time.sleep(0.1)
-            # with open(self.mission_file, 'r') as f:
-            #     print("Loading mission from %s" % self.mission_file)
-            mission_xml = self.make_env_string()
+            time.sleep(0.01)
 
-            my_mission = MalmoPython.MissionSpec(mission_xml, True)
-            my_mission.allowAllDiscreteMovementCommands()
+
+         
             
-            # print("\nMap %d - Mission %d of %d:" % ( imap, i+1, num_repeats ))
             my_mission_record = malmoutils.get_default_recording_object(self.agent_host, "./save_%s-map%d-rep%d" % (0,0,0)) #(expID, imap, i))
-        # self.agent_host.addOptionalFloatArgument('recording_dir',"malmo_recording")
-                    # my_mission.drawBlock(0,204,0,"stone")
-            # my_mission.drawBlock(2,204,2,"stone")
 
-            my_mission.drawCuboid(-3,203,-3,3,203,3,"bedrock")    
-            my_mission.drawCuboid(-30,203,-10,-3,227,10,"bedrock")
-            my_mission.drawCuboid(3,203,-10,30,227,10,"bedrock")  
-            my_mission.drawCuboid(-3,203,3,3,227,10,"bedrock")  
-            my_mission.drawCuboid(-3,203,-10,3,227,-3,"bedrock")
-
-            my_mission.drawCuboid(-2,204,-2,2,270,2,"air") 
-            my_mission.drawItem(2,206,2,"diamond_pickaxe")
-            my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"stone")
+            my_mission = self.build_mission_env(self.mission_type)
+     
             for retry in range(self.max_retries):
                 try:
-                             # <DrawItem    x="4"   y="46"  z="12" type="diamond_axe" /> 
-
-                    # my_mission.drawItem(random.randint(0,5)-2,206,random.randint(0,5)-2,"diamond_pickaxe")
-          
                     self.agent_host.startMission( my_mission, self.my_clients, my_mission_record, self.agentID, "%s-%d" % (0,0) )#(expID, i) )
                     break
                 except RuntimeError as e:
@@ -258,13 +322,19 @@ class MalmoEnvSpecial(gym.Env):
     def render(self, mode='human', close=False):
         pass
 
-    def make_env_string(self):
+    def make_env_string(self,mission_type,draw_entities=[]):
         base = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?><Mission xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'
-        base+='<About><Summary>Running pickaxe-stone mission...</Summary></About>'
+        base+='<About><Summary>Running {}...</Summary></About>'.format(mission_type)
         base+= '<ModSettings><MsPerTick>1</MsPerTick></ModSettings>'
         base+= '<ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime>'
         base+= '</Time><Weather>clear</Weather><AllowSpawning>false</AllowSpawning></ServerInitialConditions><ServerHandlers><FlatWorldGenerator />' 
-        base+= '<DrawingDecorator></DrawingDecorator>'
+        base+= '<DrawingDecorator>'
+
+        for entity_info in draw_entities:
+            base+=entity_info
+
+
+        base+='</DrawingDecorator>'
         base+= '<ServerQuitFromTimeUp timeLimitMs="10000000"/><ServerQuitWhenAnyAgentFinishes/></ServerHandlers></ServerSection>'
         base+= '<AgentSection mode="Survival"><Name>agent</Name><AgentStart><Placement x="-1.5" y="204" z="-1.5" pitch="50" yaw="0"/>'
         base+= '<Inventory></Inventory>'
@@ -278,6 +348,7 @@ class MalmoEnvSpecial(gym.Env):
         base+='<DiscreteMovementCommands><ModifierList type="deny-list"><command>attack</command></ModifierList></DiscreteMovementCommands>'
         base+='<ContinuousMovementCommands><ModifierList type="allow-list"><command>attack</command></ModifierList>'
         base+='</ContinuousMovementCommands><MissionQuitCommands quitDescription="done"/>'
+        base+='<AbsoluteMovementCommands><ModifierList type="deny-list"></ModifierList></AbsoluteMovementCommands>'
         base+='</AgentHandlers></AgentSection></Mission>'
         return base
 

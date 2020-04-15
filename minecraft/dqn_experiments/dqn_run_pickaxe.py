@@ -18,8 +18,9 @@ import tensorflow as tf
 import sys
 from DQN import DQNSolver
 
-
+sys.path = [x for x in sys.path if x != 'c:\\users\\zach_surf\\documents\\github\\pytorch-a2c-ppo-acktr-gail']
 sys.path.append('../.')
+
 from malmo_specialized_env import MalmoEnvSpecial  
 
 
@@ -107,14 +108,20 @@ if __name__ == "__main__":
     checkpoint = ""
 
     print("initializing environment...")
-    env = MalmoEnvSpecial()
+    # env = MalmoEnvSpecial("pickaxe_stone")
+    env = MalmoEnvSpecial("axe_log")
+    # env = MalmoEnvSpecial("shears_sheep")
+
+    #env = MalmoEnvSpecial("sword_cow")
+
     env.setup()
 
     
     agent = DQNAgent(actions=env.action_space.n,observation_space=env.observation_space)
     print(agent.dqn_solver.network.model.summary())
     if eval_mode:
-        agent.dqn_solver.network.model.load_weights('./checkpoints_sixth_try/checkpoint_800')
+        pass
+        # agent.dqn_solver.network.model.load_weights('./checkpoints_sixth_try/checkpoint_800')
     agent.dqn_solver.network.model
     cumulative_rewards_val = []
     cumulative_rewards = []
