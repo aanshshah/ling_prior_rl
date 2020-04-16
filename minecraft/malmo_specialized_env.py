@@ -41,7 +41,7 @@ class MalmoEnvSpecial(gym.Env):
             state_data_raw = state_data_raw['floor9x9']
         else:
             print("FAILED") 
-            return np.zeros((2,self.observation_space.shape[-2],self.observation_space.shape[-1])) #self.observation_space
+            return np.zeros((1,2,self.observation_space.shape[-2],self.observation_space.shape[-1])) #self.observation_space
 
         state_data = [self.state_map[block] if block in self.state_map else 0 for block in state_data_raw]
 
@@ -93,7 +93,7 @@ class MalmoEnvSpecial(gym.Env):
             relative_x = entity_loc[0] - player_loc[0] + 1 + zero_x
             relative_z = entity_loc[1] - player_loc[1] + 1 +  zero_z
             # print("coords",relative_x,relative_z)
-            entity_states[0][min(int(relative_z),8)][min(int(relative_x),8)] = self.entity_map[e["name"]]
+            entity_states[0][math.floor(relative_z)][math.floor(relative_x)] = self.entity_map[e["name"]]
         return entity_states #np.transpose(entity_states,(0,2,1))
 
 
@@ -215,7 +215,7 @@ class MalmoEnvSpecial(gym.Env):
 
         self.state_map = mission_param["state_map"]
         self.entity_map = mission_param["entity_map"]
-        self.relevant_entities =  mission_param["relevant_entities"] = {"diamond_pickaxe":1,"cobblestone":2}
+        self.relevant_entities =  mission_param["relevant_entities"]
         self.goal = mission_param["goal"]
         self.step_cost =  mission_param["step_cost"]
         self.goal_reward  =  mission_param["goal_reward"]
@@ -226,8 +226,11 @@ class MalmoEnvSpecial(gym.Env):
         self.agent_host.addOptionalFlag('debug', 'Turn on debugging.')
 
         malmoutils.parse_command_line(self.agent_host,["--recording_dir","malmo_recording"]) 
+        
         self.actions =["movenorth 1","movesouth 1", "movewest 1", "moveeast 1","stay"] #,"strafe 1","strafe -1"] #,"attack 1","attack 0"]
+
         self.observation_space = np.zeros((2,9,9))
+
         self.action_space = gym.spaces.Discrete(len(self.actions))
 
         self.my_clients = MalmoPython.ClientPool()
@@ -264,7 +267,7 @@ class MalmoEnvSpecial(gym.Env):
             done = not still_running
             reward = self.step_cost
         
-        obs = self.obs_to_vector(world_state) if world_state.is_mission_running else self.observation_space
+        obs = self.obs_to_vector(world_state) if world_state.is_mission_running else np.zeros((1,self.observation_space.shape[-2],self.observation_space.shape[-1]))
         info = {}
 
         self.num_steps+=1
@@ -276,10 +279,8 @@ class MalmoEnvSpecial(gym.Env):
             # mission_file = agent_host.getStringArgument('mission_file')
             self.num_steps = 0
             self.agent_host.sendCommand("quit")
-            time.sleep(0.01)
+            # time.sleep(0.01)
 
-
-         
             
             my_mission_record = malmoutils.get_default_recording_object(self.agent_host, "./save_%s-map%d-rep%d" % (0,0,0)) #(expID, imap, i))
 
@@ -300,7 +301,7 @@ class MalmoEnvSpecial(gym.Env):
             world_state = self.agent_host.getWorldState()
             while not world_state.has_mission_begun:
                 print(".", end="")
-                time.sleep(0.1)
+                # time.sleep(0.1)
                 world_state = self.agent_host.getWorldState()
                 for error in world_state.errors:
                     print("Error:",error.text)
@@ -352,6 +353,10 @@ class MalmoEnvSpecial(gym.Env):
         base+='</AgentHandlers></AgentSection></Mission>'
         return base
 
+
+
+
+
 if __name__ == "__main__":
     print("starting server...")
     current_dir = os.getcwd()
@@ -361,7 +366,7 @@ if __name__ == "__main__":
     os.chdir(current_dir)
 
     print("initializing environment...")
-    env = MalmoEnvSpecial()
+    env = MalmoEnvSpecial("pickaxe_stone")
     obs = env.reset()
     for step in range(5):
         print("\n",step)
