@@ -8,19 +8,19 @@
 	<body>
 		<h1>Minecraft Knowledge Graph Visualization</h1>
 		<p>
-			Click on the button below to see all the available entities in the knowledge graph or to search for a specific one. Upon selection, all the connections will be displayed. You can click interact with the graph by clicking on a node, which will only display the most immediate connections. By selecting the same node a second time, the entire graph from the previously selected entity will be displayed. The edges between the nodes have different colors to distinguish how nodes are related: <br>
+			Click on the button below to see all the available entities in the knowledge graph or to search for a specific one. Upon selection, all the connections will be displayed in an interactive graph. You can interact with the graph by clicking on a node, which will only display the most immediate connections in a subgraph. By selecting the same node a second time, the entire graph from the previously selected entity will be displayed. The edges between the nodes have different colors to distinguish how nodes are related: <br>
 			Red: RelatedTo <br>
 			Blue: UsedFor <br>
 			Green: AtLocation <br>
 			Purple: IsA <br>
 			Grey: PartOf <br> <br>
 
-			After clicking a node, additional information about the node will appear.
+			In addition, after clicking a node, additional information about the node will appear.
 		</p>
 	<div class="dropdown">
   <button onclick="myFunction();" class="dropbtn">Choose Entity</button>
   <div id="myDropdown" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <input type="text" placeholder="search..." id="myInput" onkeyup="filterFunction()">
   </div>
 </div>
 <script src="d3.v4.min.js"></script>
