@@ -33,6 +33,9 @@ class MalmoEnvSpecial(gym.Env):
                     return True
         return False
 
+    def checkBlockExists(self,obs, requested):
+        return 'floor9x9' in obs and requested in obs['floor9x9']
+
     def obs_to_vector(self,world_state,use_entities=True):
 
         state_data_raw = json.loads(world_state.observations[-1].text)
@@ -128,6 +131,15 @@ class MalmoEnvSpecial(gym.Env):
             mission_dict["goal_reward"] = 100
             mission_dict["max_steps"] = 150
 
+        elif mission_type == "hoe_farmland":
+            mission_dict["state_map"] = {"air":0,"bedrock":1,"dirt":2,"farmland":3}
+            mission_dict["entity_map"] = {"diamond_hoe":1,"dirt":2,"farmland":3}
+            mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
+            mission_dict["goal"] = "farmland"
+            mission_dict["step_cost"] = -0.1
+            mission_dict["goal_reward"] = 100
+            mission_dict["max_steps"] = 150
+
         elif mission_type == "sword_pig":
             mission_dict["state_map"] = {"air":0,"bedrock":1}
             mission_dict["entity_map"] = {"diamond_sword":1,"pig":2}
@@ -198,6 +210,13 @@ class MalmoEnvSpecial(gym.Env):
             my_mission.allowAllDiscreteMovementCommands()  
             my_mission.drawItem(2,206,2,"diamond_shovel")
             my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"clay")
+
+        elif  mission_type == "hoe_farmland":   
+            mission_xml = self.make_env_string(self.mission_type,arena_xml)
+            my_mission = MalmoPython.MissionSpec(mission_xml, True)
+            my_mission.allowAllDiscreteMovementCommands()  
+            my_mission.drawItem(2,206,2,"diamond_hoe")
+            my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"dirt")
 
         elif  mission_type == "sword_pig":     
             pig_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
@@ -277,8 +296,14 @@ class MalmoEnvSpecial(gym.Env):
                 break
 
         still_running = world_state.is_mission_running and self.num_steps < self.max_steps - 1
+        
+        if self.mission_type == "hoe_farmland":
+            reached_goal = self.checkBlockExists(json.loads(world_state.observations[-1].text),self.goal)
+        else:
+            reached_goal = self.checkInventoryForItem(json.loads(world_state.observations[-1].text),self.goal)
 
-        if still_running and self.checkInventoryForItem(json.loads(world_state.observations[-1].text),self.goal):
+
+        if still_running and reached_goal:
             done = True
             reward = self.goal_reward
             # exit()
@@ -329,7 +354,7 @@ class MalmoEnvSpecial(gym.Env):
             while world_state.is_mission_running:
                 world_state = self.agent_host.getWorldState()
                 if world_state.number_of_observations_since_last_state > 0:
-                    if self.mission_type == "shears_sheep": 
+                    if self.mission_type == "shears_sheep" or self.mission_type == "hoe_farmland": 
                         self.agent_host.sendCommand("use 1")
                     else:
                         self.agent_host.sendCommand("attack 1")
