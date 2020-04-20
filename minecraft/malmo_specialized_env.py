@@ -140,6 +140,16 @@ class MalmoEnvSpecial(gym.Env):
             mission_dict["goal_reward"] = 100
             mission_dict["max_steps"] = 150
 
+        elif mission_type == "bucket_water":
+            mission_dict["state_map"] = {"air":0,"bedrock":1,"water":2}
+            mission_dict["entity_map"] = {"bucket":1,"water_bucket":2}
+            mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
+            mission_dict["goal"] = "water_bucket"
+            mission_dict["step_cost"] = -0.1
+            mission_dict["goal_reward"] = 100
+            mission_dict["max_steps"] = 150
+
+
         elif mission_type == "sword_pig":
             mission_dict["state_map"] = {"air":0,"bedrock":1}
             mission_dict["entity_map"] = {"diamond_sword":1,"pig":2}
@@ -217,6 +227,13 @@ class MalmoEnvSpecial(gym.Env):
             my_mission.allowAllDiscreteMovementCommands()  
             my_mission.drawItem(2,206,2,"diamond_hoe")
             my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"dirt")
+
+        elif  mission_type == "bucket_water":   
+            mission_xml = self.make_env_string(self.mission_type,arena_xml)
+            my_mission = MalmoPython.MissionSpec(mission_xml, True)
+            my_mission.allowAllDiscreteMovementCommands()  
+            my_mission.drawItem(2,206,2,"bucket")
+            my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"water")
 
         elif  mission_type == "sword_pig":     
             pig_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
@@ -354,7 +371,7 @@ class MalmoEnvSpecial(gym.Env):
             while world_state.is_mission_running:
                 world_state = self.agent_host.getWorldState()
                 if world_state.number_of_observations_since_last_state > 0:
-                    if self.mission_type == "shears_sheep" or self.mission_type == "hoe_farmland": 
+                    if self.mission_type in  {"shears_sheep","hoe_farmland","bucket_water"}:
                         self.agent_host.sendCommand("use 1")
                     else:
                         self.agent_host.sendCommand("attack 1")
