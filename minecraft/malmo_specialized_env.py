@@ -62,9 +62,11 @@ class MalmoEnvSpecial(gym.Env):
             if abs(math.floor(player_loc[0])-player_loc[0]) != 0.5:
                 new_x = round(player_loc[0]-0.5)+0.5
                 self.agent_host.sendCommand("tpx {}".format(new_x))
+                print("FIXED X")
             if abs(math.floor(player_loc[1])-player_loc[1]) != 0.5:
                 new_z = round(player_loc[1]-0.5)+0.5
                 self.agent_host.sendCommand("tpz {}".format(new_z))
+                print("FIXED Z")
 
 
 
@@ -133,7 +135,7 @@ class MalmoEnvSpecial(gym.Env):
             mission_dict["goal"] = "beef"
             mission_dict["step_cost"] = -0.1
             mission_dict["goal_reward"] = 100
-            mission_dict["max_steps"] = 250
+            mission_dict["max_steps"] = 150
 
         elif mission_type == "shears_sheep":
             mission_dict["state_map"] = {"air":0,"bedrock":1}
@@ -180,20 +182,19 @@ class MalmoEnvSpecial(gym.Env):
             my_mission.drawItem(2,206,2,"diamond_axe")
             my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"log")
 
-        # elif  mission_type == "sword_pig":     
+        elif  mission_type == "sword_pig":     
+            pig_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
+            mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawEntity x="{}" y="{}" z="{}" type="Pig" />'.format(pig_pos[0],204,pig_pos[1]) ])
+            my_mission = MalmoPython.MissionSpec(mission_xml, True)
+            my_mission.allowAllDiscreteMovementCommands()
+            my_mission.drawItem(2,206,2,"diamond_sword")
 
-        #     pig_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
-        #     mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawEntity x="{}" y="{}" z="{}" type="Pig" />'.format(pig_pos[0],204,pig_pos[1]) ])
-        #     my_mission = MalmoPython.MissionSpec(mission_xml, True)
-        #     my_mission.allowAllDiscreteMovementCommands()
-        #     my_mission.drawItem(2,206,2,"diamond_sword")
-
-        # elif  mission_type == "sword_cow":     
-        #     cow_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
-        #     mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawEntity x="{}" y="{}" z="{}" type="Cow" />'.format(cow_pos[0],204,cow_pos[1]) ])
-        #     my_mission = MalmoPython.MissionSpec(mission_xml, True)
-        #     my_mission.allowAllDiscreteMovementCommands()
-        #     my_mission.drawItem(2,206,2,"diamond_sword")
+        elif  mission_type == "sword_cow":     
+            cow_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
+            mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawEntity x="{}" y="{}" z="{}" type="Cow" />'.format(cow_pos[0],204,cow_pos[1]) ])
+            my_mission = MalmoPython.MissionSpec(mission_xml, True)
+            my_mission.allowAllDiscreteMovementCommands()
+            my_mission.drawItem(2,206,2,"diamond_sword")
 
         elif  mission_type == "shears_sheep":     
             sheep_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
@@ -243,13 +244,13 @@ class MalmoEnvSpecial(gym.Env):
        
     def step(self, action):
         world_state = self.agent_host.getWorldState()
-        # self.fix_player_location(world_state) #needed for mob worlds
+        self.fix_player_location(world_state) #needed for mob worlds
         action_chosen = self.actions[action]
         if action_chosen != "stay": self.agent_host.sendCommand(action_chosen)
         
-        if self.mission_type == "shears_sheep": 
-            self.agent_host.sendCommand("attack 0")
-            self.agent_host.sendCommand("use")
+        # if self.mission_type == "shears_sheep": 
+        #     # self.agent_host.sendCommand("attack 0")
+        #     self.agent_host.sendCommand("use 1")
 
 
         # time.sleep(0.1)
@@ -263,6 +264,7 @@ class MalmoEnvSpecial(gym.Env):
         if still_running and self.checkInventoryForItem(json.loads(world_state.observations[-1].text),self.goal):
             done = True
             reward = self.goal_reward
+            print("TERMINATED")
         else:
             done = not still_running
             reward = self.step_cost
@@ -271,6 +273,7 @@ class MalmoEnvSpecial(gym.Env):
         info = {}
 
         self.num_steps+=1
+        print(self.num_steps)
 
         return obs, reward, done, info
 
@@ -308,7 +311,11 @@ class MalmoEnvSpecial(gym.Env):
             while world_state.is_mission_running:
                 world_state = self.agent_host.getWorldState()
                 if world_state.number_of_observations_since_last_state > 0:
-                    self.agent_host.sendCommand("attack 1")
+                    if self.mission_type == "shears_sheep": 
+                        self.agent_host.sendCommand("use 1")
+                    else:
+                        self.agent_host.sendCommand("attack 1")
+
                     return self.obs_to_vector(world_state)
             return None
 
@@ -346,8 +353,8 @@ class MalmoEnvSpecial(gym.Env):
 
         base+='<ObservationFromNearbyEntities><Range name="entities" xrange="5" yrange="3" zrange="5"/></ObservationFromNearbyEntities>'
         base+='<ObservationFromFullInventory/><ObservationFromFullStats/><VideoProducer want_depth="false"><Width>640</Width><Height>480</Height></VideoProducer>'
-        base+='<DiscreteMovementCommands><ModifierList type="deny-list"><command>attack</command></ModifierList></DiscreteMovementCommands>'
-        base+='<ContinuousMovementCommands><ModifierList type="allow-list"><command>attack</command></ModifierList>'
+        base+='<DiscreteMovementCommands><ModifierList type="deny-list"><command>attack</command><command>use</command></ModifierList></DiscreteMovementCommands>'
+        base+='<ContinuousMovementCommands><ModifierList type="allow-list"><command>attack</command><command>use</command></ModifierList>'
         base+='</ContinuousMovementCommands><MissionQuitCommands quitDescription="done"/>'
         base+='<AbsoluteMovementCommands><ModifierList type="deny-list"></ModifierList></AbsoluteMovementCommands>'
         base+='</AgentHandlers></AgentSection></Mission>'
@@ -366,7 +373,7 @@ if __name__ == "__main__":
     os.chdir(current_dir)
 
     print("initializing environment...")
-    env = MalmoEnvSpecial("pickaxe_stone")
+    env = MalmoEnvSpecial("shears_sheep")
     obs = env.reset()
     for step in range(5):
         print("\n",step)

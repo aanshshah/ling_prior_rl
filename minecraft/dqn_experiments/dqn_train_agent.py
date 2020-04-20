@@ -102,15 +102,19 @@ class DQNAgent(object):
 
 if __name__ == "__main__":
 
+    if len(sys.argv) != 3:
+        print("Usage: python dqn_train_agent [pickaxe_stone/axe_log/shears_sheep/sword_cow/sword_pig] <experiment name>")
+        exit()
     
-    experiment_name = "dqn_seventh_diff_param_try_000025_exp100_neg_01"
+    task = sys.argv[1]
+    experiment_name = task + "_" + sys.argv[2]
     eval_mode = False
     checkpoint = ""
 
     print("initializing environment...")
     # env = MalmoEnvSpecial("pickaxe_stone")
-    env = MalmoEnvSpecial("axe_log")
-    # env = MalmoEnvSpecial("shears_sheep")
+    # env = MalmoEnvSpecial("axe_log")
+    env = MalmoEnvSpecial(task)
 
     #env = MalmoEnvSpecial("sword_cow")
 
@@ -144,6 +148,6 @@ if __name__ == "__main__":
 
 
         if e % 100 == 0:
-            if not eval_mode: agent.dqn_solver.network.model.save_weights('./checkpoints_seventh_try/checkpoint_'+str(e))
+            if not eval_mode: agent.dqn_solver.network.model.save_weights('./'+experiment_name+'/checkpoint_'+str(e))
 
     print(cumulative_rewards)
