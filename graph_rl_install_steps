@@ -1,0 +1,19 @@
+conda create -n graph-rl python=3.7
+git clone https://github.com/IntelAI/graph-rl.git
+cd graph-rl
+git clone https://github.com/IDSIA/sacred.git
+cd sacred
+git checkout 51efc31382936503fc36919cf31bb3688b56f128
+python setup.py install
+cd ..
+git clone https://github.com/openai/baselines.git
+cd baselines
+pip install tensorflow-gpu==1.14
+pip install -e .
+pip install cloudpickle~=1.2.0
+cd ..
+pip install -e .
+pip install torch visdom_observer torchvision pycolab 
+python gen_commands/generate_environments.py
+
+python scripts/warehouse_v1/train_dqn.py with env_configs/warehouse_v1/one_one.json model_configs/reduce.json model_configs/qhead.json hyper_configs/slow.json agent.opt.kwargs.lr=1e-4 agent.min_train_episodes=40000
