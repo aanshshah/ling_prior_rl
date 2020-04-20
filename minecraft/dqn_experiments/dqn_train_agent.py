@@ -103,7 +103,7 @@ class DQNAgent(object):
 if __name__ == "__main__":
 
     if len(sys.argv) != 3:
-        print("Usage: python dqn_train_agent [pickaxe_stone/axe_log/shears_sheep/sword_cow/sword_pig] <experiment name>")
+        print("Usage: python dqn_train_agent [pickaxe_stone/axe_log/shovel_clay/shears_sheep/sword_cow/sword_pig] <experiment name>")
         exit()
     
     task = sys.argv[1]

@@ -119,6 +119,15 @@ class MalmoEnvSpecial(gym.Env):
             mission_dict["goal_reward"] = 100
             mission_dict["max_steps"] = 150
 
+        elif mission_type == "shovel_clay":
+            mission_dict["state_map"] = {"air":0,"bedrock":1,"clay":2}
+            mission_dict["entity_map"] = {"diamond_shovel":1,"clay":2}
+            mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
+            mission_dict["goal"] = "clay"
+            mission_dict["step_cost"] = -0.1
+            mission_dict["goal_reward"] = 100
+            mission_dict["max_steps"] = 150
+
         elif mission_type == "sword_pig":
             mission_dict["state_map"] = {"air":0,"bedrock":1}
             mission_dict["entity_map"] = {"diamond_sword":1,"pig":2}
@@ -126,7 +135,7 @@ class MalmoEnvSpecial(gym.Env):
             mission_dict["goal"] = "porkchop"
             mission_dict["step_cost"] = -0.1
             mission_dict["goal_reward"] = 100
-            mission_dict["max_steps"] = 150
+            mission_dict["max_steps"] = 250
 
         elif mission_type == "sword_cow":
             mission_dict["state_map"] = {"air":0,"bedrock":1}
@@ -135,7 +144,7 @@ class MalmoEnvSpecial(gym.Env):
             mission_dict["goal"] = "beef"
             mission_dict["step_cost"] = -0.1
             mission_dict["goal_reward"] = 100
-            mission_dict["max_steps"] = 150
+            mission_dict["max_steps"] = 250
 
         elif mission_type == "shears_sheep":
             mission_dict["state_map"] = {"air":0,"bedrock":1}
@@ -144,7 +153,7 @@ class MalmoEnvSpecial(gym.Env):
             mission_dict["goal"] = "wool"
             mission_dict["step_cost"] = -0.1
             mission_dict["goal_reward"] = 100
-            mission_dict["max_steps"] = 150
+            mission_dict["max_steps"] = 100
 
         if len(mission_dict) == 0:
             print("Invalid mission name:",mission_type)
@@ -181,6 +190,14 @@ class MalmoEnvSpecial(gym.Env):
             my_mission.allowAllDiscreteMovementCommands()  
             my_mission.drawItem(2,206,2,"diamond_axe")
             my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"log")
+
+        elif  mission_type == "shovel_clay":   
+
+            mission_xml = self.make_env_string(self.mission_type,arena_xml)
+            my_mission = MalmoPython.MissionSpec(mission_xml, True)
+            my_mission.allowAllDiscreteMovementCommands()  
+            my_mission.drawItem(2,206,2,"diamond_shovel")
+            my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"clay")
 
         elif  mission_type == "sword_pig":     
             pig_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
@@ -264,7 +281,8 @@ class MalmoEnvSpecial(gym.Env):
         if still_running and self.checkInventoryForItem(json.loads(world_state.observations[-1].text),self.goal):
             done = True
             reward = self.goal_reward
-            print("TERMINATED")
+            # exit()
+            # print("TERMINATED")
         else:
             done = not still_running
             reward = self.step_cost
@@ -273,7 +291,7 @@ class MalmoEnvSpecial(gym.Env):
         info = {}
 
         self.num_steps+=1
-        print(self.num_steps)
+        # print(self.num_steps)
 
         return obs, reward, done, info
 
@@ -333,7 +351,7 @@ class MalmoEnvSpecial(gym.Env):
     def make_env_string(self,mission_type,draw_entities=[]):
         base = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?><Mission xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'
         base+='<About><Summary>Running {}...</Summary></About>'.format(mission_type)
-        base+= '<ModSettings><MsPerTick>1</MsPerTick></ModSettings>'
+        base+= '<ModSettings><MsPerTick>1</MsPerTick></ModSettings>' #1
         base+= '<ServerSection><ServerInitialConditions><Time><StartTime>6000</StartTime><AllowPassageOfTime>false</AllowPassageOfTime>'
         base+= '</Time><Weather>clear</Weather><AllowSpawning>false</AllowSpawning></ServerInitialConditions><ServerHandlers><FlatWorldGenerator />' 
         base+= '<DrawingDecorator>'
@@ -344,7 +362,7 @@ class MalmoEnvSpecial(gym.Env):
 
         base+='</DrawingDecorator>'
         base+= '<ServerQuitFromTimeUp timeLimitMs="10000000"/><ServerQuitWhenAnyAgentFinishes/></ServerHandlers></ServerSection>'
-        base+= '<AgentSection mode="Survival"><Name>agent</Name><AgentStart><Placement x="-1.5" y="204" z="-1.5" pitch="50" yaw="0"/>'
+        base+= '<AgentSection mode="Survival"><Name>agent</Name><AgentStart><Placement x="-1.5" y="204" z="-1.5" pitch="50" yaw="0"/>' #50
         base+= '<Inventory></Inventory>'
 
         base+='</AgentStart>'
