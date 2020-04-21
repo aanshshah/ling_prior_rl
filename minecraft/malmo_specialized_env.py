@@ -36,7 +36,7 @@ class MalmoEnvSpecial(gym.Env):
     def checkBlockExists(self,obs, requested):
         return 'floor9x9' in obs and requested in obs['floor9x9']
 
-    def obs_to_vector(self,world_state,use_entities=True):
+    def obs_to_vector(self,world_state,use_entities=True,flatten=False,expand_dims=True):
 
         state_data_raw = json.loads(world_state.observations[-1].text)
         
@@ -51,8 +51,14 @@ class MalmoEnvSpecial(gym.Env):
         state_data =np.reshape(np.array(state_data,dtype=np.float64),(1,9,9))
         if use_entities: 
             entity_data = self.obs_to_ent_vector(world_state,self.relevant_entities)
-            state_data = np.concatenate((state_data,entity_data),axis=0)
-        return np.expand_dims(state_data,0)
+            if flatten:
+                print(entity_data)
+                state_data[np.nonzero(entity_data)] = 0
+                state_data = state_data + entity_data
+            else:
+                state_data = np.concatenate((state_data,entity_data),axis=0)
+
+        return np.expand_dims(state_data,0) if expand_dims else state_data
 
 
     
@@ -80,6 +86,7 @@ class MalmoEnvSpecial(gym.Env):
         entity_data = json.loads(world_state.observations[-1].text)['entities']
         # print(entity_data)
         player_data = [x for x in entity_data if x["name"]=="agent"][0]
+        # print(entity_data)
         entities =  [x for x in entity_data if x["name"] in relevant_entities]
         
         entity_states = np.zeros((1,self.observation_space.shape[-2],self.observation_space.shape[-1]))
@@ -106,8 +113,8 @@ class MalmoEnvSpecial(gym.Env):
         mission_dict = {}
         if mission_type == "pickaxe_stone":
             mission_dict["state_map"] = {"air":0,"bedrock":1,"stone":2}
-            mission_dict["entity_map"] = {"diamond_pickaxe":1,"cobblestone":2}
-            mission_dict["relevant_entities"] = {"diamond_pickaxe":1,"cobblestone":2}
+            mission_dict["entity_map"] = {"diamond_pickaxe":3,"cobblestone":4}
+            mission_dict["relevant_entities"] = {"diamond_pickaxe","cobblestone"}
             mission_dict["goal"] = "cobblestone"
             mission_dict["step_cost"] = -0.1
             mission_dict["goal_reward"] = 100
@@ -115,7 +122,7 @@ class MalmoEnvSpecial(gym.Env):
 
         elif mission_type == "axe_log":
             mission_dict["state_map"] = {"air":0,"bedrock":1,"log":2}
-            mission_dict["entity_map"] = {"diamond_axe":1,"log":2}
+            mission_dict["entity_map"] = {"diamond_axe":3,"log":4}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "log"
             mission_dict["step_cost"] = -0.1
@@ -124,7 +131,7 @@ class MalmoEnvSpecial(gym.Env):
 
         elif mission_type == "shovel_clay":
             mission_dict["state_map"] = {"air":0,"bedrock":1,"clay":2}
-            mission_dict["entity_map"] = {"diamond_shovel":1,"clay":2}
+            mission_dict["entity_map"] = {"diamond_shovel":3,"clay":4}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "clay"
             mission_dict["step_cost"] = -0.1
@@ -132,8 +139,8 @@ class MalmoEnvSpecial(gym.Env):
             mission_dict["max_steps"] = 150
 
         elif mission_type == "hoe_farmland":
-            mission_dict["state_map"] = {"air":0,"bedrock":1,"dirt":2,"farmland":3}
-            mission_dict["entity_map"] = {"diamond_hoe":1,"dirt":2,"farmland":3}
+            mission_dict["state_map"] = {"air":0,"bedrock":1,"dirt":2,"farmland":6}
+            mission_dict["entity_map"] = {"diamond_hoe":3,"dirt":4,"farmland":5}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "farmland"
             mission_dict["step_cost"] = -0.1
@@ -142,7 +149,7 @@ class MalmoEnvSpecial(gym.Env):
 
         elif mission_type == "bucket_water":
             mission_dict["state_map"] = {"air":0,"bedrock":1,"water":2}
-            mission_dict["entity_map"] = {"bucket":1,"water_bucket":2}
+            mission_dict["entity_map"] = {"bucket":3,"water_bucket":4}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "water_bucket"
             mission_dict["step_cost"] = -0.1
@@ -152,7 +159,7 @@ class MalmoEnvSpecial(gym.Env):
 
         elif mission_type == "sword_pig":
             mission_dict["state_map"] = {"air":0,"bedrock":1}
-            mission_dict["entity_map"] = {"diamond_sword":1,"pig":2}
+            mission_dict["entity_map"] = {"diamond_sword":1,"Pig":2}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "porkchop"
             mission_dict["step_cost"] = -0.1
@@ -161,7 +168,7 @@ class MalmoEnvSpecial(gym.Env):
 
         elif mission_type == "sword_cow":
             mission_dict["state_map"] = {"air":0,"bedrock":1}
-            mission_dict["entity_map"] = {"diamond_sword":1,"cow":2}
+            mission_dict["entity_map"] = {"diamond_sword":2,"Cow":3}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "beef"
             mission_dict["step_cost"] = -0.1
@@ -170,7 +177,7 @@ class MalmoEnvSpecial(gym.Env):
 
         elif mission_type == "shears_sheep":
             mission_dict["state_map"] = {"air":0,"bedrock":1}
-            mission_dict["entity_map"] = {"shears":1,"sheep":2}
+            mission_dict["entity_map"] = {"shears":2,"Sheep":3}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "wool"
             mission_dict["step_cost"] = -0.1
@@ -411,7 +418,7 @@ class MalmoEnvSpecial(gym.Env):
         base+='<AgentHandlers>'
         base+='<ObservationFromGrid> <Grid name="floor9x9"> <min x="-4" y="0" z="-4"/> <max x="4" y="0" z="4"/> </Grid> </ObservationFromGrid>'
 
-        base+='<ObservationFromNearbyEntities><Range name="entities" xrange="5" yrange="3" zrange="5"/></ObservationFromNearbyEntities>'
+        base+='<ObservationFromNearbyEntities><Range name="entities" xrange="5" yrange="5" zrange="5"/></ObservationFromNearbyEntities>'
         base+='<ObservationFromFullInventory/><ObservationFromFullStats/><VideoProducer want_depth="false"><Width>640</Width><Height>480</Height></VideoProducer>'
         base+='<DiscreteMovementCommands><ModifierList type="deny-list"><command>attack</command><command>use</command></ModifierList></DiscreteMovementCommands>'
         base+='<ContinuousMovementCommands><ModifierList type="allow-list"><command>attack</command><command>use</command></ModifierList>'
@@ -435,11 +442,11 @@ if __name__ == "__main__":
     print("initializing environment...")
     env = MalmoEnvSpecial("shears_sheep")
     obs = env.reset()
-    for step in range(5):
+    for step in range(100):
         print("\n",step)
         command = int(input())
         obs, reward, done, info = env.step(command)
-        print(obs[0])
+        print(obs)
         print(reward)
         # time.sleep(1)
 
