@@ -27,51 +27,7 @@ import malmoenv
 import malmoenv.bootstrap
 
 import argparse
-# from pathlib import Path
 import time
-# from PIL import Image
-
-# if __name__ == '__main__':
-#     env = malmoenv.make()
-
-    # args = parser.parse_args()
-    # if args.server2 is None:
-    #     args.server2 = args.server
-
-    # xml = Path(args.mission).read_text()
-    # env = malmoenv.make()
-
-    # env.init(xml, args.port,
-    #          server=args.server,
-    #          server2=args.server2, port2=args.port2,
-    #          role=args.role,
-    #          exp_uid=args.experimentUniqueId,
-    #          episode=args.episode, resync=args.resync)
-
-    # for i in range(args.episodes):
-    #     print("reset " + str(i))
-    #     obs = env.reset()
-
-    #     steps = 0
-    #     done = False
-    #     while not done and (args.episodemaxsteps <= 0 or steps < args.episodemaxsteps):
-    #         action = env.action_space.sample()
-
-    #         obs, reward, done, info = env.step(action)
-    #         steps += 1
-    #         print("reward: " + str(reward))
-    #         # print("done: " + str(done))
-    #         print("obs: " + str(obs))
-    #         # print("info" + info)
-    #         if args.saveimagesteps > 0 and steps % args.saveimagesteps == 0:
-    #             h, w, d = env.observation_space.shape
-    #             img = Image.fromarray(obs.reshape(h, w, d))
-    #             img.save('image' + str(args.role) + '_' + str(steps) + '.png')
-
-    #         time.sleep(.05)
-
-    # env.close()
-    # print("ran")
 
 class MalmoEnvSpecial(gym.Env):
     def checkInventoryForItem(self,obs, requested):
@@ -86,7 +42,7 @@ class MalmoEnvSpecial(gym.Env):
     def checkBlockExists(self,obs, requested):
         return 'floor9x9' in obs and requested in obs['floor9x9']
 
-    def obs_to_vector(self,world_state,use_entities=True,flatten=False,expand_dims=True):
+    def obs_to_vector(self,world_state,use_entities=True,flatten=True,expand_dims=True):
 
         state_data_raw = json.loads(world_state) #.observations[-1].text)
         
@@ -109,9 +65,7 @@ class MalmoEnvSpecial(gym.Env):
                 state_data = np.concatenate((state_data,entity_data),axis=0)
 
         return np.expand_dims(state_data,0) if expand_dims else state_data
-
-
-    
+ 
     def fix_player_location(self,world_state):
         if len(world_state.observations) > 0:
             entity_data = json.loads(world_state.observations[-1].text)['entities']
@@ -126,10 +80,6 @@ class MalmoEnvSpecial(gym.Env):
                 new_z = round(player_loc[1]-0.5)+0.5
                 self.agent_host.sendCommand("tpz {}".format(new_z))
                 print("FIXED Z")
-
-
-
-
 
     def obs_to_ent_vector(self,world_state,relevant_entities):
 
@@ -257,66 +207,31 @@ class MalmoEnvSpecial(gym.Env):
          if mission_type == "pickaxe_stone":  
 
              mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawBlock x="{}" y="{}" z="{}" type="stone" />'.format(random.randint(0,4)-2,204,random.randint(1,3)-2),'<DrawItem x="{}" y="{}" z="{}" type="diamond_pickaxe" />'.format(2,206,2) ])
-             #mission_xml = self.make_env_string(self.mission_type,[arena_xml])
-            # my_mission = MalmoPython.MissionSpec(mission_xml, True)
-           #  my_mission.allowAllDiscreteMovementCommands() 
-            #my_mission.drawItem(2,206,2,"diamond_pickaxe")
-            #my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"stone")
-
+ 
          elif  mission_type == "axe_log":   
              mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawBlock x="{}" y="{}" z="{}" type="log" />'.format(random.randint(0,4)-2,204,random.randint(1,3)-2),'<DrawItem x="{}" y="{}" z="{}" type="diamond_axe" />'.format(2,206,2) ])
-
-            # mission_xml = self.make_env_string(self.mission_type,arena_xml)
-           #  my_mission = MalmoPython.MissionSpec(mission_xml, True)
-            # my_mission.allowAllDiscreteMovementCommands()  
-            # my_mission.drawItem(2,206,2,"diamond_axe")
-            # my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"log")
 
          elif  mission_type == "shovel_clay":   
 
              mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawBlock x="{}" y="{}" z="{}" type="clay" />'.format(random.randint(0,4)-2,204,random.randint(1,3)-2),'<DrawItem x="{}" y="{}" z="{}" type="diamond_shovel" />'.format(2,206,2) ])
-        #     mission_xml = self.make_env_string(self.mission_type,arena_xml)
-           #  my_mission = MalmoPython.MissionSpec(mission_xml, True)
-             #my_mission.allowAllDiscreteMovementCommands()  
-       #      my_mission.drawItem(2,206,2,"diamond_shovel")
-      #       my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"clay")
 
          elif  mission_type == "hoe_farmland":   
-             #mission_xml = self.make_env_string(self.mission_type,arena_xml)
              mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawBlock x="{}" y="{}" z="{}" type="dirt" />'.format(random.randint(0,4)-2,204,random.randint(1,3)-2),'<DrawItem x="{}" y="{}" z="{}" type="diamond_hoe" />'.format(2,206,2) ])
-          #   my_mission = MalmoPython.MissionSpec(mission_xml, True)
-          #   my_mission.allowAllDiscreteMovementCommands()  
-             #my_mission.drawItem(2,206,2,"diamond_hoe")
-             #my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"dirt")
 
          elif  mission_type == "bucket_water":   
-             #mission_xml = self.make_env_string(self.mission_type,arena_xml)
              mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawBlock x="{}" y="{}" z="{}" type="water" />'.format(random.randint(0,4)-2,204,random.randint(1,3)-2),'<DrawItem x="{}" y="{}" z="{}" type="bucket" />'.format(2,206,2) ])
-           #  my_mission = MalmoPython.MissionSpec(mission_xml, True)
-           #  my_mission.allowAllDiscreteMovementCommands()  
-           #  my_mission.drawItem(2,206,2,"bucket")
-           #  my_mission.drawBlock(random.randint(0,4)-2,204,random.randint(1,3)-2,"water")
 
          elif  mission_type == "sword_pig":     
              pig_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
              mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawEntity x="{}" y="{}" z="{}" type="Pig" />'.format(cow_pos[0],204,cow_pos[1]),'<DrawItem x="{}" y="{}" z="{}" type="diamond_sword" />'.format(2,206,2) ])
-         #    my_mission = MalmoPython.MissionSpec(mission_xml, True)
-         #    my_mission.allowAllDiscreteMovementCommands()
-           #  my_mission.drawItem(2,206,2,"diamond_sword")
 
          elif  mission_type == "sword_cow":     
              cow_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
              mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawEntity x="{}" y="{}" z="{}" type="Cow" />'.format(cow_pos[0],204,cow_pos[1]),'<DrawItem x="{}" y="{}" z="{}" type="diamond_sword" />'.format(2,206,2) ])
-        #     my_mission = MalmoPython.MissionSpec(mission_xml, True)
-       #      my_mission.allowAllDiscreteMovementCommands()
-         #    my_mission.drawItem(2,206,2,"diamond_sword")
 
          elif  mission_type == "shears_sheep":     
              sheep_pos = (random.randint(1,3)-2,random.randint(1,3)-2)
              mission_xml = self.make_env_string(self.mission_type,[arena_xml,'<DrawEntity x="{}" y="{}" z="{}" type="Sheep" />'.format(sheep_pos[0],204,sheep_pos[1]),'<DrawItem x="{}" y="{}" z="{}" type="shears" />'.format(2,206,2) ])
-         #    my_mission = MalmoPython.MissionSpec(mission_xml, True)
-      #       my_mission.allowAllDiscreteMovementCommands()
-       #      my_mission.drawItem(2,206,2,"shears")
 
          return mission_xml
 
@@ -336,67 +251,27 @@ class MalmoEnvSpecial(gym.Env):
         self.step_cost =  mission_param["step_cost"]
         self.goal_reward  =  mission_param["goal_reward"]
         self.max_steps =  mission_param["max_steps"]
-        mission = self.get_mission_xml(self.mission_type) #, args.port,
-        self.env.init(mission,server='127.0.0.1',port=port,exp_uid="test",role=0,episode=0,action_filter=self.actions) #, args.port,
-        #print("finished_env")
-        #print(self.env.action_space)
-        #exit()
-            # print("Waiting for the mission to start", end=' ')
-            # world_state = self.agent_host.getWorldState()
-            # while not world_state.has_mission_begun:
-            #     print(".", end="")
-            #     # time.sleep(0.1)
-            #     world_state = self.agent_host.getWorldState()
-            #     for error in world_state.errors:
-            #         print("Error:",error.text)
-            # while world_state.is_mission_running:
-            #     world_state = self.agent_host.getWorldState()
-            #     if world_state.number_of_observations_since_last_state > 0:
-            #         if self.mission_type in  {"shears_sheep","hoe_farmland","bucket_water"}:
-            #             self.agent_host.sendCommand("use 1")
-            #         else:
-            #             self.agent_host.sendCommand("attack 1")
-
-            #         return self.obs_to_vector(world_state)
-         #   return None
-
+        self.port = port
+        self.episode = 0
+        mission = self.get_mission_xml(self.mission_type)
+        self.env.init(mission,server='127.0.0.1',port=self.port,exp_uid="test",role=0,episode=self.episode,action_filter=self.actions) #, args.port,
+      
     def step(self,action):
-# world_state = self.agent_host.getWorldState()
-        # self.fix_player_location(world_state) #needed for mob worlds
-#        action_chosen = self.actions[action]
-        # if action_chosen != "stay": self.agent_host.sendCommand(action_chosen)
-        
-        # # if self.mission_type == "shears_sheep": 
-        # #     # self.agent_host.sendCommand("attack 0")
-        # #     self.agent_host.sendCommand("use 1")
-
-
-        # # time.sleep(0.1)
-        # while world_state.is_mission_running:
-        #     world_state = self.agent_host.getWorldState()
-        #     if world_state.number_of_observations_since_last_state > 0: # and world_state.number_of_rewards_since_last_state > 0:
-        #         break
-
         _ , _ , done, info = self.env.step(action)
-        # still_running = world_state.is_mission_running and self.num_steps < self.max_steps - 1
-        
+
         if self.mission_type == "hoe_farmland":
              reached_goal = self.checkBlockExists(json.loads(info),self.goal)
         else:
              reached_goal = self.checkInventoryForItem(json.loads(info),self.goal)
 
-
         if reached_goal:
              done = True
              reward = self.goal_reward
-        #     # exit()
-             print("TERMINATED")
         else:
-        #     done = not still_running
              reward = self.step_cost
         
-        obs = self.obs_to_vector(info) # if info.is_mission_running else np.zeros((1,self.observation_space.shape[-2],self.observation_space.shape[-1]))
-        # info = {}
+        obs = self.obs_to_vector(info)
+
         if self.num_steps >= self.max_steps:
            done=True
 
@@ -405,19 +280,13 @@ class MalmoEnvSpecial(gym.Env):
 
         return obs, reward, done, info
 
-#    def setup(self,malmo_path='./MalmoPlatform/malmo'):
-#        print("starting server...")
-##        current_dir = os.getcwd()
-##        os.chdir(malmo_path)
-#        malmo.minecraftbootstrap.set_malmo_xsd_path();
-#        malmo.minecraftbootstrap.launch_minecraft()
-#        os.chdir(current_dir)
-
-#    def render(self, mode='human', close=False):
-#        pass
-    def reset(self):
+    def reset(self,remake_mission=False):
         self.num_steps = 0
+        if remake_mission:
+           self.env.init(mission,server='127.0.0.1',port=self.port,exp_uid="test",role=0,episode=self.episode,action_filter=self.actions) #, args.port,
+        self.episode+=1
         return self.env.reset()
+
     def make_env_string(self,mission_type,draw_entities=[]):
         base = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?><Mission xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'
         base+='<About><Summary>Running {}...</Summary></About>'.format(mission_type)
@@ -428,7 +297,6 @@ class MalmoEnvSpecial(gym.Env):
 
         for entity_info in draw_entities:
             base+=entity_info
-
 
         base+='</DrawingDecorator>'
         base+= '<ServerQuitFromTimeUp timeLimitMs="10000000"/><ServerQuitWhenAnyAgentFinishes/></ServerHandlers></ServerSection>'
@@ -449,20 +317,13 @@ class MalmoEnvSpecial(gym.Env):
         return base
 
 
-
-
-
 if __name__ == "__main__":
     print("starting server...")
-    # current_dir = os.getcwd()
 
-    if sys.argv[-1] == "RUN_SERVER":
-      #  os.chdir('./MalmoPlatform/MalmoEnv')
-        # malmoenv.bootstrap.set_malmo_xsd_path();
-        malmoenv.bootstrap.launch_minecraft(9000)
+    if len(sys.argv) > 1 and sys.argv[1] == "RUN_SERVER":
+        print("Launching on port " + sys.argv[2])
+        malmoenv.bootstrap.launch_minecraft(int(sys.argv[2]))
         exit()
-
-        # os.chdir(current_dir)
 
     print("initializing environment...")
     env = MalmoEnvSpecial("pickaxe_stone",port=9000)
@@ -474,42 +335,6 @@ if __name__ == "__main__":
         obs, reward, done, info = env.step(command)
         print(obs)
         print(reward)
-        #print(info)
-        # time.sleep(1)
-
-
-  
-
-
-            # print("Waiting for the mission to start", end=' ')
-            # world_state = self.agent_host.getWorldState()
-            # while not world_state.has_mission_begun:
-            #     print(".", end="")
-            #     # time.sleep(0.1)
-            #     world_state = self.agent_host.getWorldState()
-            #     for error in world_state.errors:
-            #         print("Error:",error.text)
-            # while world_state.is_mission_running:
-            #     world_state = self.agent_host.getWorldState()
-            #     if world_state.number_of_observations_since_last_state > 0:
-            #         if self.mission_type in  {"shears_sheep","hoe_farmland","bucket_water"}:
-            #             self.agent_host.sendCommand("use 1")
-            #         else:
-            #             self.agent_host.sendCommand("attack 1")
-
-            #         return self.obs_to_vector(world_state)
-         #   return None
-
-#    def setup(self,malmo_path='./MalmoPlatform/malmo'):
-#        print("starting server...")
-#        current_dir = os.getcwd()
-#        os.chdir(malmo_path)
-#        malmo.minecraftbootstrap.set_malmo_xsd_path();
-#        malmo.minecraftbootstrap.launch_minecraft()
-#        os.chdir(current_dir)
-
-#    def render(self, mode='human', close=False):
-#        pass
 
     def make_env_string(self,mission_type,draw_entities=[]):
         base = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?><Mission xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'
@@ -521,7 +346,6 @@ if __name__ == "__main__":
 
         for entity_info in draw_entities:
             base+=entity_info
-
 
         base+='</DrawingDecorator>'
         base+= '<ServerQuitFromTimeUp timeLimitMs="10000000"/><ServerQuitWhenAnyAgentFinishes/></ServerHandlers></ServerSection>'
@@ -541,21 +365,12 @@ if __name__ == "__main__":
         base+='</AgentHandlers></AgentSection></Mission>'
         return base
 
-
-
-
-
 if __name__ == "__main__":
-    print("starting server...")
-    # current_dir = os.getcwd()
-
-    if sys.argv[-1] == "RUN_SERVER":
-      #  os.chdir('./MalmoPlatform/MalmoEnv')
-        # malmoenv.bootstrap.set_malmo_xsd_path();
-        malmoenv.bootstrap.launch_minecraft(9000)
+    
+    if sys.argv[1] == "RUN_SERVER":
+        print("Launching server on "+sys.argv[1])
+        malmoenv.bootstrap.launch_minecraft(int(sys.argv[1]))
         exit()
-
-        # os.chdir(current_dir)
 
     print("initializing environment...")
     env = MalmoEnvSpecial("shears_sheep",port=9000)
