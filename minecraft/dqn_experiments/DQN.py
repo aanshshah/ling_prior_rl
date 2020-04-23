@@ -20,8 +20,8 @@ class DQNSolver:
         self.action_space = action_space
         self.memory = []
         self.num_transitions = -1
-        self.network = DQNetwork(action_space,[2,9,9])
-        self.old_network  = DQNetwork(action_space,[2,9,9])
+        self.network = DQNetwork(action_space,[1,9,9])
+        self.old_network  = DQNetwork(action_space,[1,9,9])
         self.network.model.build()
         self.old_network.model.build()
    
@@ -50,6 +50,9 @@ class DQNSolver:
 
 
           cur_states =  np.squeeze(np.stack(episode[:,0]),axis=1)
+
+          # print(cur_states.shape)
+          
           q_tilde_temp =  self.old_network.model(tf.convert_to_tensor(next_states,tf.float64)) #self.old_model(next_states)
           q_tilde = q_tilde_temp.numpy()
 

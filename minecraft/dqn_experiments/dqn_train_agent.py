@@ -21,8 +21,8 @@ from DQN import DQNSolver
 sys.path = [x for x in sys.path if x != 'c:\\users\\zach_surf\\documents\\github\\pytorch-a2c-ppo-acktr-gail']
 sys.path.append('../.')
 
-from malmo_specialized_env import MalmoEnvSpecial  
-
+# from malmo_specialized_env import MalmoEnvSpecial  
+from malmo_env_env import MalmoEnvSpecial  
 
 GAMMA = 0.99
 # LEARNING_RATE = 1e-3 
@@ -52,15 +52,10 @@ class DQNAgent(object):
         done = False
         state = env.reset()
 
-
         while not done:
 
             if self.total_steps % 500 == 0:
                 self.dqn_solver.old_network.model.set_weights(self.dqn_solver.network.model.get_weights()) 
-
-
-            # self.dqn_solver.exploration_rate = (1/(1000000**2))*((self.total_steps-1000000)**2)
-
 
             period = 300000
             self.dqn_solver.exploration_rate = (1/(period**2))*((self.total_steps-period)**2)
@@ -69,14 +64,6 @@ class DQNAgent(object):
 
             if self.total_steps % 300 == 0:
                 print(self.dqn_solver.exploration_rate)
-
-            # state_data_raw = json.loads(world_state.observations[-1].text)['floor9x9']
-            # # print(state_data_raw)
-            # state_data = [state_map[block] for block in state_data_raw]
-
-            # state_data = np.array(state_data,dtype=np.float64)
-            # state_data = np.reshape(state_data,(17,17))
-            
 
             rnd = random.random()
             if not eval_mode and rnd < self.dqn_solver.exploration_rate:
@@ -114,11 +101,11 @@ if __name__ == "__main__":
     print("initializing environment...")
     # env = MalmoEnvSpecial("pickaxe_stone")
     # env = MalmoEnvSpecial("axe_log")
-    env = MalmoEnvSpecial(task)
+    env = MalmoEnvSpecial(task,port=9000)
 
     #env = MalmoEnvSpecial("sword_cow")
 
-    env.setup()
+    # env.setup()
 
     
     agent = DQNAgent(actions=env.action_space.n,observation_space=env.observation_space)
