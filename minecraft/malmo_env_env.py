@@ -286,21 +286,23 @@ class MalmoEnvSpecial(gym.Env):
         _ , _ , done, info = self.env.step(action)
         # print("INFO",len(info))
 
+        if info is not None:
+            observation = json.loads(info)
+            if self.mission_type == "hoe_farmland":
+                 reached_goal = self.checkBlockExists(observation,self.goal)
+            else:
+                 reached_goal = self.checkInventoryForItem(observation,self.goal)
 
-        observation = json.loads(info)
-        if self.mission_type == "hoe_farmland":
-             reached_goal = self.checkBlockExists(observation,self.goal)
+            if reached_goal:
+                 done = True
+                 reward = self.goal_reward
+            else:
+                 reward = self.step_cost
+
+            # self.fix_player_location(info)
+            obs = self.obs_to_vector(observation)
         else:
-             reached_goal = self.checkInventoryForItem(observation,self.goal)
-
-        if reached_goal:
-             done = True
-             reward = self.goal_reward
-        else:
-             reward = self.step_cost
-
-        # self.fix_player_location(info)
-        obs = self.obs_to_vector(observation)
+            obs = self.observation_space
 
         if self.num_steps >= self.max_steps:
            done=True
