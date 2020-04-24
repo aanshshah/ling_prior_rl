@@ -1,0 +1,170 @@
+{
+    "entities": [
+        "+",
+        "A",
+        "X",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "e",
+        "j",
+        "i",
+        "k",
+        "c",
+        "g",
+        "d",
+        "f",
+        "h",
+        "b"
+    ],
+    "nodes": [
+        {
+            "node": "+",
+            "feature_idx": 0,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "A",
+            "feature_idx": 1,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "X",
+            "feature_idx": 2,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "B",
+            "feature_idx": 3,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "C",
+            "feature_idx": 4,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "D",
+            "feature_idx": 5,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "E",
+            "feature_idx": 6,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "F",
+            "feature_idx": 7,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "G",
+            "feature_idx": 8,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "H",
+            "feature_idx": 9,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "I",
+            "feature_idx": 10,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "J",
+            "feature_idx": 11,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "K",
+            "feature_idx": 12,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "e",
+            "feature_idx": 13,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "j",
+            "feature_idx": 14,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "i",
+            "feature_idx": 15,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "k",
+            "feature_idx": 16,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "c",
+            "feature_idx": 17,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "g",
+            "feature_idx": 18,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "d",
+            "feature_idx": 19,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "f",
+            "feature_idx": 20,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "h",
+            "feature_idx": 21,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "b",
+            "feature_idx": 22,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        }
+    ],
+    "edges": [],
+    "num_node_feats": 23,
+    "num_edge_feats": 1
+}

@@ -1,0 +1,22 @@
+{
+	"env": {
+		"artfile": "assets/coins_maze_art/6x7/art_6x7_1.txt"
+	},
+	"agent": {
+		"update_freq_steps": 100,
+		"returns_normalizer": "timestep",
+		"max_steps_per_test_episode": 100,
+		"opt": {
+			"name": "Adam",
+			"kwargs": {
+				"lr": 5e-4
+			}
+		}
+	},
+	"arch": {
+		"trunk": {
+			"trunk_type": "mlp",
+			"hidden_sizes": [512]
+		}
+	}
+}

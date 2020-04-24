@@ -1,0 +1,44 @@
+{
+	"env": {
+		"name": "CartPole-v0"
+	},
+	"agent": {
+		"replay_buffer_size": 40000,
+		"heatup_steps": 1000,
+		"update_freq_steps": 1,
+		"update_target_weights_freq_steps": 100,
+		"test_epsilon": 0.01,
+		"heatup_steps": 1000,
+		"opt": {
+			"name": "Adam",
+			"kwargs": {
+				"lr": 2.5e-4
+			}
+		},
+		"train_epsilon": {
+			"type": "linear",
+			"initial_value": 1.0,
+			"final_value": 0.01,
+			"decay_steps": 10000
+		}
+	},
+	"arch": {
+		"path": "graphrl.models.trunk_and_head",
+		"name": "TrunkAndHead",
+		"kwargs": {
+			"trunk": {
+				"path": "graphrl.modules.trunks",
+				"name": "MLPTrunk",
+				"kwargs": {
+					"hidden_sizes": [512],
+					"activation": "relu"
+				}
+			},
+			"head": {
+				"path": "graphrl.modules.heads",
+				"name": "QHead",
+				"kwargs": {}
+			}
+		}
+	}
+}

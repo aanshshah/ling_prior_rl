@@ -1,0 +1,13 @@
+{
+	"env": {
+		"train": {
+			"use_movable": true
+		},
+		"test": {
+			"use_movable": true
+		}
+	},
+	"agent": {
+		"max_steps_per_train_episode": 10000
+	}
+}

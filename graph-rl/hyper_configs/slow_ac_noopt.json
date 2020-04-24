@@ -1,0 +1,14 @@
+{
+	"agent": {
+		"max_steps_per_train_episode": 100,
+		"max_steps_per_test_episode": 100,
+		"batch_size": 80,
+		"policy_entropy_weight": 0.01,
+		"use_gae": true,
+		"gae_lambda": 0.95,
+		"num_train_envs": 16,
+		"update_freq_steps_per_env": 5,
+		"clip_grads_by_norm": true,
+		"max_grad_norm": 0.5
+	}
+}

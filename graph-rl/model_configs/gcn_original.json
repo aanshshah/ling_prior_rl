@@ -1,0 +1,30 @@
+{
+	"arch": {
+		"trunk": {
+			"fc_hidden_sizes": [50],
+			"final_graph_hidden_size": 64,
+			"graph_layer_params": [
+				{"type": "kg_gcn", "args": ["named_num_node_feats", 64]},
+				{"type": "activation", "args": ["relu", "kg_node_feats"]},
+				{"type": "kg_gcn", "args": [64, 64]},
+				{"type": "activation", "args": ["relu", "kg_node_feats"]},
+
+				{"type": "kg_sg_pool"},
+
+				{"type": "kgsg_sg_conv", "args": [64, 64, 64]},
+				{"type": "activation", "args": ["relu", "sg_node_feats"]},
+
+				{"type": "kgsg_kg_conv", "args": [64, 64, 64]},
+				{"type": "activation", "args": ["relu", "sg_node_feats"]},
+
+				{"type": "kg_gcn", "args": [64, 64]},
+				{"type": "activation", "args": ["relu", "kg_node_feats"]},
+				{"type": "kg_gcn", "args": [64, 64]},
+				{"type": "activation", "args": ["relu", "kg_node_feats"]},
+
+				{"type": "kgsg_sg_conv", "args": [64, 64, 64]},
+				{"type": "activation", "args": ["relu", "sg_node_feats"]}
+			]
+		}
+	}
+}

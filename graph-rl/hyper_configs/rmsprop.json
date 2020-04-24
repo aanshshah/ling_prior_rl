@@ -1,0 +1,12 @@
+{
+	"agent": {
+		"opt": {
+			"name": "RMSprop",
+			"kwargs": {
+				"lr": 7e-4,
+				"eps": 1e-5,
+				"alpha": 0.99
+			}
+		}
+	}
+}

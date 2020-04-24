@@ -1,0 +1,15 @@
+module: loading 'cuda/9.2.148'
+module: loading 'cudnn/7.6.5'
+module: cudnn: To use: module load cuda/10.2
+module: unloading 'python/2.7.12'
+module: loading 'python/3.7.4'
+module: unloading 'anaconda/3-5.2.0'
+module: loading 'anaconda/3-5.2.0'
+WARNING - train_warehouse_v1_dqn - No observers have been added to this run
+INFO - train_warehouse_v1_dqn - Running command 'main'
+INFO - train_warehouse_v1_dqn - Started
+/users/nsriniv1/anaconda/graph-rl/lib/python3.7/site-packages/gym/logger.py:30: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  warnings.warn(colorize('%s: %s'%('WARN', msg % args), 'yellow'))
+/users/nsriniv1/anaconda/graph-rl/lib/python3.7/site-packages/pycolab/ascii_art.py:318: FutureWarning: arrays to stack must be passed as a "sequence" type such as list or tuple. Support for non-sequence iterables such as generators is deprecated as of NumPy 1.16 and will raise an error in the future.
+  art = np.vstack(np.fromstring(line, dtype=np.uint8) for line in art)
+INFO - train_warehouse_v1_dqn - Completed after 2:14:39

@@ -1,0 +1,23 @@
+{
+	"env": {
+		"name": "CartPole-v0"
+	},
+
+	"agent": {
+		"update_freq_steps": 100,
+		"returns_normalizer": "timestep",
+		"opt": {
+			"name": "Adam",
+			"kwargs": {
+				"lr": 5e-4
+			}
+		}
+	},
+	"arch": {
+		"trunk": {
+			"trunk_type": "mlp",
+			"hidden_sizes": [512]
+		}
+	},
+	"reward_scale": 200.0
+}

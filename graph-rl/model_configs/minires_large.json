@@ -1,0 +1,23 @@
+{
+	"arch": {
+		"path": "graphrl.models.trunk_and_head",
+		"name": "TrunkAndHead",
+		"kwargs": {
+			"trunk": {
+				"path": "graphrl.modules.trunks",
+				"name": "MiniResidualTrunk",
+				"kwargs": {
+					"conv_out_cs": [64, 64],
+					"conv_filter_sizes": [3, 3],
+					"conv_paddings": [1, 1],
+					"conv_strides": [1, 1],
+					"residual_cs": 64,
+					"num_residual_blocks": 4,
+					"fc_hidden_sizes": [256, 256, 256, 256],
+					"reduction": "mean",
+					"activation": "relu"
+				}
+			}
+		}
+	}
+}

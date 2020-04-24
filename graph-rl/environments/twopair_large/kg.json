@@ -1,0 +1,357 @@
+{
+    "entities": [
+        "+",
+        "A",
+        "X",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "b",
+        "h",
+        "g",
+        "i",
+        "k",
+        "j",
+        "c",
+        "d",
+        "e",
+        "f"
+    ],
+    "nodes": [
+        {
+            "node": "+",
+            "feature_idx": 0,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "A",
+            "feature_idx": 1,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "X",
+            "feature_idx": 2,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "B",
+            "feature_idx": 3,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "C",
+            "feature_idx": 4,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "D",
+            "feature_idx": 5,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "E",
+            "feature_idx": 6,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "F",
+            "feature_idx": 7,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "G",
+            "feature_idx": 8,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "H",
+            "feature_idx": 9,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "I",
+            "feature_idx": 10,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "J",
+            "feature_idx": 11,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "K",
+            "feature_idx": 12,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "b",
+            "feature_idx": 13,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "h",
+            "feature_idx": 14,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "g",
+            "feature_idx": 15,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "i",
+            "feature_idx": 16,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "k",
+            "feature_idx": 17,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "j",
+            "feature_idx": 18,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "c",
+            "feature_idx": 19,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "d",
+            "feature_idx": 20,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "e",
+            "feature_idx": 21,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "f",
+            "feature_idx": 22,
+            "feature_len": 23,
+            "feature_type": "one_hot"
+        }
+    ],
+    "edges": [
+        {
+            "src": "b",
+            "dst": "B",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "c",
+            "dst": "C",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "d",
+            "dst": "D",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "e",
+            "dst": "E",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "f",
+            "dst": "F",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "g",
+            "dst": "G",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "h",
+            "dst": "H",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "i",
+            "dst": "I",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "j",
+            "dst": "J",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "k",
+            "dst": "K",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "b",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "h",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "g",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "i",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "k",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "j",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "c",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "d",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "e",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "f",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "B",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "C",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "D",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "E",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "F",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "G",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "H",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "I",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "J",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "K",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "+",
+            "feature_idx": 2,
+            "feature_len": 3
+        }
+    ],
+    "num_node_feats": 23,
+    "num_edge_feats": 3
+}

@@ -1,0 +1,133 @@
+{
+    "entities": [
+        "+",
+        "A",
+        "X",
+        "B",
+        "C",
+        "D",
+        "c",
+        "d",
+        "b"
+    ],
+    "nodes": [
+        {
+            "node": "+",
+            "feature_idx": 0,
+            "feature_len": 9,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "A",
+            "feature_idx": 1,
+            "feature_len": 9,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "X",
+            "feature_idx": 2,
+            "feature_len": 9,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "B",
+            "feature_idx": 3,
+            "feature_len": 9,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "C",
+            "feature_idx": 4,
+            "feature_len": 9,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "D",
+            "feature_idx": 5,
+            "feature_len": 9,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "c",
+            "feature_idx": 6,
+            "feature_len": 9,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "d",
+            "feature_idx": 7,
+            "feature_len": 9,
+            "feature_type": "one_hot"
+        },
+        {
+            "node": "b",
+            "feature_idx": 8,
+            "feature_len": 9,
+            "feature_type": "one_hot"
+        }
+    ],
+    "edges": [
+        {
+            "src": "b",
+            "dst": "B",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "c",
+            "dst": "C",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "d",
+            "dst": "D",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "c",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "d",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "b",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "B",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "C",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "D",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "+",
+            "feature_idx": 2,
+            "feature_len": 3
+        }
+    ],
+    "num_node_feats": 9,
+    "num_edge_feats": 3
+}

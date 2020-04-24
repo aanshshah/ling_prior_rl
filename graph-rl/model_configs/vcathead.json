@@ -1,0 +1,13 @@
+{
+	"arch": {
+		"path": "graphrl.models.trunk_and_head",
+		"name": "TrunkAndHead",
+		"kwargs": {
+			"head": {
+				"path": "graphrl.modules.heads",
+				"name": "CategoricalValueHead",
+				"kwargs": {}
+			}
+		}
+	}
+}

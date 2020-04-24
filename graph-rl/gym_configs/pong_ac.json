@@ -1,0 +1,41 @@
+{
+	"env": {
+		"name": "PongNoFrameskip-v4",
+		"atari": true
+	},
+	"agent": {
+		"batch_size": 80,
+		"policy_entropy_weight": 0.01,
+		"num_train_envs": 16,
+		"update_freq_steps_per_env": 5,
+		"clip_grads_by_norm": true,
+		"max_grad_norm": 0.5,
+		"opt": {
+			"name": "RMSprop",
+			"kwargs": {
+				"lr": 7e-4,
+				"eps": 1e-5,
+				"alpha": 0.99
+			}
+		}
+	},
+	"arch": {
+		"path": "graphrl.models.trunk_and_head",
+		"name": "TrunkAndHead",
+		"kwargs": {
+			"trunk": {
+				"path": "graphrl.modules.trunks",
+				"name": "NatureTrunk",
+				"kwargs": {
+					"activation": "relu"
+				}
+			},
+			"head": {
+				"path": "graphrl.modules.heads",
+				"name": "CategoricalValueHead",
+				"kwargs": {}
+			}
+		}
+	},
+	"reward_scale": 1
+}

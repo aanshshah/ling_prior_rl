@@ -1,0 +1,640 @@
+{
+    "entities": [
+        "+",
+        "A",
+        "X",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "c",
+        "k",
+        "p",
+        "b",
+        "g",
+        "l",
+        "m",
+        "i",
+        "o",
+        "n",
+        "d",
+        "e",
+        "h",
+        "j",
+        "f"
+    ],
+    "nodes": [
+        {
+            "node": "+",
+            "feature_len": 10,
+            "feats": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "A",
+            "feature_len": 10,
+            "feats": [
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "X",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "B",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                1,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "C",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "D",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "E",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "F",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "c",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "k",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "p",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "b",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "g",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                1,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "l",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "m",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "i",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "o",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "n",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "d",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "e",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                1,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "h",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "j",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "f",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                1,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        }
+    ],
+    "edges": [
+        {
+            "src": "b",
+            "dst": "B",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "c",
+            "dst": "B",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "d",
+            "dst": "B",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "e",
+            "dst": "C",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "f",
+            "dst": "C",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "g",
+            "dst": "C",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "h",
+            "dst": "D",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "i",
+            "dst": "D",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "j",
+            "dst": "D",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "k",
+            "dst": "E",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "l",
+            "dst": "E",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "m",
+            "dst": "E",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "n",
+            "dst": "F",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "o",
+            "dst": "F",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "p",
+            "dst": "F",
+            "feature_idx": 0,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "c",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "k",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "p",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "b",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "g",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "l",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "m",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "i",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "o",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "n",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "d",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "e",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "h",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "j",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "f",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "B",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "C",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "D",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "E",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "F",
+            "feature_idx": 2,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "+",
+            "feature_idx": 2,
+            "feature_len": 3
+        }
+    ],
+    "num_node_feats": 10,
+    "num_edge_feats": 3
+}

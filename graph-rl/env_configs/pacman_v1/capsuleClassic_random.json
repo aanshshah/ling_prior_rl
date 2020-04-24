@@ -1,0 +1,22 @@
+{
+	"env": {
+		"train": {
+			"layout_folder": "assets/pacman/capsuleClassic",
+			"ghost_type": "random",
+			"kg": {
+				"file": "pacman_environments/kgs/default.json",
+				"entities_from_file": true
+			},
+			"dont_crop_adj": false
+		},
+		"test": {
+			"layout_folder": "assets/pacman/capsuleClassic",
+			"ghost_type": "random",
+			"kg": {
+				"file": "pacman_environments/kgs/default.json",
+				"entities_from_file": true
+			},
+			"dont_crop_adj": false
+		}
+	}
+}

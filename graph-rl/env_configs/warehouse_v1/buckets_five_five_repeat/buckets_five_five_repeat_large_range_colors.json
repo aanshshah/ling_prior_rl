@@ -1,0 +1,32 @@
+{
+      "env": {
+            "train": {
+                  "artfile_folder": "environments/buckets_five_five_repeat_large_range/train",
+                  "render": false,
+                  "boxes": ["b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"],
+                  "buckets": ["B", "C", "D", "E", "F"],
+                  "bucket_to_boxes": [["B", ["b", "c", "d"]], ["C", ["e", "f", "g"]], ["D", ["h", "i", "j"]], ["E", ["k", "l", "m"]], ["F", ["n", "o", "p"]]],
+                  "character_map": [],
+                  "dont_crop_adj": false,
+
+                  "kg": {
+                        "file": "environments/buckets_five_five_repeat_large_range/kg_colors.json",
+                        "entities_from_file": true
+                  }
+            },
+            "test": {
+                  "artfile_folder": "environments/buckets_five_five_repeat_large_range/test",
+                  "render": false,
+                  "boxes": ["b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"],
+                  "buckets": ["B", "C", "D", "E", "F"],
+                  "bucket_to_boxes": [["B", ["b", "c", "d"]], ["C", ["e", "f", "g"]], ["D", ["h", "i", "j"]], ["E", ["k", "l", "m"]], ["F", ["n", "o", "p"]]],
+                  "character_map": [],
+                  "dont_crop_adj": false,
+
+                  "kg": {
+                        "file": "environments/buckets_five_five_repeat_large_range/kg_colors.json",
+                        "entities_from_file": true
+                  }
+            }
+      }
+}

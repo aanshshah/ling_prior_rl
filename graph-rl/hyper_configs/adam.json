@@ -1,0 +1,10 @@
+{
+	"agent": {
+		"opt": {
+			"name": "Adam",
+			"kwargs": {
+				"lr": 1e-4
+			}
+		}
+	}
+}

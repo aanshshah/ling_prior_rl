@@ -1,0 +1,32 @@
+{
+      "env": {
+            "train": {
+                  "artfile_folder": "environments/multiple_single/train",
+                  "render": false,
+                  "boxes": ["b", "c"],
+                  "buckets": ["B", "C"],
+                  "bucket_to_boxes": [["B", ["b"]], ["C", ["c"]]],
+                  "character_map": [],
+                  "dont_crop_adj": false,
+
+                  "kg": {
+                        "file": "environments/multiple_single/kg_colors.json",
+                        "entities_from_file": true
+                  }
+            },
+            "test": {
+                  "artfile_folder": "environments/multiple_single/train",
+                  "render": false,
+                  "boxes": ["b", "c"],
+                  "buckets": ["B", "C"],
+                  "bucket_to_boxes": [["B", ["b"]], ["C", ["c"]]],
+                  "character_map": [],
+                  "dont_crop_adj": false,
+
+                  "kg": {
+                        "file": "environments/multiple_single/kg_colors.json",
+                        "entities_from_file": true
+                  }
+            }
+      }
+}

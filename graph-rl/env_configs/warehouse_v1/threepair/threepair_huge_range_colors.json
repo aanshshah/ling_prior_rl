@@ -1,0 +1,32 @@
+{
+      "env": {
+            "train": {
+                  "artfile_folder": "environments/threepair_huge_range/train",
+                  "render": false,
+                  "boxes": ["b", "c", "d"],
+                  "buckets": ["B", "C", "D"],
+                  "bucket_to_boxes": [["B", ["b"]], ["C", ["c"]], ["D", ["d"]]],
+                  "character_map": [],
+                  "dont_crop_adj": false,
+
+                  "kg": {
+                        "file": "environments/threepair_huge_range/kg_colors.json",
+                        "entities_from_file": true
+                  }
+            },
+            "test": {
+                  "artfile_folder": "environments/threepair_huge_range/test",
+                  "render": false,
+                  "boxes": ["b", "c", "d"],
+                  "buckets": ["B", "C", "D"],
+                  "bucket_to_boxes": [["B", ["b"]], ["C", ["c"]], ["D", ["d"]]],
+                  "character_map": [],
+                  "dont_crop_adj": false,
+
+                  "kg": {
+                        "file": "environments/threepair_huge_range/kg_colors.json",
+                        "entities_from_file": true
+                  }
+            }
+      }
+}

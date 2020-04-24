@@ -1,0 +1,37 @@
+{
+	"env": {
+		"name": "CartPole-v0"
+	},
+	"agent": {
+		"policy_entropy_weight": 0.01,
+		"use_gae": true,
+		"gae_lambda": 1.0,
+		"update_freq_steps_per_env": 5,
+		"opt": {
+			"name": "Adam",
+			"kwargs": {
+				"lr": 1e-4
+			}
+		}
+	},
+	"arch": {
+		"path": "graphrl.models.trunk_and_head",
+		"name": "TrunkAndHead",
+		"kwargs": {
+			"trunk": {
+				"path": "graphrl.modules.trunks",
+				"name": "MLPTrunk",
+				"kwargs": {
+					"hidden_sizes": [512],
+					"activation": "relu"
+				}
+			},
+			"head": {
+				"path": "graphrl.modules.heads",
+				"name": "CategoricalValueHead",
+				"kwargs": {}
+			}
+		}
+	},
+	"reward_scale": 200.0
+}

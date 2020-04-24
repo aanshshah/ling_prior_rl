@@ -1,0 +1,45 @@
+{
+	"env": {
+		"name": "PongNoFrameskip-v4",
+		"atari": true
+	},
+
+	"agent": {
+		"min_train_episodes": 10000000,
+		"update_freq_steps": 4,
+		"update_target_weights_freq_steps": 10000,
+		"use_huber_loss": true,
+		"test_epsilon": 0.05,
+		"replay_buffer_size": 1000000,
+		"opt": {
+			"name": "Adam",
+			"kwargs": {
+				"lr": 1e-4
+			}
+		},
+		"train_epsilon": {
+			"type": "linear",
+			"initial_value": 1.0,
+			"final_value": 0.1,
+			"decay_steps": 1000000
+		}
+	},
+	"arch": {
+		"path": "graphrl.models.trunk_and_head",
+		"name": "TrunkAndHead",
+		"kwargs": {
+			"trunk": {
+				"path": "graphrl.modules.trunks",
+				"name": "NatureTrunk",
+				"kwargs": {
+					"activation": "relu"
+				}
+			},
+			"head": {
+				"path": "graphrl.modules.heads",
+				"name": "QHead",
+				"kwargs": {}
+			}
+		}
+	}
+}

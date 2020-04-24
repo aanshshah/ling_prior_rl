@@ -1,0 +1,16 @@
+{
+	"arch": {
+		"trunk": {
+			"trunk_type": "layers",
+			"all_layer_params": [
+				{"type": "conv", "args": [64], "kwargs": {"kernel_size": 3, "stride": 1, "padding": 1}},
+				{"type": "activation", "args": ["relu"]},
+				{"type": "conv", "args": [64], "kwargs": {"kernel_size": 3, "stride": 1, "padding": 1}},
+				{"type": "activation", "args": ["relu"]},
+				{"type": "spatial_reduce", "args": ["mean"]},
+				{"type": "linear", "args": [50]},
+				{"type": "activation", "args": ["relu"]}
+			]
+		}
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"arch": {
+		"trunk": {
+			"trunk_type": "mlp",
+			"hidden_sizes": [512]
+		}
+	}
+}

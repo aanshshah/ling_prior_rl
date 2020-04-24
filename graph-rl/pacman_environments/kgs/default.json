@@ -1,0 +1,107 @@
+{
+    "entities": [
+        "P",
+        "G",
+        "H",
+        "o",
+        ".",
+        " ",
+        "%"
+    ],
+    "nodes": [
+        {
+            "node": "P",
+            "feature_type": "one_hot",
+            "feature_idx": 0,
+            "feature_len": 7
+        },
+        {
+            "node": "G",
+            "feature_type": "one_hot",
+            "feature_idx": 1,
+            "feature_len": 7
+        },
+        {
+            "node": "H",
+            "feature_type": "one_hot",
+            "feature_idx": 2,
+            "feature_len": 7
+        },
+        {
+            "node": "o",
+            "feature_type": "one_hot",
+            "feature_idx": 3,
+            "feature_len": 7
+        },
+        {
+            "node": ".",
+            "feature_type": "one_hot",
+            "feature_idx": 4,
+            "feature_len": 7
+        },
+        {
+            "node": " ",
+            "feature_type": "one_hot",
+            "feature_idx": 5,
+            "feature_len": 7
+        },
+        {
+            "node": "%",
+            "feature_type": "one_hot",
+            "feature_idx": 6,
+            "feature_len": 7
+        }
+    ],
+    "edges": [
+        {
+            "src": "P",
+            "dst": "%",
+            "feature_idx": 0,
+            "feature_len": 6
+        },
+        {
+            "src": "G",
+            "dst": "%",
+            "feature_idx": 0,
+            "feature_len": 6
+        },
+        {
+            "src": "H",
+            "dst": "%",
+            "feature_idx": 0,
+            "feature_len": 6
+        },
+        {
+            "src": "P",
+            "dst": ".",
+            "feature_idx": 1,
+            "feature_len": 6
+        },
+        {
+            "src": "P",
+            "dst": "o",
+            "feature_idx": 2,
+            "feature_len": 6
+        },
+        {
+            "src": "P",
+            "dst": "H",
+            "feature_idx": 4,
+            "feature_len": 6
+        },
+        {
+            "src": "G",
+            "dst": "P",
+            "feature_idx": 3,
+            "feature_len": 6
+        },
+        {
+            "src": "G",
+            "dst": "H",
+            "feature_idx": 5,
+            "feature_len": 6
+        }
+    ],
+    "num_node_feats": 7,
+    "num_edge_feats": 6
+}

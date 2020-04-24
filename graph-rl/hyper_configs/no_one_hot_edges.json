@@ -1,0 +1,10 @@
+{
+	"env": {
+		"train": {
+			"one_hot_edges": false
+		},
+		"test": {
+			"one_hot_edges": false
+		}
+	}
+}
