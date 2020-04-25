@@ -9,8 +9,8 @@ cd ..
 git clone https://github.com/openai/baselines.git
 cd baselines
 pip install tensorflow-gpu==1.14
-pip install -e .
 pip install cloudpickle~=1.2.0
+pip install -e .
 cd ..
 pip install -e .
 pip install torch visdom_observer torchvision pycolab 

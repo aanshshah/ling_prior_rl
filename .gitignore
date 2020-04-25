@@ -93,3 +93,6 @@ data/raw/*
 # Exclude .gitkeep
 !.gitkeep
 MalmoPlatform/
+graph-rl/environments/
+graph-rl/baselines/
+graph-rl/sacred/
