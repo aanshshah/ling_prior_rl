@@ -5,12 +5,12 @@
         "X",
         "B",
         "h",
+        "d",
         "c",
         "b",
         "f",
-        "e",
-        "d",
-        "g"
+        "g",
+        "e"
     ],
     "nodes": [
         {
@@ -44,37 +44,37 @@
             "feature_type": "one_hot"
         },
         {
-            "node": "c",
+            "node": "d",
             "feature_idx": 5,
             "feature_len": 11,
             "feature_type": "one_hot"
         },
         {
-            "node": "b",
+            "node": "c",
             "feature_idx": 6,
             "feature_len": 11,
             "feature_type": "one_hot"
         },
         {
-            "node": "f",
+            "node": "b",
             "feature_idx": 7,
             "feature_len": 11,
             "feature_type": "one_hot"
         },
         {
-            "node": "e",
+            "node": "f",
             "feature_idx": 8,
             "feature_len": 11,
             "feature_type": "one_hot"
         },
         {
-            "node": "d",
+            "node": "g",
             "feature_idx": 9,
             "feature_len": 11,
             "feature_type": "one_hot"
         },
         {
-            "node": "g",
+            "node": "e",
             "feature_idx": 10,
             "feature_len": 11,
             "feature_type": "one_hot"
@@ -131,6 +131,12 @@
         },
         {
             "src": "A",
+            "dst": "d",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
             "dst": "c",
             "feature_idx": 1,
             "feature_len": 3
@@ -149,19 +155,13 @@
         },
         {
             "src": "A",
-            "dst": "e",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "d",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
             "dst": "g",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "e",
             "feature_idx": 1,
             "feature_len": 3
         },

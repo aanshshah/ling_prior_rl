@@ -8,21 +8,21 @@
         "D",
         "E",
         "F",
-        "p",
-        "b",
-        "d",
-        "g",
-        "k",
-        "m",
+        "o",
+        "l",
         "h",
         "c",
-        "l",
-        "f",
-        "n",
-        "i",
-        "o",
+        "e",
+        "g",
+        "d",
         "j",
-        "e"
+        "n",
+        "b",
+        "i",
+        "k",
+        "f",
+        "p",
+        "m"
     ],
     "nodes": [
         {
@@ -162,7 +162,7 @@
             "feature_type": "list"
         },
         {
-            "node": "p",
+            "node": "o",
             "feature_len": 10,
             "feats": [
                 0,
@@ -179,75 +179,7 @@
             "feature_type": "list"
         },
         {
-            "node": "b",
-            "feature_len": 10,
-            "feats": [
-                0,
-                0,
-                0,
-                0,
-                1,
-                1,
-                0,
-                0,
-                0,
-                0
-            ],
-            "feature_type": "list"
-        },
-        {
-            "node": "d",
-            "feature_len": 10,
-            "feats": [
-                0,
-                0,
-                0,
-                0,
-                1,
-                1,
-                0,
-                0,
-                0,
-                0
-            ],
-            "feature_type": "list"
-        },
-        {
-            "node": "g",
-            "feature_len": 10,
-            "feats": [
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                1,
-                0,
-                0,
-                0
-            ],
-            "feature_type": "list"
-        },
-        {
-            "node": "k",
-            "feature_len": 10,
-            "feats": [
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                0,
-                0,
-                1,
-                0
-            ],
-            "feature_type": "list"
-        },
-        {
-            "node": "m",
+            "node": "l",
             "feature_len": 10,
             "feats": [
                 0,
@@ -298,7 +230,126 @@
             "feature_type": "list"
         },
         {
-            "node": "l",
+            "node": "e",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                1,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "g",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                1,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "d",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "j",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "n",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "b",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "i",
+            "feature_len": 10,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "k",
             "feature_len": 10,
             "feats": [
                 0,
@@ -332,7 +383,7 @@
             "feature_type": "list"
         },
         {
-            "node": "n",
+            "node": "p",
             "feature_len": 10,
             "feats": [
                 0,
@@ -349,24 +400,7 @@
             "feature_type": "list"
         },
         {
-            "node": "i",
-            "feature_len": 10,
-            "feats": [
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                0,
-                1,
-                0,
-                0
-            ],
-            "feature_type": "list"
-        },
-        {
-            "node": "o",
+            "node": "m",
             "feature_len": 10,
             "feats": [
                 0,
@@ -377,41 +411,7 @@
                 0,
                 0,
                 0,
-                0,
-                1
-            ],
-            "feature_type": "list"
-        },
-        {
-            "node": "j",
-            "feature_len": 10,
-            "feats": [
-                0,
-                0,
-                0,
-                0,
                 1,
-                0,
-                0,
-                1,
-                0,
-                0
-            ],
-            "feature_type": "list"
-        },
-        {
-            "node": "e",
-            "feature_len": 10,
-            "feats": [
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                1,
-                0,
-                0,
                 0
             ],
             "feature_type": "list"
@@ -510,37 +510,13 @@
         },
         {
             "src": "A",
-            "dst": "p",
+            "dst": "o",
             "feature_idx": 1,
             "feature_len": 3
         },
         {
             "src": "A",
-            "dst": "b",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "d",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "g",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "k",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "m",
+            "dst": "l",
             "feature_idx": 1,
             "feature_len": 3
         },
@@ -558,31 +534,19 @@
         },
         {
             "src": "A",
-            "dst": "l",
+            "dst": "e",
             "feature_idx": 1,
             "feature_len": 3
         },
         {
             "src": "A",
-            "dst": "f",
+            "dst": "g",
             "feature_idx": 1,
             "feature_len": 3
         },
         {
             "src": "A",
-            "dst": "n",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "i",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "o",
+            "dst": "d",
             "feature_idx": 1,
             "feature_len": 3
         },
@@ -594,7 +558,43 @@
         },
         {
             "src": "A",
-            "dst": "e",
+            "dst": "n",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "b",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "i",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "k",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "f",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "p",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "m",
             "feature_idx": 1,
             "feature_len": 3
         },

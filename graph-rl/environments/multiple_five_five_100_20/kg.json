@@ -13,15 +13,15 @@
         "I",
         "J",
         "K",
-        "d",
-        "c",
-        "e",
-        "j",
-        "g",
-        "h",
         "k",
-        "b",
+        "c",
+        "h",
+        "j",
+        "d",
+        "g",
         "f",
+        "e",
+        "b",
         "i"
     ],
     "nodes": [
@@ -104,7 +104,7 @@
             "feature_type": "one_hot"
         },
         {
-            "node": "d",
+            "node": "k",
             "feature_idx": 13,
             "feature_len": 23,
             "feature_type": "one_hot"
@@ -116,7 +116,7 @@
             "feature_type": "one_hot"
         },
         {
-            "node": "e",
+            "node": "h",
             "feature_idx": 15,
             "feature_len": 23,
             "feature_type": "one_hot"
@@ -128,31 +128,31 @@
             "feature_type": "one_hot"
         },
         {
-            "node": "g",
+            "node": "d",
             "feature_idx": 17,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "h",
+            "node": "g",
             "feature_idx": 18,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "k",
+            "node": "f",
             "feature_idx": 19,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "b",
+            "node": "e",
             "feature_idx": 20,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "f",
+            "node": "b",
             "feature_idx": 21,
             "feature_len": 23,
             "feature_type": "one_hot"
@@ -227,7 +227,7 @@
         },
         {
             "src": "A",
-            "dst": "d",
+            "dst": "k",
             "feature_idx": 1,
             "feature_len": 3
         },
@@ -239,7 +239,7 @@
         },
         {
             "src": "A",
-            "dst": "e",
+            "dst": "h",
             "feature_idx": 1,
             "feature_len": 3
         },
@@ -251,31 +251,31 @@
         },
         {
             "src": "A",
+            "dst": "d",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
             "dst": "g",
             "feature_idx": 1,
             "feature_len": 3
         },
         {
             "src": "A",
-            "dst": "h",
+            "dst": "f",
             "feature_idx": 1,
             "feature_len": 3
         },
         {
             "src": "A",
-            "dst": "k",
+            "dst": "e",
             "feature_idx": 1,
             "feature_len": 3
         },
         {
             "src": "A",
             "dst": "b",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "f",
             "feature_idx": 1,
             "feature_len": 3
         },

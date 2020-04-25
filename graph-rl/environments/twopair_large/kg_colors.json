@@ -13,16 +13,16 @@
         "I",
         "J",
         "K",
-        "b",
-        "c",
-        "j",
-        "g",
-        "f",
-        "e",
-        "h",
-        "d",
         "i",
-        "k"
+        "f",
+        "h",
+        "b",
+        "j",
+        "c",
+        "k",
+        "e",
+        "d",
+        "g"
     ],
     "nodes": [
         {
@@ -312,6 +312,72 @@
             "feature_type": "list"
         },
         {
+            "node": "i",
+            "feature_len": 15,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "f",
+            "feature_len": 15,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
+            "node": "h",
+            "feature_len": 15,
+            "feats": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0
+            ],
+            "feature_type": "list"
+        },
+        {
             "node": "b",
             "feature_len": 15,
             "feats": [
@@ -322,28 +388,6 @@
                 1,
                 1,
                 0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            ],
-            "feature_type": "list"
-        },
-        {
-            "node": "c",
-            "feature_len": 15,
-            "feats": [
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                1,
                 0,
                 0,
                 0,
@@ -378,7 +422,7 @@
             "feature_type": "list"
         },
         {
-            "node": "g",
+            "node": "c",
             "feature_len": 15,
             "feats": [
                 0,
@@ -387,11 +431,11 @@
                 0,
                 1,
                 0,
-                0,
-                0,
-                0,
-                0,
                 1,
+                0,
+                0,
+                0,
+                0,
                 0,
                 0,
                 0,
@@ -400,7 +444,7 @@
             "feature_type": "list"
         },
         {
-            "node": "f",
+            "node": "k",
             "feature_len": 15,
             "feats": [
                 0,
@@ -412,12 +456,12 @@
                 0,
                 0,
                 0,
-                1,
                 0,
                 0,
                 0,
                 0,
-                0
+                0,
+                1
             ],
             "feature_type": "list"
         },
@@ -437,28 +481,6 @@
                 0,
                 0,
                 0,
-                0,
-                0,
-                0
-            ],
-            "feature_type": "list"
-        },
-        {
-            "node": "h",
-            "feature_len": 15,
-            "feats": [
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                1,
                 0,
                 0,
                 0
@@ -488,7 +510,7 @@
             "feature_type": "list"
         },
         {
-            "node": "i",
+            "node": "g",
             "feature_len": 15,
             "feats": [
                 0,
@@ -501,33 +523,11 @@
                 0,
                 0,
                 0,
-                0,
-                0,
                 1,
+                0,
+                0,
                 0,
                 0
-            ],
-            "feature_type": "list"
-        },
-        {
-            "node": "k",
-            "feature_len": 15,
-            "feats": [
-                0,
-                0,
-                0,
-                0,
-                1,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                1
             ],
             "feature_type": "list"
         }
@@ -595,25 +595,7 @@
         },
         {
             "src": "A",
-            "dst": "b",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "c",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "j",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "g",
+            "dst": "i",
             "feature_idx": 1,
             "feature_len": 3
         },
@@ -625,13 +607,37 @@
         },
         {
             "src": "A",
-            "dst": "e",
+            "dst": "h",
             "feature_idx": 1,
             "feature_len": 3
         },
         {
             "src": "A",
-            "dst": "h",
+            "dst": "b",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "j",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "c",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "k",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "e",
             "feature_idx": 1,
             "feature_len": 3
         },
@@ -643,13 +649,7 @@
         },
         {
             "src": "A",
-            "dst": "i",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "k",
+            "dst": "g",
             "feature_idx": 1,
             "feature_len": 3
         },

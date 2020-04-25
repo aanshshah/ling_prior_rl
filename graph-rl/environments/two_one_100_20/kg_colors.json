@@ -5,8 +5,8 @@
         "X",
         "B",
         "b",
-        "d",
-        "c"
+        "c",
+        "d"
     ],
     "nodes": [
         {
@@ -75,7 +75,7 @@
             "feature_type": "list"
         },
         {
-            "node": "d",
+            "node": "c",
             "feature_len": 6,
             "feats": [
                 0,
@@ -88,7 +88,7 @@
             "feature_type": "list"
         },
         {
-            "node": "c",
+            "node": "d",
             "feature_len": 6,
             "feats": [
                 0,
@@ -128,13 +128,13 @@
         },
         {
             "src": "A",
-            "dst": "d",
+            "dst": "c",
             "feature_idx": 1,
             "feature_len": 3
         },
         {
             "src": "A",
-            "dst": "c",
+            "dst": "d",
             "feature_idx": 1,
             "feature_len": 3
         },

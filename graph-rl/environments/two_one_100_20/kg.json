@@ -4,9 +4,9 @@
         "A",
         "X",
         "B",
-        "b",
+        "d",
         "c",
-        "d"
+        "b"
     ],
     "nodes": [
         {
@@ -34,7 +34,7 @@
             "feature_type": "one_hot"
         },
         {
-            "node": "b",
+            "node": "d",
             "feature_idx": 4,
             "feature_len": 7,
             "feature_type": "one_hot"
@@ -46,7 +46,7 @@
             "feature_type": "one_hot"
         },
         {
-            "node": "d",
+            "node": "b",
             "feature_idx": 6,
             "feature_len": 7,
             "feature_type": "one_hot"
@@ -73,7 +73,7 @@
         },
         {
             "src": "A",
-            "dst": "b",
+            "dst": "d",
             "feature_idx": 1,
             "feature_len": 3
         },
@@ -85,7 +85,7 @@
         },
         {
             "src": "A",
-            "dst": "d",
+            "dst": "b",
             "feature_idx": 1,
             "feature_len": 3
         },

@@ -8,20 +8,20 @@
         "D",
         "E",
         "F",
+        "j",
+        "l",
+        "o",
         "d",
         "f",
-        "o",
-        "i",
-        "e",
-        "h",
-        "l",
-        "m",
-        "n",
-        "b",
-        "j",
-        "p",
         "c",
+        "n",
+        "m",
+        "e",
+        "p",
+        "h",
         "k",
+        "b",
+        "i",
         "g"
     ],
     "nodes": [
@@ -74,13 +74,13 @@
             "feature_type": "one_hot"
         },
         {
-            "node": "d",
+            "node": "j",
             "feature_idx": 8,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "f",
+            "node": "l",
             "feature_idx": 9,
             "feature_len": 23,
             "feature_type": "one_hot"
@@ -92,25 +92,25 @@
             "feature_type": "one_hot"
         },
         {
-            "node": "i",
+            "node": "d",
             "feature_idx": 11,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "e",
+            "node": "f",
             "feature_idx": 12,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "h",
+            "node": "c",
             "feature_idx": 13,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "l",
+            "node": "n",
             "feature_idx": 14,
             "feature_len": 23,
             "feature_type": "one_hot"
@@ -122,37 +122,37 @@
             "feature_type": "one_hot"
         },
         {
-            "node": "n",
+            "node": "e",
             "feature_idx": 16,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "b",
+            "node": "p",
             "feature_idx": 17,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "j",
+            "node": "h",
             "feature_idx": 18,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "p",
+            "node": "k",
             "feature_idx": 19,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "c",
+            "node": "b",
             "feature_idx": 20,
             "feature_len": 23,
             "feature_type": "one_hot"
         },
         {
-            "node": "k",
+            "node": "i",
             "feature_idx": 21,
             "feature_len": 23,
             "feature_type": "one_hot"
@@ -257,6 +257,24 @@
         },
         {
             "src": "A",
+            "dst": "j",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "l",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "o",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
             "dst": "d",
             "feature_idx": 1,
             "feature_len": 3
@@ -269,37 +287,7 @@
         },
         {
             "src": "A",
-            "dst": "o",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "i",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "e",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "h",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "l",
-            "feature_idx": 1,
-            "feature_len": 3
-        },
-        {
-            "src": "A",
-            "dst": "m",
+            "dst": "c",
             "feature_idx": 1,
             "feature_len": 3
         },
@@ -311,13 +299,13 @@
         },
         {
             "src": "A",
-            "dst": "b",
+            "dst": "m",
             "feature_idx": 1,
             "feature_len": 3
         },
         {
             "src": "A",
-            "dst": "j",
+            "dst": "e",
             "feature_idx": 1,
             "feature_len": 3
         },
@@ -329,13 +317,25 @@
         },
         {
             "src": "A",
-            "dst": "c",
+            "dst": "h",
             "feature_idx": 1,
             "feature_len": 3
         },
         {
             "src": "A",
             "dst": "k",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "b",
+            "feature_idx": 1,
+            "feature_len": 3
+        },
+        {
+            "src": "A",
+            "dst": "i",
             "feature_idx": 1,
             "feature_len": 3
         },
