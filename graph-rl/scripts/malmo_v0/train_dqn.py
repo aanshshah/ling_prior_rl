@@ -29,7 +29,7 @@ from graphrl.environments.malmo.malmo_env_env import MalmoEnvSpecial
 from graphrl.environments.pycolab_wrappers import OneHotEnv
 
 
-ex = sacred.Experiment('train_pacman_v1_dqn')
+ex = sacred.Experiment()
 maybe_add_slack(ex)
 
 
@@ -97,18 +97,18 @@ def build_envs(layout_folder, ghost_type, render, kg, should_print, phase, enlar
 
     if should_print:
         print('Phase: {}'.format(phase))
-        print('Reading layout folder: {}'.format(layout_folder))
-        for i, layout_file in enumerate(layout_files):
-            print('{}) {}'.format(i + 1, layout_file))
-        print('Entities: {}'.format(entities))
+    #     print('Reading layout folder: {}'.format(layout_folder))
+    #     for i, layout_file in enumerate(layout_files):
+    #         print('{}) {}'.format(i + 1, layout_file))
+    #     print('Entities: {}'.format(entities))
 
-    def env_func(layout_file):
+    def env_func(layout_file=None):
         env = MalmoEnvSpecial('pickaxe_stone', 9000)
-        if enlarge:
-            env = EnlargeEnv(env)
-        if render:
-            env = RenderEnv(env)
-        env = OneHotEnv(env, [ord(str(c)) for c in [0, 1, 2, 3, 4]])
+        # if enlarge:
+        #     env = EnlargeEnv(env)
+        # if render:
+        #     env = RenderEnv(env)
+        # env = OneHotEnv(env, [ord(str(c)) for c in [0, 1, 2, 3, 4]])
         return env
 
     # envs = [env_func(layout_file) for layout_file in layout_files]
