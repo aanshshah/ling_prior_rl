@@ -14,6 +14,7 @@ import math
 import os
 import random
 import gym
+from gym import spaces
 import sys
 import socket
 import struct
@@ -59,7 +60,7 @@ class MalmoEnvSpecial(gym.Env):
 
         state_data = [self.state_map[block] if block in self.state_map else 0.0 for block in state_data_raw]
 
-        state_data =np.reshape(np.array(state_data,dtype=np.float64),(1,9,9))
+        state_data =np.reshape(np.array(state_data,dtype=np.float32),(1,9,9))
         if use_entities: 
             entity_data = self.obs_to_ent_vector(observation,self.relevant_entities)
             if add_inv:
@@ -76,7 +77,7 @@ class MalmoEnvSpecial(gym.Env):
         state_out = np.expand_dims(state_data,0) if expand_dims else state_data
 
         # print("SHAPE:",state_out.shape)
-        return state_out
+        return state_out.astype(np.float32)
 
  
     # def fix_player_location(self,world_state):
@@ -102,8 +103,6 @@ class MalmoEnvSpecial(gym.Env):
         if observation[key] in self.relevant_entities:
             return self.entity_map[observation[key] ]
         else: return 0
-
-
 
     def obs_to_ent_vector(self,observation,relevant_entities):
 
@@ -131,7 +130,6 @@ class MalmoEnvSpecial(gym.Env):
             # print("coords",relative_x,relative_z)
             entity_states[0][math.floor(relative_z)][math.floor(relative_x)] = float(self.entity_map[e["name"]])
         return entity_states #np.transpose(entity_states,(0,2,1))
-
 
     def load_mission_param(self,mission_type):
         mission_dict = {}
@@ -268,7 +266,7 @@ class MalmoEnvSpecial(gym.Env):
      #   print(mission_param)
         self.actions =["movenorth","movesouth", "movewest", "moveeast","attack","use"] #,"strafe 1","strafe -1"] #,"attack 1","attack 0"]
 
-        self.observation_space = np.zeros((1,1,9,9))
+        self.observation_space = spaces.Box(0, 4, shape=(1,9,9))
         self.state_map = mission_param["state_map"]
         self.entity_map = mission_param["entity_map"]
         self.relevant_entities =  mission_param["relevant_entities"]
@@ -300,18 +298,16 @@ class MalmoEnvSpecial(gym.Env):
                  reward = self.step_cost
 
             # self.fix_player_location(info)
-            obs = self.obs_to_vector(observation)
+            obs = self.obs_to_vector(observation, expand_dims=False)
         else:
-            obs = self.observation_space
+            obs = np.zeros(self.observation_space.shape)
 
         if self.num_steps >= self.max_steps:
            done=True
 
         self.num_steps+=1
         # print(self.num_steps)
-        # print(obs)
-
-        return obs, reward, done, info
+        return obs, reward, done, {}
     
     def re_init_mission(self,xml):
 
@@ -356,8 +352,6 @@ class MalmoEnvSpecial(gym.Env):
             if ok != 1:
                 time.sleep(1)
         
-
-
     def build_xml(self,xml):
         # if action_filter is None:
         #     action_filter = {"move", "turn", "use", "attack"}
@@ -446,7 +440,6 @@ class MalmoEnvSpecial(gym.Env):
 
         return xml
 
-
     def reset(self,remake_mission=True):
         self.num_steps = 0
        
@@ -505,7 +498,7 @@ if __name__ == "__main__":
 
     if len(sys.argv) > 1 and sys.argv[1] == "RUN_SERVER":
         print("Launching on port " + sys.argv[2])
-        malmoenv.bootstrap.launch_minecraft(int(sys.argv[2]))
+        malmoenv.bootstrap.launch_minecraft(int(sys.argv[2]), installdir=sys.argv[3])
         exit()
 
     print("initializing environment...")
