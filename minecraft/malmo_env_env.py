@@ -135,50 +135,44 @@ class MalmoEnvSpecial(gym.Env):
 
     def load_mission_param(self,mission_type):
         mission_dict = {}
+        mission_dict["step_cost"] = -0.1
+        mission_dict["goal_reward"] = 100.0
+        mission_dict["max_steps"] = 100
+
         if mission_type == "pickaxe_stone":
             mission_dict["state_map"] = {"air":0,"bedrock":1,"stone":2}
             mission_dict["entity_map"] = {"diamond_pickaxe":3,"cobblestone":4}
             mission_dict["relevant_entities"] = {"diamond_pickaxe","cobblestone"}
             mission_dict["goal"] = "cobblestone"
-            mission_dict["step_cost"] = -0.1
-            mission_dict["goal_reward"] = 100.0
-            mission_dict["max_steps"] = 100
+            
 
         elif mission_type == "axe_log":
             mission_dict["state_map"] = {"air":0,"bedrock":1,"log":2}
             mission_dict["entity_map"] = {"diamond_axe":3,"log":4}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "log"
-            mission_dict["step_cost"] = -0.1
-            mission_dict["goal_reward"] = 100.0
-            mission_dict["max_steps"] = 100
+            
 
         elif mission_type == "shovel_clay":
             mission_dict["state_map"] = {"air":0,"bedrock":1,"clay":2}
             mission_dict["entity_map"] = {"diamond_shovel":3,"clay":4}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "clay"
-            mission_dict["step_cost"] = -0.1
-            mission_dict["goal_reward"] = 100.0
-            mission_dict["max_steps"] = 100
+            
 
         elif mission_type == "hoe_farmland":
             mission_dict["state_map"] = {"air":0,"bedrock":1,"dirt":2,"farmland":6}
             mission_dict["entity_map"] = {"diamond_hoe":3,"dirt":4,"farmland":5}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "farmland"
-            mission_dict["step_cost"] = -0.1
-            mission_dict["goal_reward"] = 100.0
-            mission_dict["max_steps"] = 100
+            
 
         elif mission_type == "bucket_water":
             mission_dict["state_map"] = {"air":0,"bedrock":1,"water":2}
             mission_dict["entity_map"] = {"bucket":3,"water_bucket":4}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "water_bucket"
-            mission_dict["step_cost"] = -0.1
-            mission_dict["goal_reward"] = 100.0
-            mission_dict["max_steps"] = 100
+            
 
 
         elif mission_type == "sword_pig":
@@ -186,27 +180,29 @@ class MalmoEnvSpecial(gym.Env):
             mission_dict["entity_map"] = {"diamond_sword":1,"Pig":2}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "porkchop"
-            mission_dict["step_cost"] = -0.1
-            mission_dict["goal_reward"] = 100.0
-            mission_dict["max_steps"] = 250
+            
 
         elif mission_type == "sword_cow":
             mission_dict["state_map"] = {"air":0,"bedrock":1}
             mission_dict["entity_map"] = {"diamond_sword":2,"Cow":3}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "beef"
-            mission_dict["step_cost"] = -0.1
-            mission_dict["goal_reward"] = 100.0
-            mission_dict["max_steps"] = 250
+            
 
         elif mission_type == "shears_sheep":
             mission_dict["state_map"] = {"air":0,"bedrock":1}
             mission_dict["entity_map"] = {"shears":2,"Sheep":3}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
             mission_dict["goal"] = "wool"
-            mission_dict["step_cost"] = -0.1
-            mission_dict["goal_reward"] = 100
-            mission_dict["max_steps"] = 100
+        
+
+        entities = list(mission_dict["relevant_entities"]) + ["water", "stone"]
+        entity_to_idx = {"bucket": 0, "soil": 1, "abstraction": 2, "pig": 3, "dirt": 4, "unpleasant_person": 5, "log": 6, "tool": 7, "pickaxe": 8, "shears": 9, "wool": 10, "solid": 11, "shovel": 12, "meat": 13, "matter": 14, "instrument": 15, "cobblestone": 16, "beef": 17, "artifact": 18, "material": 19, "water_bucket": 20, "sheep": 21, "substance": 22, "instrumentality": 23, "stone": 24, "object": 25, "entity": 26, "hoe": 27, "containerful": 28, "container": 29, "speech_act": 30, "cow": 31, "edge_tool": 32, "bovid": 33, "even-toed_ungulate": 34, "cattle": 35, "water": 36, "porkchop": 37, "physical_entity": 38, "body_waste": 39, "natural_object": 40, "clay": 41, "farmland": 42, "sword": 43, "person": 44, "event": 45, "device": 46, "whole": 47, "axe": 48}
+        env_to_kg_entity = {"diamond_pickaxe" : "pickaxe", "diamond_axe" : "axe", "diamond_shovel" : "shovel", "diamond_hoe" : "hoe", "diamond_sword" : "sword", "Pig" : "pig", "Cow" : "cow", "Sheep" : "sheep"}
+        kg_entities = [env_to_kg_entity[entity] for entity in entities]
+        kg_to_env_entity = {}
+        for k,v in env_to_kg_entity.items(): kg_to_env_entity[v] = k
+        for entity in kg_entities: mission_dict["entity_map"][kg_to_env_entity[entity]] = entity_to_idx[entity]
 
         if len(mission_dict) == 0:
             print("Invalid mission name:",mission_type)
