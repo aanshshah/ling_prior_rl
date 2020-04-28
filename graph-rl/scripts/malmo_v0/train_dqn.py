@@ -18,6 +18,7 @@ import sacred
 import torch
 import glob
 import os
+import sys
 import json
 
 from graphrl.sacred.config import maybe_add_slack
@@ -91,7 +92,7 @@ def load_entities(file, entities, entities_from_file):
     return entities
 
 
-def build_envs(layout_folder, ghost_type, render, kg, should_print, phase, enlarge, **kwargs):
+def build_envs(layout_folder, ghost_type, render, kg, should_print, phase, enlarge, addr='127.0.0.1', port=9000, **kwargs):
     # layout_files = glob.glob(os.path.join(layout_folder, '*.lay'))
     # entities = load_entities(**kg)
 
@@ -103,7 +104,8 @@ def build_envs(layout_folder, ghost_type, render, kg, should_print, phase, enlar
     #     print('Entities: {}'.format(entities))
 
     def env_func(layout_file=None):
-        env = MalmoEnvSpecial('pickaxe_stone', 9000)
+        print("Using addr:", addr, "port:", port)
+        env = MalmoEnvSpecial('pickaxe_stone', port, addr)
         # if enlarge:
         #     env = EnlargeEnv(env)
         # if render:
@@ -120,9 +122,10 @@ def main(_seed, _run, env, rootdir):
     torch.manual_seed(_seed)
 
     os.chdir(rootdir)
-
+    port = sys.argv[-2]
+    addr = sys.argv[-3]
     def train_env_func(should_print=False):
-        train_envs = build_envs(**env['train'], should_print=should_print, phase='train')
+        train_envs = build_envs(**env['train'], should_print=should_print, phase='train',addr=addr, port=port)
         train_env = SampleEnv(train_envs)
         return train_env
 
@@ -135,7 +138,7 @@ def main(_seed, _run, env, rootdir):
     agent_params.load_sacred_config()
     agent_params.train_env_func = train_env_func
     agent_params.test_envs = test_envs
-
+    agent_params.experiment_name = sys.argv[-1]
     online_q_net = build_net(input_shape=input_shape, num_actions=num_actions)
     target_q_net = build_net(input_shape=input_shape, num_actions=num_actions)
     agent_params.online_q_net = online_q_net
