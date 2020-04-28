@@ -8,3 +8,10 @@ Now this will setup the directory, install Minecraft and everything.
 
 Use this to test:
 python -c "import malmoenv.bootstrap; malmoenv.bootstrap.launch_minecraft(port_num)"
+
+# How to run the server
+Run these commands: 
+1) Open a CCV VNC instance and log in. You don't need a GPU, 4 cores is fine
+2) Open a terminal and navigate to reai_group5 directory. Activate the venv 
+3) cd into ling_prior_rl/graph-rl 
+4) run python graphrl/environments/malmo/malmo_env_env.py RUN_SERVER <port> 'minecraft/MalmoPlatform'
