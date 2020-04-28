@@ -1,4 +1,0 @@
-daughter
-child
-son
-parent

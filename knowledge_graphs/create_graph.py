@@ -509,11 +509,11 @@ if __name__ == '__main__':
                         help="Optional; Provide the name of knowledge graph to create the graph (ndarray)",
                         default=False)
     parser.add_argument('--depth', nargs='?', help="Depth to use for hypernyms in Conceptnet", default=2)
-    parser.add_argument('--wordnet', action="store_true", help="Use wordnet to augment conceptnet", default=False)
+    parser.add_argument('--wordnet', action="store_true", help="Use wordnet to augment conceptnet", default=True)
     parser.add_argument('--viz', action="store_true", help="Visualize an existing graph", default=False)
     parser.add_argument('--svg', action="store_true", help="Visualize an existing graph", default=False)
     parser.add_argument('--aug', action="store_true", help="Augment existing entities with lowest common hypernyms",
-                        default=False)
+                        default=True)
     parser.add_argument('--syn', nargs='?', help="Augment existing entities with lowest common hypernyms and synonyms",
                         default=0)
     args = parser.parse_args()

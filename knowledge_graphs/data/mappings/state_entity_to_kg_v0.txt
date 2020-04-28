@@ -1,0 +1,1 @@
+{"diamond_pickaxe" : "pickaxe", "diamond_axe" : "axe", "diamond_shovel" : "shovel", "diamond_hoe" : "hoe", "diamond_sword" : "sword", "Pig" : "pig", "Cow" : "cow", "Sheep" : "sheep"}
