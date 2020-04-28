@@ -196,10 +196,11 @@ class MalmoEnvSpecial(gym.Env):
             mission_dict["goal"] = "wool"
         
 
-        entities = list(mission_dict["relevant_entities"])
+        entities = list(mission_dict["relevant_entities"]) + ["water", "stone"]
         entity_to_idx = {"bucket": 0, "soil": 1, "abstraction": 2, "pig": 3, "dirt": 4, "unpleasant_person": 5, "log": 6, "tool": 7, "pickaxe": 8, "shears": 9, "wool": 10, "solid": 11, "shovel": 12, "meat": 13, "matter": 14, "instrument": 15, "cobblestone": 16, "beef": 17, "artifact": 18, "material": 19, "water_bucket": 20, "sheep": 21, "substance": 22, "instrumentality": 23, "stone": 24, "object": 25, "entity": 26, "hoe": 27, "containerful": 28, "container": 29, "speech_act": 30, "cow": 31, "edge_tool": 32, "bovid": 33, "even-toed_ungulate": 34, "cattle": 35, "water": 36, "porkchop": 37, "physical_entity": 38, "body_waste": 39, "natural_object": 40, "clay": 41, "farmland": 42, "sword": 43, "person": 44, "event": 45, "device": 46, "whole": 47, "axe": 48}
         env_to_kg_entity = {"diamond_pickaxe" : "pickaxe", "diamond_axe" : "axe", "diamond_shovel" : "shovel", "diamond_hoe" : "hoe", "diamond_sword" : "sword", "Pig" : "pig", "Cow" : "cow", "Sheep" : "sheep"}
         kg_entities = [env_to_kg_entity[entity] for entity in entities]
+        kg_to_env_entity = {}
         for k,v in env_to_kg_entity.items(): kg_to_env_entity[v] = k
         for entity in kg_entities: mission_dict["entity_map"][kg_to_env_entity[entity]] = entity_to_idx[entity]
 
