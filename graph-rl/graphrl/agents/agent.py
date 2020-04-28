@@ -50,6 +50,7 @@ AGENT_DEFAULT_PARAMS = {
     'should_load_nets': False,
     'load_nets_folder': './model',
     'save_freq_steps': 500000,
+    'save_dir': './saved_models',
     'tensorboard_logdir': './log',
     'use_tensorboard': False,
     'record_video': False,
@@ -403,9 +404,12 @@ class Agent(object):
             net.load_state_dict(torch.load(os.path.join(self.params.load_nets_folder, '{}.pth'.format(name)), map_location=self.device_name))
 
     def save_nets(self, is_best=False):
+        if not os.path.isdir(AGENT_DEFAULT_PARAMS['save_dir']):
+            os.makedirs(AGENT_DEFAULT_PARAMS['save_dir'])
         for name, net in self.nets.items():
+            torch.save(net.state_dict(), AGENT_DEFAULT_PARAMS['save_dir'] + '/{}_{}.pth'.format(name, self.CTR_TRAIN_STEPS))
             new_file, filename = tempfile.mkstemp()
-            torch.save(net.state_dict(), filename)
+            torch.save(net.state_dict(), filename) 
             self.sacred_run.add_artifact(filename, name='{}_{}.pth'.format(name, self.CTR_TRAIN_STEPS))
 
             if is_best:
