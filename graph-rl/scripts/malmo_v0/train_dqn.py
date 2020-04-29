@@ -38,30 +38,33 @@ maybe_add_slack(ex)
 def config():
     rootdir = './'
 
+    port = 9000 
+    addr = '127.0.0.1'
+
     env = {
         'train': {
-            'layout_folder': 'assets/pacman/smallGrid',
-            'ghost_type': 'random',
-            'render': False,
-            'enlarge': False,
+            # 'layout_folder': 'assets/pacman/smallGrid',
+            # 'ghost_type': 'random',
+            # 'render': False,
+            # 'enlarge': False,
 
-            'kg': {
-                'file': './',
-                'entities': ['%', ' ', '.', 'G', 'H', 'o', 'P'],
-                'entities_from_file': False
-            }
+            # 'kg': {
+            #     'file': './',
+            #     'entities': ['%', ' ', '.', 'G', 'H', 'o', 'P'],
+            #     'entities_from_file': False
+            # }
         },
         'test': {
-            'layout_folder': 'assets/pacman/smallGrid',
-            'ghost_type': 'random',
-            'render': False,
-            'enlarge': False,
+            # 'layout_folder': 'assets/pacman/smallGrid',
+            # 'ghost_type': 'random',
+            # 'render': False,
+            # 'enlarge': False,
 
-            'kg': {
-                'file': './',
-                'entities': ['%', ' ', '.', 'G', 'H', 'o', 'P'],
-                'entities_from_file': False
-            }
+            # 'kg': {
+            #     'file': './',
+            #     'entities': ['%', ' ', '.', 'G', 'H', 'o', 'P'],
+            #     'entities_from_file': False
+            # }
         }
     }
 
@@ -92,7 +95,7 @@ def load_entities(file, entities, entities_from_file):
     return entities
 
 
-def build_envs(layout_folder, ghost_type, render, kg, should_print, phase, enlarge, addr='127.0.0.1', port=9000, **kwargs):
+def build_envs(should_print, phase, experiment_name='pickaxe_stone', addr='127.0.0.1', port=9000, **kwargs):
     # layout_files = glob.glob(os.path.join(layout_folder, '*.lay'))
     # entities = load_entities(**kg)
 
@@ -104,8 +107,8 @@ def build_envs(layout_folder, ghost_type, render, kg, should_print, phase, enlar
     #     print('Entities: {}'.format(entities))
 
     def env_func(layout_file=None):
-        print("Using addr:", addr, "port:", port)
-        env = MalmoEnvSpecial('pickaxe_stone', port, addr)
+        print("Using addr:", addr, "port:", port, "on:", experiment_name)
+        env = MalmoEnvSpecial(experiment_name, port, addr)
         # if enlarge:
         #     env = EnlargeEnv(env)
         # if render:
@@ -118,14 +121,16 @@ def build_envs(layout_folder, ghost_type, render, kg, should_print, phase, enlar
 
 
 @ex.automain
-def main(_seed, _run, env, rootdir):
+def main(_seed, _run, env, rootdir, addr, port):
     torch.manual_seed(_seed)
 
     os.chdir(rootdir)
-    port = sys.argv[-2]
-    addr = sys.argv[-3]
+    agent_params.load_sacred_config()
+
     def train_env_func(should_print=False):
-        train_envs = build_envs(**env['train'], should_print=should_print, phase='train',addr=addr, port=port)
+        train_envs = build_envs(should_print=should_print, phase='train',
+                experiment_name=agent_params.experiment_name, addr=addr, 
+                port=port)
         train_env = SampleEnv(train_envs)
         return train_env
 
@@ -135,10 +140,8 @@ def main(_seed, _run, env, rootdir):
     input_shape = train_env_func().observation_space.shape
     num_actions = train_env_func().action_space.n
 
-    agent_params.load_sacred_config()
     agent_params.train_env_func = train_env_func
     agent_params.test_envs = test_envs
-    agent_params.experiment_name = sys.argv[-1]
     online_q_net = build_net(input_shape=input_shape, num_actions=num_actions)
     target_q_net = build_net(input_shape=input_shape, num_actions=num_actions)
     agent_params.online_q_net = online_q_net
