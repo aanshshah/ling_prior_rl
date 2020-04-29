@@ -11,7 +11,7 @@
 #SBATCH -t 24:00:00
 
 # Specify a job name:
-#SBATCH -J graph_dqn_malmo_train
+#SBATCH -J baseline_dqn_axe_log
 
 # Specify an output file
 #SBATCH -o malmo_axe_log.out 
@@ -25,5 +25,5 @@ module load cuda/9.2.148 cudnn/7.6.5
 source ../../reai_venv/bin/activate
 
 # Run a script
-unbuffer python scripts/malmo_v0/train_dqn.py with pickaxe_skyline.json model_configs/reduce.json model_configs/qhead.json hyper_configs/slow.json agent.opt.kwargs.lr=1e-4 agent.min_train_episodes=40000 addr=172.25.201.5 port=9000 agent.experiement_name='axe_log'
+unbuffer python scripts/malmo_v0/train_dqn.py with pickaxe_skyline.json model_configs/reduce.json model_configs/qhead.json hyper_configs/slow.json agent.opt.kwargs.lr=1e-4 agent.min_train_episodes=40000 agent.experiment_name='axe_log' addr=172.25.201.5 port=9000 
 deactivate
