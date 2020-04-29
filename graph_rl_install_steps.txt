@@ -13,7 +13,14 @@ pip install cloudpickle~=1.2.0
 pip install -e .
 cd ..
 pip install -e .
-pip install torch visdom_observer torchvision pycolab 
+pip install torch visdom_observer torchvision pycolab torch_geometric
+pip install torch-scatter==latest+cu92 torch-sparse==latest+cu92 -f https://pytorch-geometric.com/whl/torch-1.4.0.html
 python gen_commands/generate_environments.py
 
+Note that the cu92 refers to the cuda/9.2.148 that we use in the run.sh. If the cuda version changes, please change the above.
+
+Baseline:
 python scripts/warehouse_v1/train_dqn.py with env_configs/warehouse_v1/one_one.json model_configs/reduce.json model_configs/qhead.json hyper_configs/slow.json agent.opt.kwargs.lr=1e-4 agent.min_train_episodes=40000
+
+Graph:
+python scripts/malmo_v0/train_dqn_graph.py with env.train.kg.file=pickaxe_skyline.json env.test.kg.file=pickaxe_skyline.json model_configs/dgconv_large.json model_configs/qhead.json hyper_configs/slow.json agent.opt.kwargs.lr=1e-4 agent.min_train_episodes=40000 arch.trunk.use_orth_init=True agent.experiment_name='pickaxe_stone' port=9000 address='127.0.0.1'
