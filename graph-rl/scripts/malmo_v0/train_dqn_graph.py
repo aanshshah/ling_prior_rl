@@ -15,13 +15,16 @@ from graphrl.environments.pacman.pacman_gym_v1 import PacmanEnv, EnlargeEnv
 from graphrl.environments.wrappers import RenderEnv, SampleEnv
 
 
-ex = sacred.Experiment('train_pacman_v1_dqn_graph')
+ex = sacred.Experiment()
 maybe_add_slack(ex)
 
 
 @ex.config
 def config():
     rootdir = './'
+
+    port = 9000 
+    addr = '127.0.0.1'
 
     env = {
         'train': {
@@ -109,7 +112,7 @@ def build_envs(layout_folder, ghost_type, render, dont_crop_adj, kg, one_hot_edg
 
 
 @ex.automain
-def main(_seed, _run, env, rootdir):
+def main(_seed, _run, env, rootdir, addr, port):
     torch.manual_seed(_seed)
 
     os.chdir(rootdir)
@@ -120,16 +123,21 @@ def main(_seed, _run, env, rootdir):
     num_node_feats = train_kg_dict['num_node_feats']
     num_edge_feats = train_kg_dict['num_edge_feats']
 
+    agent_params.load_sacred_config()
+
     def train_env_func(should_print=False):
-        train_envs = build_envs(**env['train'], should_print=should_print, phase='train')
+        train_envs = build_envs(**env['train'], should_print=should_print, phase='train',
+                experiment_name=agent_params.experiment_name, addr=addr, 
+                port=port)
         train_env = SampleEnv(train_envs)
         return train_env
 
-    test_envs = build_envs(**env['test'], should_print=True, phase='test')
+    test_envs = build_envs(**env['test'], should_print=True, phase='test',
+            experiment_name=agent_params.experiment_name, addr=addr, 
+            port=port)
 
     num_actions = train_env_func().action_space.n
 
-    agent_params.load_sacred_config()
     agent_params.train_env_func = train_env_func
     agent_params.test_envs = test_envs
 

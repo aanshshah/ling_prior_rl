@@ -405,10 +405,10 @@ class Agent(object):
             net.load_state_dict(torch.load(os.path.join(self.params.load_nets_folder, '{}.pth'.format(name)), map_location=self.device_name))
 
     def save_nets(self, is_best=False):
-        if not os.path.isdir(AGENT_DEFAULT_PARAMS['save_dir']):
-            os.makedirs(AGENT_DEFAULT_PARAMS['save_dir'] + '/' + AGENT_DEFAULT_PARAMS['experiment_name'])
+        if not os.path.isdir(self.params.save_dir + '/' + self.params.experiment_name):
+            os.makedirs(self.params.save_dir + '/' + self.params.experiment_name)
         for name, net in self.nets.items():
-            torch.save(net.state_dict(), AGENT_DEFAULT_PARAMS['save_dir'] + '/' + AGENT_DEFAULT_PARAMS['experiment_name'] + '/{}_{}.pth'.format(name, self.CTR_TRAIN_STEPS))
+            torch.save(net.state_dict(), self.params.save_dir + '/' + self.params.experiment_name + '/{}_{}.pth'.format(name, self.CTR_TRAIN_STEPS))
             new_file, filename = tempfile.mkstemp()
             torch.save(net.state_dict(), filename) 
             self.sacred_run.add_artifact(filename, name='{}_{}.pth'.format(name, self.CTR_TRAIN_STEPS))

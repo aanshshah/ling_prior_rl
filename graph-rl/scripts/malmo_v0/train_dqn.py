@@ -135,7 +135,9 @@ def main(_seed, _run, env, rootdir, addr, port):
         return train_env
 
     train_env_func(should_print=True)
-    test_envs = build_envs(**env['test'], should_print=True, phase='train')
+    test_envs = build_envs(**env['test'], should_print=True, phase='train',
+            experiment_name=agent_params.experiment_name, addr=addr, 
+            port=port)
 
     input_shape = train_env_func().observation_space.shape
     num_actions = train_env_func().action_space.n
