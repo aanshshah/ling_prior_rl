@@ -153,9 +153,9 @@ class MalmoEnvSpecial(gym.Env):
 
         elif mission_type == "shovel_clay":
             mission_dict["state_map"] = {"air":0,"bedrock":1,"clay":2}
-            mission_dict["entity_map"] = {"diamond_shovel":3,"clay":4}
+            mission_dict["entity_map"] = {"diamond_shovel":3,"clay_ball":4}
             mission_dict["relevant_entities"] = set(mission_dict["entity_map"].keys())
-            mission_dict["goal"] = "clay"
+            mission_dict["goal"] = "clay_ball"
             mission_dict["step_cost"] = -0.1
             mission_dict["goal_reward"] = 100.0
             mission_dict["max_steps"] = 100
@@ -285,6 +285,7 @@ class MalmoEnvSpecial(gym.Env):
         _ , _ , done, info = self.env.step(action)
         # print("INFO",len(info))
 
+        reward = self.step_cost
         if info is not None and len(info) > 0:
             observation = json.loads(info)
             if self.mission_type == "hoe_farmland":

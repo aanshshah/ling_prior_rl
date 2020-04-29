@@ -1,0 +1,2711 @@
+{
+    "entities": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+    ],
+    "nodes": [
+        {
+            "node": 0,
+            "feature_type": "one_hot",
+            "feature_idx": 0,
+            "feature_len": 49
+        },
+        {
+            "node": 1,
+            "feature_type": "one_hot",
+            "feature_idx": 1,
+            "feature_len": 49
+        },
+        {
+            "node": 2,
+            "feature_type": "one_hot",
+            "feature_idx": 2,
+            "feature_len": 49
+        },
+        {
+            "node": 3,
+            "feature_type": "one_hot",
+            "feature_idx": 3,
+            "feature_len": 49
+        },
+        {
+            "node": 4,
+            "feature_type": "one_hot",
+            "feature_idx": 4,
+            "feature_len": 49
+        },
+        {
+            "node": 5,
+            "feature_type": "one_hot",
+            "feature_idx": 5,
+            "feature_len": 49
+        },
+        {
+            "node": 6,
+            "feature_type": "one_hot",
+            "feature_idx": 6,
+            "feature_len": 49
+        },
+        {
+            "node": 7,
+            "feature_type": "one_hot",
+            "feature_idx": 7,
+            "feature_len": 49
+        },
+        {
+            "node": 8,
+            "feature_type": "one_hot",
+            "feature_idx": 8,
+            "feature_len": 49
+        },
+        {
+            "node": 9,
+            "feature_type": "one_hot",
+            "feature_idx": 9,
+            "feature_len": 49
+        },
+        {
+            "node": 10,
+            "feature_type": "one_hot",
+            "feature_idx": 10,
+            "feature_len": 49
+        },
+        {
+            "node": 11,
+            "feature_type": "one_hot",
+            "feature_idx": 11,
+            "feature_len": 49
+        },
+        {
+            "node": 12,
+            "feature_type": "one_hot",
+            "feature_idx": 12,
+            "feature_len": 49
+        },
+        {
+            "node": 13,
+            "feature_type": "one_hot",
+            "feature_idx": 13,
+            "feature_len": 49
+        },
+        {
+            "node": 14,
+            "feature_type": "one_hot",
+            "feature_idx": 14,
+            "feature_len": 49
+        },
+        {
+            "node": 15,
+            "feature_type": "one_hot",
+            "feature_idx": 15,
+            "feature_len": 49
+        },
+        {
+            "node": 16,
+            "feature_type": "one_hot",
+            "feature_idx": 16,
+            "feature_len": 49
+        },
+        {
+            "node": 17,
+            "feature_type": "one_hot",
+            "feature_idx": 17,
+            "feature_len": 49
+        },
+        {
+            "node": 18,
+            "feature_type": "one_hot",
+            "feature_idx": 18,
+            "feature_len": 49
+        },
+        {
+            "node": 19,
+            "feature_type": "one_hot",
+            "feature_idx": 19,
+            "feature_len": 49
+        },
+        {
+            "node": 20,
+            "feature_type": "one_hot",
+            "feature_idx": 20,
+            "feature_len": 49
+        },
+        {
+            "node": 21,
+            "feature_type": "one_hot",
+            "feature_idx": 21,
+            "feature_len": 49
+        },
+        {
+            "node": 22,
+            "feature_type": "one_hot",
+            "feature_idx": 22,
+            "feature_len": 49
+        },
+        {
+            "node": 23,
+            "feature_type": "one_hot",
+            "feature_idx": 23,
+            "feature_len": 49
+        },
+        {
+            "node": 24,
+            "feature_type": "one_hot",
+            "feature_idx": 24,
+            "feature_len": 49
+        },
+        {
+            "node": 25,
+            "feature_type": "one_hot",
+            "feature_idx": 25,
+            "feature_len": 49
+        },
+        {
+            "node": 26,
+            "feature_type": "one_hot",
+            "feature_idx": 26,
+            "feature_len": 49
+        },
+        {
+            "node": 27,
+            "feature_type": "one_hot",
+            "feature_idx": 27,
+            "feature_len": 49
+        },
+        {
+            "node": 28,
+            "feature_type": "one_hot",
+            "feature_idx": 28,
+            "feature_len": 49
+        },
+        {
+            "node": 29,
+            "feature_type": "one_hot",
+            "feature_idx": 29,
+            "feature_len": 49
+        },
+        {
+            "node": 30,
+            "feature_type": "one_hot",
+            "feature_idx": 30,
+            "feature_len": 49
+        },
+        {
+            "node": 31,
+            "feature_type": "one_hot",
+            "feature_idx": 31,
+            "feature_len": 49
+        },
+        {
+            "node": 32,
+            "feature_type": "one_hot",
+            "feature_idx": 32,
+            "feature_len": 49
+        },
+        {
+            "node": 33,
+            "feature_type": "one_hot",
+            "feature_idx": 33,
+            "feature_len": 49
+        },
+        {
+            "node": 34,
+            "feature_type": "one_hot",
+            "feature_idx": 34,
+            "feature_len": 49
+        },
+        {
+            "node": 35,
+            "feature_type": "one_hot",
+            "feature_idx": 35,
+            "feature_len": 49
+        },
+        {
+            "node": 36,
+            "feature_type": "one_hot",
+            "feature_idx": 36,
+            "feature_len": 49
+        },
+        {
+            "node": 37,
+            "feature_type": "one_hot",
+            "feature_idx": 37,
+            "feature_len": 49
+        },
+        {
+            "node": 38,
+            "feature_type": "one_hot",
+            "feature_idx": 38,
+            "feature_len": 49
+        },
+        {
+            "node": 39,
+            "feature_type": "one_hot",
+            "feature_idx": 39,
+            "feature_len": 49
+        },
+        {
+            "node": 40,
+            "feature_type": "one_hot",
+            "feature_idx": 40,
+            "feature_len": 49
+        },
+        {
+            "node": 41,
+            "feature_type": "one_hot",
+            "feature_idx": 41,
+            "feature_len": 49
+        },
+        {
+            "node": 42,
+            "feature_type": "one_hot",
+            "feature_idx": 42,
+            "feature_len": 49
+        },
+        {
+            "node": 43,
+            "feature_type": "one_hot",
+            "feature_idx": 43,
+            "feature_len": 49
+        },
+        {
+            "node": 44,
+            "feature_type": "one_hot",
+            "feature_idx": 44,
+            "feature_len": 49
+        },
+        {
+            "node": 45,
+            "feature_type": "one_hot",
+            "feature_idx": 45,
+            "feature_len": 49
+        },
+        {
+            "node": 46,
+            "feature_type": "one_hot",
+            "feature_idx": 46,
+            "feature_len": 49
+        },
+        {
+            "node": 47,
+            "feature_type": "one_hot",
+            "feature_idx": 47,
+            "feature_len": 49
+        },
+        {
+            "node": 48,
+            "feature_type": "one_hot",
+            "feature_idx": 48,
+            "feature_len": 49
+        }
+    ],
+    "edges": [
+        {
+            "src": "bucket",
+            "dst": "bucket",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bucket",
+            "dst": "abstraction",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bucket",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bucket",
+            "dst": "instrumentality",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bucket",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bucket",
+            "dst": "entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bucket",
+            "dst": "containerful",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bucket",
+            "dst": "container",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bucket",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "soil",
+            "dst": "soil",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "soil",
+            "dst": "dirt",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "soil",
+            "dst": "clay",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "abstraction",
+            "dst": "bucket",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "abstraction",
+            "dst": "abstraction",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "abstraction",
+            "dst": "dirt",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "abstraction",
+            "dst": "shovel",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "abstraction",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pig",
+            "dst": "pig",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pig",
+            "dst": "unpleasant_person",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pig",
+            "dst": "meat",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pig",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pig",
+            "dst": "instrumentality",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pig",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pig",
+            "dst": "container",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pig",
+            "dst": "even-toed_ungulate",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pig",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pig",
+            "dst": "person",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "dirt",
+            "dst": "soil",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "dirt",
+            "dst": "abstraction",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "dirt",
+            "dst": "dirt",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "dirt",
+            "dst": "matter",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "dirt",
+            "dst": "material",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "dirt",
+            "dst": "speech_act",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "dirt",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "dirt",
+            "dst": "body_waste",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "dirt",
+            "dst": "event",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "unpleasant_person",
+            "dst": "pig",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "unpleasant_person",
+            "dst": "unpleasant_person",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "unpleasant_person",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "log",
+            "dst": "log",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "log",
+            "dst": "matter",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "log",
+            "dst": "instrument",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "log",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "log",
+            "dst": "material",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "log",
+            "dst": "substance",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "log",
+            "dst": "instrumentality",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "log",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "log",
+            "dst": "device",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "tool",
+            "dst": "tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "tool",
+            "dst": "pickaxe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "tool",
+            "dst": "shears",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "tool",
+            "dst": "shovel",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "tool",
+            "dst": "instrument",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "tool",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "tool",
+            "dst": "object",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "tool",
+            "dst": "hoe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "tool",
+            "dst": "axe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pickaxe",
+            "dst": "tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pickaxe",
+            "dst": "pickaxe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pickaxe",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pickaxe",
+            "dst": "instrumentality",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pickaxe",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pickaxe",
+            "dst": "edge_tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pickaxe",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "pickaxe",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shears",
+            "dst": "tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shears",
+            "dst": "shears",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shears",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shears",
+            "dst": "instrumentality",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shears",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shears",
+            "dst": "entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shears",
+            "dst": "edge_tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shears",
+            "dst": "event",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shears",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "wool",
+            "dst": "tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "wool",
+            "dst": "shears",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "wool",
+            "dst": "wool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "wool",
+            "dst": "matter",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "wool",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "wool",
+            "dst": "material",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "wool",
+            "dst": "sheep",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "wool",
+            "dst": "sheep",
+            "feature_idx": "AtLocation",
+            "feature_len": 5
+        },
+        {
+            "src": "wool",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "wool",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "wool",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "solid",
+            "dst": "solid",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "solid",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "solid",
+            "dst": "stone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "solid",
+            "dst": "porkchop",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shovel",
+            "dst": "abstraction",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shovel",
+            "dst": "tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shovel",
+            "dst": "shovel",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shovel",
+            "dst": "instrument",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shovel",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shovel",
+            "dst": "instrumentality",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shovel",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shovel",
+            "dst": "entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shovel",
+            "dst": "containerful",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shovel",
+            "dst": "device",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "shovel",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "meat",
+            "dst": "pig",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "meat",
+            "dst": "meat",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "meat",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "meat",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "meat",
+            "dst": "porkchop",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "matter",
+            "dst": "dirt",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "matter",
+            "dst": "log",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "matter",
+            "dst": "solid",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "matter",
+            "dst": "matter",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "matter",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "matter",
+            "dst": "material",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "matter",
+            "dst": "substance",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "matter",
+            "dst": "water",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "matter",
+            "dst": "porkchop",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "matter",
+            "dst": "clay",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrument",
+            "dst": "log",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrument",
+            "dst": "tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrument",
+            "dst": "tool",
+            "feature_idx": "UsedFor",
+            "feature_len": 5
+        },
+        {
+            "src": "instrument",
+            "dst": "instrument",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrument",
+            "dst": "sword",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrument",
+            "dst": "device",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cobblestone",
+            "dst": "cobblestone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cobblestone",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cobblestone",
+            "dst": "stone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cobblestone",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cobblestone",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cobblestone",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "abstraction",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "solid",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "meat",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "matter",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "speech_act",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "bovid",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "even-toed_ungulate",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "cattle",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "beef",
+            "dst": "event",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "bucket",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "pig",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "log",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "pickaxe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "shears",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "wool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "shovel",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "cobblestone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "artifact",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "artifact",
+            "feature_idx": "PartOf",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "artifact",
+            "feature_idx": "UsedFor",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "artifact",
+            "feature_idx": "AtLocation",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "substance",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "substance",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "substance",
+            "feature_idx": "UsedFor",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "stone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "object",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "object",
+            "feature_idx": "UsedFor",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "object",
+            "feature_idx": "AtLocation",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "hoe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "water",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "sword",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "person",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "person",
+            "feature_idx": "UsedFor",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "event",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "event",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "event",
+            "feature_idx": "UsedFor",
+            "feature_len": 5
+        },
+        {
+            "src": "artifact",
+            "dst": "axe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "material",
+            "dst": "dirt",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "material",
+            "dst": "log",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "material",
+            "dst": "wool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "material",
+            "dst": "material",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "material",
+            "dst": "substance",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "material",
+            "dst": "stone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "material",
+            "dst": "clay",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "water_bucket",
+            "dst": "water_bucket",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "pig",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "wool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "meat",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "sheep",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "bovid",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "even-toed_ungulate",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "person",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sheep",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "log",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "artifact",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "artifact",
+            "feature_idx": "PartOf",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "substance",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "substance",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "substance",
+            "feature_idx": "PartOf",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "stone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "object",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "container",
+            "feature_idx": "AtLocation",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "water",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "clay",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "substance",
+            "dst": "event",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "instrumentality",
+            "dst": "bucket",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrumentality",
+            "dst": "pig",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrumentality",
+            "dst": "log",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrumentality",
+            "dst": "pickaxe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrumentality",
+            "dst": "shears",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrumentality",
+            "dst": "shovel",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrumentality",
+            "dst": "instrumentality",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrumentality",
+            "dst": "hoe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrumentality",
+            "dst": "sword",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "instrumentality",
+            "dst": "axe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "dirt",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "solid",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "matter",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "cobblestone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "material",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "substance",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "stone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "water",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "natural_object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "stone",
+            "dst": "person",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "bucket",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "pig",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "pickaxe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "shears",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "wool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "shovel",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "cobblestone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "artifact",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "artifact",
+            "feature_idx": "PartOf",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "sheep",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "substance",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "substance",
+            "feature_idx": "PartOf",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "stone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "object",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "object",
+            "feature_idx": "PartOf",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "hoe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "clay",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "farmland",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "sword",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "event",
+            "feature_idx": "PartOf",
+            "feature_len": 5
+        },
+        {
+            "src": "object",
+            "dst": "axe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "entity",
+            "dst": "bucket",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "entity",
+            "dst": "shears",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "entity",
+            "dst": "shovel",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "entity",
+            "dst": "sheep",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "entity",
+            "dst": "entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "entity",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "entity",
+            "dst": "porkchop",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "hoe",
+            "dst": "tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "hoe",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "hoe",
+            "dst": "instrumentality",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "hoe",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "hoe",
+            "dst": "hoe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "hoe",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "hoe",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "containerful",
+            "dst": "bucket",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "containerful",
+            "dst": "shovel",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "containerful",
+            "dst": "containerful",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "container",
+            "dst": "bucket",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "container",
+            "dst": "pig",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "container",
+            "dst": "container",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "speech_act",
+            "dst": "dirt",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "speech_act",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "speech_act",
+            "dst": "speech_act",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cow",
+            "dst": "unpleasant_person",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cow",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cow",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cow",
+            "dst": "entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cow",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cow",
+            "dst": "bovid",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cow",
+            "dst": "cattle",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cow",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cow",
+            "dst": "person",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cow",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "edge_tool",
+            "dst": "pickaxe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "edge_tool",
+            "dst": "shears",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "edge_tool",
+            "dst": "edge_tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "edge_tool",
+            "dst": "axe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bovid",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bovid",
+            "dst": "sheep",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bovid",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "bovid",
+            "dst": "bovid",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "even-toed_ungulate",
+            "dst": "pig",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "even-toed_ungulate",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "even-toed_ungulate",
+            "dst": "sheep",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "even-toed_ungulate",
+            "dst": "even-toed_ungulate",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cattle",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cattle",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "cattle",
+            "dst": "cattle",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "water",
+            "dst": "bucket",
+            "feature_idx": "AtLocation",
+            "feature_len": 5
+        },
+        {
+            "src": "water",
+            "dst": "matter",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "water",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "water",
+            "dst": "substance",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "water",
+            "dst": "container",
+            "feature_idx": "AtLocation",
+            "feature_len": 5
+        },
+        {
+            "src": "water",
+            "dst": "water",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "water",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "water",
+            "dst": "body_waste",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "water",
+            "dst": "device",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "porkchop",
+            "dst": "solid",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "porkchop",
+            "dst": "meat",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "porkchop",
+            "dst": "matter",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "porkchop",
+            "dst": "entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "porkchop",
+            "dst": "porkchop",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "porkchop",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "pig",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "dirt",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "log",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "pickaxe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "wool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "cobblestone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "sheep",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "hoe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "water",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "porkchop",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "farmland",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "sword",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "physical_entity",
+            "dst": "axe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "body_waste",
+            "dst": "dirt",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "body_waste",
+            "dst": "water",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "body_waste",
+            "dst": "body_waste",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "natural_object",
+            "dst": "stone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "natural_object",
+            "dst": "natural_object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "natural_object",
+            "dst": "clay",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "clay",
+            "dst": "soil",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "clay",
+            "dst": "matter",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "clay",
+            "dst": "material",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "clay",
+            "dst": "substance",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "clay",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "clay",
+            "dst": "natural_object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "clay",
+            "dst": "clay",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "clay",
+            "dst": "person",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "clay",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "farmland",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "farmland",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "farmland",
+            "dst": "farmland",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sword",
+            "dst": "instrument",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sword",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sword",
+            "dst": "instrumentality",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sword",
+            "dst": "stone",
+            "feature_idx": "AtLocation",
+            "feature_len": 5
+        },
+        {
+            "src": "sword",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sword",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sword",
+            "dst": "sword",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sword",
+            "dst": "device",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "sword",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "person",
+            "dst": "pig",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "person",
+            "dst": "sheep",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "person",
+            "dst": "stone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "person",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "person",
+            "dst": "object",
+            "feature_idx": "PartOf",
+            "feature_len": 5
+        },
+        {
+            "src": "person",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "person",
+            "dst": "clay",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "person",
+            "dst": "person",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "person",
+            "dst": "person",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "person",
+            "dst": "person",
+            "feature_idx": "PartOf",
+            "feature_len": 5
+        },
+        {
+            "src": "event",
+            "dst": "dirt",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "event",
+            "dst": "shears",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "event",
+            "dst": "beef",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "event",
+            "dst": "event",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "event",
+            "dst": "event",
+            "feature_idx": "IsA",
+            "feature_len": 5
+        },
+        {
+            "src": "event",
+            "dst": "event",
+            "feature_idx": "PartOf",
+            "feature_len": 5
+        },
+        {
+            "src": "device",
+            "dst": "log",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "device",
+            "dst": "shovel",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "device",
+            "dst": "sword",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "device",
+            "dst": "device",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "bucket",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "pickaxe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "shears",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "wool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "shovel",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "cobblestone",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "sheep",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "hoe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "cow",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "clay",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "sword",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "whole",
+            "dst": "axe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "axe",
+            "dst": "tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "axe",
+            "dst": "artifact",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "axe",
+            "dst": "instrumentality",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "axe",
+            "dst": "object",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "axe",
+            "dst": "edge_tool",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "axe",
+            "dst": "physical_entity",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "axe",
+            "dst": "device",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "axe",
+            "dst": "whole",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        },
+        {
+            "src": "axe",
+            "dst": "axe",
+            "feature_idx": "RelatedTo",
+            "feature_len": 5
+        }
+    ],
+    "num_node_feats": 49,
+    "num_edge_feats": 5
+}

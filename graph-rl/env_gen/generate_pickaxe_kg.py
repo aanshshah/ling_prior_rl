@@ -50,7 +50,8 @@ relations_to_index = open_dict(args.relations_to_index)
 if 'ENV_ROOT_DIR' in os.environ:
     output_file = os.path.join(os.environ['ENV_ROOT_DIR'], output_file)
 
-create_dir(output_file)
+
+#create_dir(output_file)
 
 kg_entities = list(words_to_index.values()) #entities are integers currently, maybe shift to string?
 
@@ -102,12 +103,19 @@ elif fully_connected_distinct:
             cur_idx += 1
     kg_dict['num_edge_feats'] = feature_len
 else:
-    feature_types = relations_to_index
+    index_to_relations = {}
+    for k,v in relations_to_index.items(): index_to_relations[v] = k
+    feature_types = index_to_relations
+   
     num_relations = len(feature_types)
-    for source, source_idx in enumerate(graph_matrix):
-       for relation, relation_idx in enumerate(source):
-           for destination, destination_idx in enumerate(relation):
-               add_edge(word_to_index[source_idx], word_to_index[destination_idx], feature_types[relation_idx], num_relations)
+    #print(feature_types)
+    index_to_words = {}
+    for k,v in words_to_index.items(): index_to_words[v] = k
+    #print(index_to_words)
+    for source_idx, source in enumerate(graph_matrix):
+       for destination_idx, destination in enumerate(source):
+           for relation_idx, relation in enumerate(destination):
+               if relation: add_edge(index_to_words[source_idx], index_to_words[destination_idx], feature_types[relation_idx], num_relations)
     kg_dict['num_edge_feats'] = num_relations
 
 with open(output_file, 'w') as f:
