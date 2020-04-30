@@ -94,5 +94,8 @@ data/raw/*
 !.gitkeep
 MalmoPlatform/
 graph-rl/environments/
-graph-rl/baselines/
-graph-rl/sacred/
+baselines/
+sacred/
+*.out 
+*.err
+saved_models/
