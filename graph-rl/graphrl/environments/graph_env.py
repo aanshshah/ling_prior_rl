@@ -15,7 +15,6 @@ class GraphEnv(gym.ObservationWrapper):
         self.one_hot_edges = one_hot_edges
         self.num_node_feats = self.kg_dict['num_node_feats']
         self.num_edge_feats = self.kg_dict['num_edge_feats']
-
         self.dont_crop_adj = dont_crop_adj
 
         self.edges = {idx: [] for idx in range(self.num_entities + 1)}
@@ -43,8 +42,8 @@ class GraphEnv(gym.ObservationWrapper):
         self.kg_node_feats = kg_node_feats
 
     def observation(self, obs):
-        obs = self.reindex_func(obs)
-
+        # obs = self.reindex_func(obs)
+        obs = obs[0].astype(np.int64)
         kg_node_feats = self.kg_node_feats.copy()
 
         if self.dont_crop_adj:

@@ -24,17 +24,26 @@ from graphrl.modules.nn import get_activation_gain
 
 
 class DGConv(MessagePassing):
-    def __init__(self, num_in_feats, num_out_feats, num_edge_in_feats, wnet_hidden_units, bias=True, use_orth_init=False):
+    def __init__(self,
+                 num_in_feats,
+                 num_out_feats,
+                 num_edge_in_feats,
+                 wnet_hidden_units,
+                 bias=True,
+                 use_orth_init=False):
         super(DGConv, self).__init__('add')
         self.num_in_feats = num_in_feats
         self.num_out_feats = num_out_feats
         self.num_edge_in_feats = num_edge_in_feats
         self.use_orth_init = use_orth_init
 
-        self.wnet = WeightNet(wnet_hidden_units, (self.num_edge_in_feats,), (self.num_in_feats, self.num_out_feats), use_orth_init=use_orth_init)
+        self.wnet = WeightNet(wnet_hidden_units, (self.num_edge_in_feats, ),
+                              (self.num_in_feats, self.num_out_feats),
+                              use_orth_init=use_orth_init)
         self.skip = nn.Linear(num_in_feats, num_out_feats, bias=False)
         if self.use_orth_init:
-            nn.init.orthogonal_(self.skip.weight.data, get_activation_gain('relu'))
+            nn.init.orthogonal_(self.skip.weight.data,
+                                get_activation_gain('relu'))
 
         if bias:
             self.bias = nn.Parameter(torch.Tensor(num_out_feats))
@@ -48,12 +57,16 @@ class DGConv(MessagePassing):
             if self.use_orth_init:
                 nn.init.constant_(self.bias.data, 0)
             else:
-                    fan_in = self.num_in_feats
-                    bound = 1 / np.sqrt(fan_in)
-                    nn.init.uniform_(self.bias, -bound, bound)
+                fan_in = self.num_in_feats
+                bound = 1 / np.sqrt(fan_in)
+                nn.init.uniform_(self.bias, -bound, bound)
 
     def forward(self, x, edge_index, edge_feats, edge_norm=None):
-        return self.propagate(edge_index, x=x, edge_feats=edge_feats, edge_norm=edge_norm, size=(x.size(0), x.size(0)))
+        return self.propagate(edge_index,
+                              x=x,
+                              edge_feats=edge_feats,
+                              edge_norm=edge_norm,
+                              size=list((x.size(0), x.size(0))))
 
     def message(self, x_j, edge_feats, edge_norm):
         edge_weights = self.wnet(edge_feats)

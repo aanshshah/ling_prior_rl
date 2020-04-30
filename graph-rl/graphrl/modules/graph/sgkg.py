@@ -115,7 +115,6 @@ class KGSGIntoSGConv(nn.Module):
         obs = batch['obs']
         kg_node_feats = batch['kg_node_feats']
         sg_node_feats = batch['sg_node_feats']
-
         sg_node_feats = self.sg_conv(sg_node_feats)
         kg_node_feats = self.kg_fc(kg_node_feats)
         kg_into_sg_feats = kg_into_sg_pool_inner(kg_node_feats, obs)

@@ -27,14 +27,14 @@ def config():
 
     env = {
         'train': {
-            'dont_crop_adj': False,
+            'dont_crop_adj': True,
             'one_hot_edges': True,
             'kg': {
                 'file': './'
             }
         },
         'test': {
-            'dont_crop_adj': False,
+            'dont_crop_adj': True,
             'one_hot_edges': True,
             'kg': {
                 'file': './'

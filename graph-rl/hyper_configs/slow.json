@@ -1,6 +1,6 @@
 {
 	"agent": {
-		"heatup_steps": 10000,
+		"heatup_steps": 100,
 		"update_freq_steps": 1,
 		"update_target_weights_freq_steps": 100,
 		"max_steps_per_train_episode": 100,
