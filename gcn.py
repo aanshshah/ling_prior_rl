@@ -24,11 +24,13 @@ import numpy as np
 #     return adj.dot(d_mat_inv_sqrt).transpose().dot(d_mat_inv_sqrt).tocoo()
 
 class GCN(torch.nn.Module):
-    def __init__(self,adj_mat,num_nodes,idx_2_game_char):
+    def __init__(self,adj_mat,num_nodes,num_types,idx_2_game_char):
         super().__init__() 
         # n = 5
         self.n = num_nodes #n
-        self.objects = torch.arange(0,self.n)
+        self.num_types = num_types
+
+        self.nodes = torch.arange(0,self.n)
         self.node_to_game_char = idx_2_game_char #{i:i+1 for i in self.objects.tolist()}
 
         # get and normalize adjacency matrix.
@@ -43,7 +45,8 @@ class GCN(torch.nn.Module):
         self.W1 = nn.Linear(32, 32, bias=False)
         self.W2 = nn.Linear(32, 32, bias=False)
 
-        self.get_obj_emb = nn.Embedding(self.n, 16)
+        self.get_node_emb = nn.Embedding(self.n, 16)
+        self.get_obj_emb = nn.Embedding(self.num_types, 16)
         self.final_mapping = nn.Linear(32, 16)
 
     def gcn_embed(self):
@@ -54,8 +57,7 @@ class GCN(torch.nn.Module):
         # word_embed = self.get_word_embed(self.all_glove.detach())
         # x = torch.cat((class_embed.repeat(self.n, 1), word_embed), dim=1)
         
-        nodes = self.objects #.view(1,self.n)
-        node_embeddings = self.get_obj_emb(nodes)
+        node_embeddings = self.get_node_emb(self.nodes)
 
         x = torch.mm(self.A, node_embeddings)
         x = F.relu(self.W0(x))
@@ -74,12 +76,12 @@ class GCN(torch.nn.Module):
         # print(game_state_embed.shape)
         if add_graph_embs:
             node_embeddings = self.gcn_embed()
-            for n,embedding in zip(self.objects.tolist(),node_embeddings):
+            for n,embedding in zip(self.nodes.tolist(),node_embeddings):
                 indx = (game_state == self.node_to_game_char[n]).nonzero()
                 game_state_embed[indx[:, 0], indx[:, 1], indx[:, 2]] = embedding
         return game_state_embed
 
-#Build GCN on torch with identity matrix adjacency, with 5 nodes, and a mapping each node to its state character
-test = GCN(torch.eye(5),5,{i:i+1 for i in torch.arange(0,5).tolist()})
+#Build GCN on torch with identity matrix adjacency, with 5 nodes, 6 types and a mapping each node to its state character
+test = GCN(torch.eye(5),5,6,{i:i+1 for i in torch.arange(0,5).tolist()})
 new_state = test.embed_state(torch.ones((1,10,10)).long())
 print(new_state)
