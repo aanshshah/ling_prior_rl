@@ -24,15 +24,15 @@ import numpy as np
 #     return adj.dot(d_mat_inv_sqrt).transpose().dot(d_mat_inv_sqrt).tocoo()
 
 class GCN(torch.nn.Module):
-    def __init__(self,args=None):
+    def __init__(self,adj_mat,num_nodes,idx_2_game_char):
         super().__init__() 
-        n = 5
-        self.n = n
+        # n = 5
+        self.n = num_nodes #n
         self.objects = torch.arange(0,self.n)
-        self.node_to_game_char = {i:i+1 for i in self.objects.tolist()}
+        self.node_to_game_char = idx_2_game_char #{i:i+1 for i in self.objects.tolist()}
 
         # get and normalize adjacency matrix.
-        A_raw = torch.eye(self.n) #torch.load("") #./data/gcn/adjmat.dat")
+        A_raw = adj_mat #torch.eye(self.n) #torch.load("") #./data/gcn/adjmat.dat")
         A = A_raw #normalize_adj(A_raw).tocsr().toarray()
         self.A = torch.nn.Parameter(torch.Tensor(A))
 
@@ -79,6 +79,6 @@ class GCN(torch.nn.Module):
             game_state_embed[indx[:, 0], indx[:, 1], indx[:, 2]] = embedding
         return game_state_embed
 
-test = GCN()
+test = GCN(torch.eye(5),5,{i:i+1 for i in torch.arange(0,5).tolist()})
 new_state = test.add_state_info(torch.ones((1,10,10)).long())
 print(new_state)
