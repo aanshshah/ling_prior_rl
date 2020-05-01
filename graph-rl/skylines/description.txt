@@ -1,0 +1,30 @@
+skyline_v0.json:
+Relations: UsedFor, RelatedTo, AtLocation, Unbreakable
+(pickaxe, UsedFor, stone)
+(pickaxe, RelatedTo, stone)
+(stone, RelatedTo, cobblestone)
+(stone, Unbreakable, pickaxe)
+(stone, Unbreakable, bedrock)
+(pickaxe, Unbreakable, bedrock)
+(stone, AtLocation, cobblestone)
+
+skyline_v1.json:
+Relations: UsedFor, AtLocation, Unbreakable
+(pickaxe, UsedFor, stone)
+(stone, Unbreakable, pickaxe)
+(stone, Unbreakable, bedrock)
+(pickaxe, Unbreakable, bedrock)
+(stone, AtLocation, cobblestone)
+
+skyline_v2.json:
+Relations: UsedFor, AtLocation
+(pickaxe, UsedFor, stone)
+(stone, AtLocation, cobblestone)
+
+
+skyline_v3.json:
+Relations: UsedFor, Unbreakable
+(pickaxe, UsedFor, stone)
+(stone, Unbreakable, pickaxe)
+(stone, Unbreakable, bedrock)
+(pickaxe, Unbreakable, bedrock)

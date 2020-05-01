@@ -1,0 +1,62 @@
+{
+    "entities": [
+        "3",
+        "2",
+        "1",
+        "4"
+    ],
+    "nodes": [
+        {
+            "node": "1",
+            "feature_type": "one_hot",
+            "feature_idx": 0,
+            "feature_len": 4
+        },
+        {
+            "node": "2",
+            "feature_type": "one_hot",
+            "feature_idx": 1,
+            "feature_len": 4
+        },
+        {
+            "node": "3",
+            "feature_type": "one_hot",
+            "feature_idx": 2,
+            "feature_len": 4
+        },
+        {
+            "node": "4",
+            "feature_type": "one_hot",
+            "feature_idx": 3,
+            "feature_len": 4
+        }
+    ],
+    "edges": [
+        {
+            "src": "3",
+            "dst": "2",
+            "feature_idx": 0,
+            "feature_len": 4
+        },
+        {
+            "src": "2",
+            "dst": "3",
+            "feature_idx": 3,
+            "feature_len": 4
+        },
+        {
+            "src": "2",
+            "dst": "1",
+            "feature_idx": 3,
+            "feature_len": 4
+        },
+        {
+            "src": "3",
+            "dst": "1",
+            "feature_idx": 3,
+            "feature_len": 4
+        }
+    ],
+    "num_node_feats": 4,
+    "num_edge_feats": 4
+}
