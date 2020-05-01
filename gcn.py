@@ -65,20 +65,21 @@ class GCN(torch.nn.Module):
         x = F.relu(self.W2(x))
         # x = x.view(1, self.n)
         x = self.final_mapping(x)
-
         return x
 
-    def add_state_info(self,game_state):
+    def embed_state(self,game_state,add_graph_embs=True):
         #game_state = (1,10,10)
         game_state_embed = self.get_obj_emb(game_state.view(-1,game_state.shape[-2]*game_state.shape[-1]))
         game_state_embed = game_state_embed.view(game_state.shape[0],game_state.shape[1],game_state.shape[2],-1)
         # print(game_state_embed.shape)
-        node_embeddings = self.gcn_embed()
-        for n,embedding in zip(self.objects.tolist(),node_embeddings):
-            indx = (game_state == self.node_to_game_char[n]).nonzero()
-            game_state_embed[indx[:, 0], indx[:, 1], indx[:, 2]] = embedding
+        if add_graph_embs:
+            node_embeddings = self.gcn_embed()
+            for n,embedding in zip(self.objects.tolist(),node_embeddings):
+                indx = (game_state == self.node_to_game_char[n]).nonzero()
+                game_state_embed[indx[:, 0], indx[:, 1], indx[:, 2]] = embedding
         return game_state_embed
 
+#Build GCN on torch with identity matrix adjacency, with 5 nodes, and a mapping each node to its state character
 test = GCN(torch.eye(5),5,{i:i+1 for i in torch.arange(0,5).tolist()})
-new_state = test.add_state_info(torch.ones((1,10,10)).long())
+new_state = test.embed_state(torch.ones((1,10,10)).long())
 print(new_state)
