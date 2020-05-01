@@ -1,3 +1,7 @@
+Relation Indices = {UsedFor : 0, RelatedTo : 1, AtLocation : 2, Unbreakable : 3}
+Entity Indices = {air : 0, bedrock : 1, stone : 2, diamond_pickaxe : 3, cobblestone : 4}
+
+
 skyline_v0.json:
 Relations: UsedFor, RelatedTo, AtLocation, Unbreakable
 (pickaxe, UsedFor, stone)
