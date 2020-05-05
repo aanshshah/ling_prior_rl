@@ -1,0 +1,1 @@
+{'physical_entity', 'dirt', 'water', 'axe', 'substance', 'bucket', 'edge_tool', 'log', 'object', 'body_waste', 'farmland', 'pickaxe', 'instrumentality', 'tool', 'artifact', 'cobblestone', 'abstraction', 'stone', 'hoe', 'material', 'water_bucket'}
