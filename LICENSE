@@ -1,0 +1,109 @@
+RESTRICTIVE ACADEMIC LICENSE
+
+Copyright (c) 2024. All rights reserved.
+
+This software and associated documentation files (the "Software") are provided 
+for academic and research purposes only under the following terms and conditions.
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. DEFINITIONS
+   "Academic Use" means use by students, faculty, or staff of an accredited 
+   educational institution for the purpose of teaching, academic research, or 
+   personal study, without any commercial application or use.
+   
+   "Commercial Use" means any use that is primarily intended for or directed 
+   toward commercial advantage or monetary compensation.
+
+2. GRANT OF LICENSE
+   Subject to the terms and conditions of this License, the copyright holder 
+   hereby grants you a limited, non-exclusive, non-transferable, revocable 
+   license to use the Software solely for Academic Use.
+
+3. RESTRICTIONS
+   a) NO COMMERCIAL USE: The Software may not be used for any Commercial Use 
+      whatsoever. This includes but is not limited to:
+      - Using the Software in the development of commercial products or services
+      - Using the Software to provide commercial services to third parties
+      - Using the Software in commercially funded research projects
+      - Using insights, algorithms, or techniques derived from the Software 
+        for commercial purposes
+      
+   b) NO REDISTRIBUTION: You may not distribute, sublicense, rent, lease, or 
+      lend the Software to any third party without explicit written permission 
+      from the copyright holder.
+      
+   c) NO DERIVATIVE WORKS: You may modify the Software for your own Academic 
+      Use, but you may not distribute modified versions without explicit written 
+      permission from the copyright holder.
+      
+   d) ATTRIBUTION: Any academic publications, presentations, or other academic 
+      works that use, reference, or are derived from this Software must provide 
+      appropriate attribution, including:
+      - The name of the Software
+      - The names of the original authors
+      - A reference to the original source repository
+      - Any publications specified by the authors
+
+4. INTELLECTUAL PROPERTY
+   The Software is and shall remain the sole property of the copyright holder. 
+   This License does not grant you any rights to trademarks, service marks, or 
+   trade names of the copyright holder.
+
+5. DISCLAIMER OF WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+   FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NONINFRINGEMENT. IN NO EVENT 
+   SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, 
+   WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+6. LIMITATION OF LIABILITY
+   IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY DIRECT, INDIRECT, 
+   INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT 
+   LIMITED TO PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+   OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+   LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+   NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
+   EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+7. TERMINATION
+   a) This License automatically terminates if you fail to comply with any of 
+      its terms and conditions.
+   b) Upon termination, you must immediately cease all use of the Software and 
+      destroy all copies in your possession or control.
+   c) Sections 4, 5, 6, and 8 shall survive any termination of this License.
+
+8. GOVERNING LAW
+   This License shall be governed by and construed in accordance with the laws 
+   of [Your Jurisdiction], without regard to its conflict of law provisions.
+
+9. ENTIRE AGREEMENT
+   This License constitutes the entire agreement between you and the copyright 
+   holder relating to the Software and supersedes all prior or contemporaneous 
+   understandings regarding such subject matter.
+
+10. COMMERCIAL LICENSING
+    For permissions beyond the scope of this license, including commercial use, 
+    please contact: [your-email@institution.edu]
+
+11. THIRD-PARTY COMPONENTS
+    This Software incorporates or is derived from the following third-party 
+    components, which are subject to their own licenses:
+    
+    - Intel AI Graph-RL (https://github.com/IntelAI/graph-rl)
+      Licensed under Apache License 2.0
+      
+    - OpenAI Baselines (https://github.com/openai/baselines)
+      Licensed under MIT License
+      
+    - Microsoft Malmo (https://github.com/Microsoft/malmo)
+      Licensed under MIT License
+    
+    You must comply with the terms of all applicable third-party licenses when 
+    using this Software. The copyright holder makes no representations about the 
+    suitability of these third-party components for any purpose.
+
+END OF LICENSE
+
+For questions regarding this license, please contact: [your-email@institution.edu]
