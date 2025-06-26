@@ -182,40 +182,24 @@ When contributing to this project:
 
 ## License
 
-**Restrictive Academic License**
+This project is licensed under a Restrictive Academic License - see the [LICENSE](LICENSE) file for details.
 
-Copyright (c) 2024. All rights reserved.
+**Key Points:**
+- Academic use only (no commercial use)
+- No redistribution without permission
+- Attribution required in publications
+- For commercial licensing, contact [your-email@institution.edu]
 
-This software and associated documentation files (the "Software") are provided for academic and research purposes only.
+## Citation
 
-### Terms of Use:
+If you use this code in your research, please cite:
+```bibtex
+[Add citation information]
+```
 
-1. **Academic Use Only**: The Software may only be used for non-commercial academic research and educational purposes.
+## Contact
 
-2. **No Commercial Use**: Commercial use of any kind is strictly prohibited. This includes, but is not limited to:
-   - Using the Software for commercial research or development
-   - Incorporating the Software into commercial products or services
-   - Using the Software to provide commercial services
-   - Using insights derived from the Software for commercial advantage
-
-3. **Attribution Required**: Any academic publications, presentations, or other academic works that use or reference this Software must provide appropriate attribution and citation.
-
-4. **No Redistribution**: Redistribution of the Software, in whole or in part, is prohibited without explicit written permission from the copyright holder.
-
-5. **Modifications**: You may modify the Software for your own academic use, but you may not distribute modified versions without explicit written permission.
-
-6. **No Warranty**: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-
-7. **Termination**: Any violation of these terms will result in automatic termination of your rights to use the Software.
-
-### Third-Party Components
-
-This project incorporates components from:
-- Intel AI Graph-RL (Apache 2.0 License)
-- OpenAI Baselines (MIT License)
-- Microsoft Malmo (MIT License)
-
-Users must comply with the licenses of all third-party components.
+[Add contact information]
 
 ## Acknowledgments
 
